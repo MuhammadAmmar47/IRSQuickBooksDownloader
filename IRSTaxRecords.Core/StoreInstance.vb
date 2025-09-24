@@ -111,4 +111,24 @@ Public Class StoreInstance
             Return Nothing
         End Get
     End Property
+    Public Shared ReadOnly Property GetCustomerId() As Integer
+        Get
+            Dim authCookie As HttpCookie = HttpContext.Current.Request.Cookies(".ASPXAUTH")
+            If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
+                Try
+                    Dim ticket As FormsAuthenticationTicket = FormsAuthentication.Decrypt(authCookie.Value)
+                    If ticket IsNot Nothing AndAlso Not String.IsNullOrEmpty(ticket.UserData) Then
+                        Dim userData As String = ticket.UserData.TrimEnd(";"c)
+                        Dim parsedId As Integer
+                        If Integer.TryParse(userData, parsedId) Then
+                            Return parsedId
+                        End If
+                    End If
+                Catch ex As Exception
+                    Return -1
+                End Try
+            End If
+            Return -1
+        End Get
+    End Property
 End Class

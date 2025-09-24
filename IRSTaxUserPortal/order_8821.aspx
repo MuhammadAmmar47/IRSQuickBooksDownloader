@@ -34,15 +34,15 @@
                 <div class="row mb-4 pb-3 border-bottom border-dark">
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Taxpayer Name:</label>
-                        <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server" required></asp:TextBox>
+                        <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
                     </div>
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Social Security Number:</label>
-                         <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" required></asp:TextBox>
+                         <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
                     </div>
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Loan Number:</label>
-                        <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server" required></asp:TextBox>
+                        <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
                     </div>
                 </div>
 
@@ -50,52 +50,25 @@
                 <div class="mb-4 pb-3 border-bottom border-dark">
                     <label class="form-label fw-semibold small mb-2 d-block">Tax Years Requested:</label>
                     <div class="d-flex flex-wrap gap-3">
-                        <div class="form-check">
-                            <asp:CheckBox ID="chk2024" runat="server" Text="2024" />
-                        </div>
-                        <div class="form-check">
-                           <asp:CheckBox ID="CheckBox1" runat="server" Text="2023" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox2" runat="server" Text="2022" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox3" runat="server" Text="2021" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox4" runat="server" Text="2020" />
-                        </div>
+                          <asp:CheckBox ID="chk2024" runat="server" Text="2024" />
+                          <asp:CheckBox ID="chk2023" runat="server" Text="2023" />
+                          <asp:CheckBox ID="chk2022" runat="server" Text="2022" />
+                          <asp:CheckBox ID="chk2021" runat="server" Text="2021" />
+                          <asp:CheckBox ID="chk2020" runat="server" Text="2020" />
                     </div>
                 </div>
 
                 <!-- Row 3: Forms -->
                 <div class="mb-4 pb-3 border-bottom border-dark">
                     <label class="form-label fw-semibold small mb-2 d-block">Forms Requested:</label>
-                    <div class="d-flex flex-wrap gap-3">
-                        <div class="form-check">
-                            <asp:CheckBox ID="chk1040Rec" runat="server" Text="1040 + Record of Account" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox5" runat="server" Text="1040" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox6" runat="server" Text="W2" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox7" runat="server" Text="1099" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox8" runat="server" Text="Record of Account" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox11" runat="server" Text="Account Transcript" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox9" runat="server" Text="Form 1120" />
-                        </div>
-                        <div class="form-check">
-                            <asp:CheckBox ID="CheckBox10" runat="server" Text="Form 1065" />
-                        </div>
+                    <div class="d-flex flex-wrap gap-2">
+                         <asp:CheckBox ID="chk1040Rec" runat="server" Text="1040 + Record of Account" />
+                         <asp:CheckBox ID="chk1040" runat="server" Text="1040" />
+                         <asp:CheckBox ID="chkW2" runat="server" Text="W2" />
+                         <asp:CheckBox ID="chk1099" runat="server" Text="1099" />
+                         <asp:CheckBox ID="chkRecAcc" runat="server" Text="Record of Account" />
+                         <asp:CheckBox ID="chk1120" runat="server" Text="Form 1120" />
+                         <asp:CheckBox ID="chk1065" runat="server" Text="Form 1065" />
                     </div>
                 </div>
 

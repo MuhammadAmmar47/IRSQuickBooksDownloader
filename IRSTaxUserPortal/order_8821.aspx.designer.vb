@@ -59,40 +59,40 @@ Partial Public Class order_8821
     Protected WithEvents chk2024 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox1 control.
+    '''chk2023 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox1 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk2023 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox2 control.
+    '''chk2022 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox2 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk2022 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox3 control.
+    '''chk2021 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox3 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk2021 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox4 control.
+    '''chk2020 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox4 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk2020 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''chk1040Rec control.
@@ -104,67 +104,58 @@ Partial Public Class order_8821
     Protected WithEvents chk1040Rec As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox5 control.
+    '''chk1040 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox5 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk1040 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox6 control.
+    '''chkW2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox6 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chkW2 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox7 control.
+    '''chk1099 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox7 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk1099 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox8 control.
+    '''chkRecAcc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox8 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chkRecAcc As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox11 control.
+    '''chk1120 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox11 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk1120 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''CheckBox9 control.
+    '''chk1065 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CheckBox9 As Global.System.Web.UI.WebControls.CheckBox
-
-    '''<summary>
-    '''CheckBox10 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents CheckBox10 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chk1065 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''fuform8821 control.

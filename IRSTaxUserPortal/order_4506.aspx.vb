@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports IRSTaxRecords.Core
 
 Public Class order_4506
     Inherits System.Web.UI.Page
@@ -26,11 +27,6 @@ Public Class order_4506
         Dim taxYear2021 As String = If(chk2021.Checked, "2021", Nothing)
         Dim taxYear2020 As String = If(chk2020.Checked, "2020", Nothing)
 
-        ' Example hard-coded values (replace with actual logic)
-        Dim authCookie As HttpCookie = HttpContext.Current.Request.Cookies(".ASPXAUTH")
-
-        Dim customerId As Integer = 1
-
         Dim newListId As Integer = 1
         Dim listType As Integer = 1
         Dim typeOfForm As String = "4506-C"
@@ -38,26 +34,8 @@ Public Class order_4506
         Dim fax As String = ""
         Dim faxNo As String = ""
         Dim orderDate As DateTime = DateTime.Now
-        Dim companyId As Integer = 1
-        If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
-            ' Try parse the userData into integer
-            Try
-                ' Decrypt the cookie
-                Dim ticket As FormsAuthenticationTicket = FormsAuthentication.Decrypt(authCookie.Value)
-
-                If ticket IsNot Nothing AndAlso Not String.IsNullOrEmpty(ticket.UserData) Then
-                    Dim userData As String = ticket.UserData.TrimEnd(";"c)
-                    Dim parsedId As Integer
-                    If Integer.TryParse(userData, parsedId) Then
-                        customerId = parsedId
-                        companyId = parsedId
-                    End If
-                End If
-            Catch ex As Exception
-                ' handle invalid cookie case (e.g. log error)
-            End Try
-        End If
-
+        Dim customerId As Integer = StoreInstance.GetCustomerId()
+        Dim companyId As Integer = StoreInstance.GetCustomerId()
         ' Insert into DB
         InsertOrder(newListId, listType, customerId, requestName, ssnNumber,
                 taxYear2024, taxYear2023, taxYear2022, taxYear2021, taxYear2020,
@@ -68,7 +46,7 @@ Public Class order_4506
     End Sub
 
 
-    Public Sub InsertOrder(
+    Public Shared Function InsertOrder(
         ByVal newListId As Integer,
         ByVal listType As Integer,
         ByVal customerId As Integer,
@@ -162,7 +140,7 @@ Public Class order_4506
                 command.ExecuteNonQuery()
             End Using
         End Using
-    End Sub
+    End Function
 
     Public Shared Function UploadFile(file As HttpPostedFile, uploadFolderPath As String) As String
         If file Is Nothing OrElse file.ContentLength = 0 Then
