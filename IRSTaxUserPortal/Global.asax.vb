@@ -33,4 +33,13 @@ Public Class Global_asax
             ' Optional: log error
         End Try
     End Sub
+
+    Protected Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
+        If Request.Cookies(".ASPXAUTH") IsNot Nothing Then
+            Dim cookie As New HttpCookie(".ASPXAUTH")
+            cookie.Expires = DateTime.Now.AddDays(-1)
+            Response.Cookies.Add(cookie)
+        End If
+    End Sub
+
 End Class
