@@ -64,7 +64,9 @@ Public Class order_4506
         ByVal orderDate As DateTime,
         ByVal companyId As Integer,
         ByVal loanNumber As String,
-        ByVal pdfFile As String
+        ByVal pdfFile As String,
+        Optional dob As String = "",
+        Optional gender As String = ""
         )
 
         Dim query As String = "
@@ -89,7 +91,9 @@ Public Class order_4506
                 fldOrderDate,
                 fldCompanyID,
                 fldLoanNumber,
-                fldPdf
+                fldPdf,
+                fldDOB,
+                fldSex
             )
             VALUES
             (
@@ -112,7 +116,9 @@ Public Class order_4506
                 @OrderDate,
                 @CompanyID,
                 @LoanNumber,
-                @PDFFile
+                @PDFFile,
+                @DOB,
+                @Sex
             )"
         Dim connStr As String = ConfigurationManager.ConnectionStrings("IRSConnection").ConnectionString
         Using connection As New SqlConnection(connStr)
@@ -135,6 +141,8 @@ Public Class order_4506
                 command.Parameters.AddWithValue("@CompanyID", companyId)
                 command.Parameters.AddWithValue("@LoanNumber", loanNumber)
                 command.Parameters.AddWithValue("@PDFFile", pdfFile)
+                command.Parameters.AddWithValue("@DOB", dob)
+                command.Parameters.AddWithValue("@Sex", gender)
 
                 connection.Open()
                 command.ExecuteNonQuery()

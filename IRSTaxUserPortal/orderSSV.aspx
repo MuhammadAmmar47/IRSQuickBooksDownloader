@@ -29,11 +29,11 @@
         <div class="row mb-3 pb-2 border-bottom border-dark bg-primary bg-opacity-10 rounded p-3">
           <div class="col-md-6 mb-2">
             <label class="form-label fw-semibold small mb-1">Taxpayer Full Name:</label>
-            <input type="text" class="form-control form-control-sm" name="fullName" />
+            <asp:TextBox  ID="txtTaxPayerName" class="form-control form-control-sm" runat="server" required  MaxLength="50" ></asp:TextBox>
           </div>
           <div class="col-md-6">
             <label class="form-label fw-semibold small mb-1">Social Security Number:</label>
-            <input type="text" class="form-control form-control-sm" name="ssn" placeholder="145-74-9891" />
+             <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server" required  MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
             <small class="text-muted">Example Format: 145-74-9891</small>
           </div>
         </div>
@@ -42,17 +42,17 @@
         <div class="row mb-3 pb-2 border-bottom border-dark p-3">
           <div class="col-md-6 mb-2">
             <label class="form-label fw-semibold small mb-1">Date of Birth:</label>
-            <input type="text" class="form-control form-control-sm" name="dob" placeholder="04/15/1941" />
+             <asp:TextBox  ID="txtDob" class="form-control form-control-sm" runat="server" required  MaxLength="10" placeholder="04/15/1941" ></asp:TextBox>
             <small class="text-muted">Example Format: 04/15/1941</small>
           </div>
           <div class="col-md-6">
             <label class="form-label fw-semibold small mb-2 d-block">Gender:</label>
             <div class="form-check form-check-inline">
-              <input type="radio" name="gender" class="form-check-input" id="rbMale" value="Male" />
+              <input type="radio" name="gender" class="form-check-input" id="rbMale" value="Male" runat="server"  Checked="True" />
               <label class="form-check-label small" for="rbMale">Male</label>
             </div>
             <div class="form-check form-check-inline">
-              <input type="radio" name="gender" class="form-check-input" id="rbFemale" value="Female" />
+              <input type="radio" name="gender" class="form-check-input" id="rbFemale" value="Female"  runat="server"  />
               <label class="form-check-label small" for="rbFemale">Female</label>
             </div>
           </div>
@@ -61,20 +61,18 @@
         <!-- Row 3: Loan Number -->
         <div class="mb-3 pb-2 border-bottom border-dark bg-primary bg-opacity-10 rounded p-3">
           <label class="form-label fw-semibold small mb-1">Loan Number:</label>
-          <input type="text" class="form-control form-control-sm" name="loanNumber" />
+         <asp:TextBox type="text" ID="txtLoanNumber" class="form-control form-control-sm" runat="server" required  MaxLength="50" ></asp:TextBox>
         </div>
 
         <!-- Row 4: File Upload -->
         <div class="mb-3 pb-2 border-bottom border-dark p-3">
           <label class="form-label fw-semibold small mb-2">Upload Form SSA-89:</label>
-          <input type="file" class="form-control form-control-sm" name="ssa89File" />
+           <asp:FileUpload  ID="ssa89File" class="form-control form-control-sm"  runat="server" required />
         </div>
 
         <!-- Submit -->
         <div class="text-center bg-primary bg-opacity-10 py-3 rounded mt-3">
-          <button type="submit" class="btn btn-primary btn-sm px-4 fw-bold shadow-sm">
-            Upload and Submit Order
-          </button>
+            <asp:Button ID="btnSubmit" runat="server" Text="Upload and Submit Order" class="btn btn-primary px-5 fw-bold"/>
         </div>
       </div>
     </div>
