@@ -27,20 +27,44 @@ Public Class order_4506
         Dim taxYear2020 As String = If(chk2020.Checked, "2020", Nothing)
 
         ' Example hard-coded values (replace with actual logic)
+        Dim authCookie As HttpCookie = HttpContext.Current.Request.Cookies(".ASPXAUTH")
+
+        Dim customerId As Integer = 1
+
         Dim newListId As Integer = 1
         Dim listType As Integer = 1
-        Dim customerId As Integer = 1
         Dim typeOfForm As String = "4506-C"
         Dim email As String = ""
         Dim fax As String = ""
         Dim faxNo As String = ""
         Dim orderDate As DateTime = DateTime.Now
         Dim companyId As Integer = 1
+        If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
+            ' Try parse the userData into integer
+            Try
+                ' Decrypt the cookie
+                Dim ticket As FormsAuthenticationTicket = FormsAuthentication.Decrypt(authCookie.Value)
+
+                If ticket IsNot Nothing AndAlso Not String.IsNullOrEmpty(ticket.UserData) Then
+                    Dim userData As String = ticket.UserData.TrimEnd(";"c)
+                    Dim parsedId As Integer
+                    If Integer.TryParse(userData, parsedId) Then
+                        customerId = parsedId
+                        companyId = parsedId
+                    End If
+                End If
+            Catch ex As Exception
+                ' handle invalid cookie case (e.g. log error)
+            End Try
+        End If
 
         ' Insert into DB
         InsertOrder(newListId, listType, customerId, requestName, ssnNumber,
                 taxYear2024, taxYear2023, taxYear2022, taxYear2021, taxYear2020,
-                typeOfForm, email, fax, faxNo, orderDate, companyId, loanNumber)
+                typeOfForm, email, fax, faxNo, orderDate, companyId, loanNumber, fuform4506C.PostedFile.FileName
+                )
+
+        Response.Redirect("~/Confirmation.aspx")
     End Sub
 
 
@@ -61,7 +85,9 @@ Public Class order_4506
         ByVal faxNo As String,
         ByVal orderDate As DateTime,
         ByVal companyId As Integer,
-        ByVal loanNumber As String)
+        ByVal loanNumber As String,
+        ByVal pdfFile As String
+        )
 
         Dim query As String = "
             INSERT INTO tblorder
@@ -84,7 +110,8 @@ Public Class order_4506
                 fldBillingStatus,
                 fldOrderDate,
                 fldCompanyID,
-                fldLoanNumber
+                fldLoanNumber,
+                fldPdf
             )
             VALUES
             (
@@ -106,7 +133,8 @@ Public Class order_4506
                 0,
                 @OrderDate,
                 @CompanyID,
-                @LoanNumber
+                @LoanNumber,
+                @PDFFile
             )"
         Dim connStr As String = ConfigurationManager.ConnectionStrings("IRSConnection").ConnectionString
         Using connection As New SqlConnection(connStr)
@@ -128,6 +156,7 @@ Public Class order_4506
                 command.Parameters.AddWithValue("@OrderDate", orderDate)
                 command.Parameters.AddWithValue("@CompanyID", companyId)
                 command.Parameters.AddWithValue("@LoanNumber", loanNumber)
+                command.Parameters.AddWithValue("@PDFFile", pdfFile)
 
                 connection.Open()
                 command.ExecuteNonQuery()
