@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1E98D851-A84A-49BD-877D-4F2DAA4940A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IRSTaxRecords.Core</RootNamespace>
+    <AssemblyName>IRSTaxRecords.Core</AssemblyName>
+    <MyType>Windows</MyType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IRSTaxRecords.Core.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IRSTaxRecords.Core.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=8.402.0.10, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core, Version=8.402.0.10, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\Syncfusion.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=8.402.0.10, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Windows, Version=8.402.0.10, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\Syncfusion.XlsIO.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings.vb" />
+    <Compile Include="Constants.vb" />
+    <Compile Include="ContactServices.vb" />
+    <Compile Include="Contacts\Client.vb" />
+    <Compile Include="ContactUs.vb" />
+    <Compile Include="Content\Analysis.vb" />
+    <Compile Include="Content\ListType.vb" />
+    <Compile Include="Content\OrderPadFile.vb" />
+    <Compile Include="Controls\WebPageMessage.vb" />
+    <Compile Include="Customer.vb" />
+    <Compile Include="DataFunctions\DataRequest.vb" />
+    <Compile Include="DataFunctions\DataServices.vb" />
+    <Compile Include="DataFunctions\DownloadFunctions.vb" />
+    <Compile Include="DataFunctions\GeneralFunctions.vb" />
+    <Compile Include="DataFunctions\SQLServerDataHelper.vb" />
+    <Compile Include="DataFunctions\UploadFunctions.vb" />
+    <Compile Include="DataHelper.vb" />
+    <Compile Include="Email\EmailTemplate.vb" />
+    <Compile Include="Email\MailSender.vb" />
+    <Compile Include="Email\PropertyMapper.vb" />
+    <Compile Include="Encryption.vb" />
+    <Compile Include="Exceptions\ErrorLogging.vb" />
+    <Compile Include="Exceptions\ErrorLogTraceListener.vb" />
+    <Compile Include="Extensions\Extensions.vb" />
+    <Compile Include="Invoice.vb" />
+    <Compile Include="InvoiceServices.vb" />
+    <Compile Include="ListServices.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OrderPadServices.vb" />
+    <Compile Include="OrderServices.vb" />
+    <Compile Include="Orders\FormTypeCodeType.vb" />
+    <Compile Include="Orders\Order.vb" />
+    <Compile Include="Orders\OrderItem.vb" />
+    <Compile Include="Orders\OrderItemsCollection.vb" />
+    <Compile Include="Orders\OrderStatus.vb" />
+    <Compile Include="Orders\PaymentStatus.vb" />
+    <Compile Include="Orders\ProductType.vb" />
+    <Compile Include="Orders\RejectCodeType.vb" />
+    <Compile Include="Payment\BankAccount.vb" />
+    <Compile Include="Payment\BankAccountType.vb" />
+    <Compile Include="Payment\Charge_Type.vb" />
+    <Compile Include="Payment\CreditCard.vb" />
+    <Compile Include="Payment\CreditCardType.vb" />
+    <Compile Include="Payment\PaymentError.vb" />
+    <Compile Include="Payment\PaymentStatus.vb" />
+    <Compile Include="Payment\PaymentTerminal.vb" />
+    <Compile Include="Payment\PaymentType.vb" />
+    <Compile Include="Payment\Response_Code.vb" />
+    <Compile Include="ReferAFriend.vb" />
+    <Compile Include="TypeOfForm.vb" />
+    <Compile Include="StoreInstance.vb" />
+    <Compile Include="Translators.vb" />
+    <Compile Include="Utilities.vb" />
+    <Compile Include="Utilities\ExcelHelper.vb" />
+    <Compile Include="Validations.vb" />
+    <Compile Include="ZipHelper.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

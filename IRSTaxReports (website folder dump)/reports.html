@@ -1,0 +1,92 @@
+<!--#include file="../header.asp"-->
+<html>
+<head>
+	<title>:: IRSTaxRecords ::</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<link rel="stylesheet" type="text/css" href="../include/spiffyCal.css">
+	<script language="JavaScript" src="../include/spiffyCal.js"></script>
+</head>
+
+<script language="JavaScript">
+var cal1 = new ctlSpiffyCalendarBox("cal1", "frmPost", "fromdate","btnDate1",""  ,0,0,15);
+var cal2 = new ctlSpiffyCalendarBox("cal2", "frmPost", "todate","btnDate2",""  ,0,0,15);
+function fnGo()
+{
+	document.frmPost.action = "ordersplaced.asp";
+	document.frmPost.submit();
+}
+</script>
+
+<body bgcolor="#CCCCCC">
+
+<form name="frmPost" id="frmPost" method="post">
+  <div id="pageLyr"> 
+
+    <div id="mainLyr"> 
+      <div id="pageBody"> 
+				<table cellpadding="0" cellspacing="0" align="center" width="50%" border="0">
+					<tr height="30px;"><td>&nbsp;</td></tr>
+					<tr valign="top">
+						<td bgColor="#00FF00" width="20px" height="500px" bordercolor="#CCCCCC">&nbsp;</td>
+						<td bgColor="#ffffff">
+							<table>
+								<tr>
+									<td>
+										<font size="3" face="Arial"><br><b>Reports</b></font>
+									</td>
+								</tr>
+								<tr height="50px;"><td>&nbsp;</td></tr>
+								<tr valign="top">
+									<td>
+						        <table align=center cellspacing=0 cellpadding =0 border="0" >
+							        <tr valign="top">
+								        <td>
+													<a href="monthlyReport.asp"><font size="2" face="Arial"><b>Number of Orders Placed for Selected Month</b></font></a>
+								        </td>
+								      </tr>
+											<tr><td colspan="3">&nbsp;</td></tr>
+											<tr>
+								        <td>
+													<a href="ordersplaced.asp"><font size="2" face="Arial"><b>Count of Years for Orders Placed</b></font></a>
+								        </td>
+				        			</tr>
+											<tr><td colspan="3">&nbsp;</td></tr>
+											<tr>
+								        <td>
+													<a href="CompanyWiseReport.asp"><font size="2" face="Arial"><b>View Company Wise Placed Orders</b></font></a>
+								        </td>
+				        			</tr>
+											<tr><td colspan="3">&nbsp;</td></tr>
+											<tr>
+								        <td>
+													<a href="ordersplacedExcel.asp"><font size="2" face="Arial"><b>Excel Export with loan number formula</b></font></a>
+								        </td>
+				        			</tr>
+				        			<tr><td colspan="3">&nbsp;</td></tr>
+											<tr>
+								        <td>
+													<a href="ordersplacedExcel2.asp"><font size="2" face="Arial"><b>Excel Export without loan number formula</b></font></a>
+								        </td>
+				        			</tr>
+				        			<tr><td colspan="3">&nbsp;</td></tr>
+											<tr>
+								        <td>
+													<a href="OrderSlowDownReport.asp"><font size="2" face="Arial"><b>Orders Slow down Report</b></font></a>
+								        </td>
+				        			</tr>
+				        			<tr><td colspan="3">&nbsp;</td></tr>
+							    	</table>
+							    </td>
+							  </tr>
+			    		</table>
+						</td>
+					</tr>
+				</table>
+  </div>
+ </div>
+</div>
+
+</form>
+<div id="spiffycalendar" class="text"></div>
+</body>
+</html>

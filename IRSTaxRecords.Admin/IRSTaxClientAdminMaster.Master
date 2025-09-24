@@ -1,0 +1,56 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IRSTaxClientAdminMaster.master.vb"
+    Inherits="IRSTaxRecords.Admin.IRSTaxClientAdminMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Customer Service Admin</title>
+    <link href="~/Styles/IRSTaxAdminStyles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/WebPageMessage.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="scripManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <div align="center">
+            <table border="0" width="1" cellspacing="0" cellpadding="0" height="1" id="Table1"
+                style="vertical-align: top">
+                <tr>
+                    <td width="1016" height="1" colspan="3" valign="top" align="left">
+                        <map name="FPMap0">
+                        </map>
+                        <img border="0" src="/images/manageconsolebanner.gif" usemap="#FPMap0" width="991"
+                            height="77">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="1011" height="365" bgcolor="#FFFFFF" valign="top" align="left">
+                        <table border="0" width="992" height="1" cellspacing="0" cellpadding="4" id="Table2">
+                            <tr>
+                                <td style="text-align:right">
+                                    <asp:HyperLink ID="hypHomePage" runat="server" Text="Home Page" NavigateUrl="~/Client/Default.aspx"></asp:HyperLink> |
+                                    <asp:LinkButton ID="btnLogout" runat="server" Text="Logout"></asp:LinkButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="1">
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

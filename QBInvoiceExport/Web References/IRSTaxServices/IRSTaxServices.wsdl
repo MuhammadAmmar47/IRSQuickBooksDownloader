@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Authenticate">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthenticateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IRSFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditCardActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SSN_Fee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeSecondTaxPayer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BilltoName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Referal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Approved" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="confDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="confTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="standardRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rushRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="showgrant" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Associate_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bill4506" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BillSSN" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Commission_Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Comm_4506" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Comm_SSN" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClearAllErrorsBeforeDownloading">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearAllErrorsBeforeDownloadingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClearAllErrorsBeforeDownloadingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerFromListId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerFromListIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerFromListIdResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalNewCustomers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTotalNewCustomersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTotalNewCustomersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextNewCustomer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNextNewCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNextNewCustomerResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCustomerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompaniesWithPendingInvoices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompaniesWithPendingInvoicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompaniesWithPendingInvoicesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MarkInvoiceUpdatedInQB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OrderNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QBBatchNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkInvoiceUpdatedInQBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MarkInvoiceUpdatedInQBResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingInvoiceOfCompany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingInvoiceOfCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingInvoiceOfCompanyResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OrderNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoiceResult" type="tns:Invoice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Invoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="fldLoanNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2005" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2006" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2007" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2008" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2009" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2010" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListIDQuickBooks" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ListType" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomeriD" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecondName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSNNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxYear2003" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxYear2002" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxYear2001" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxYear2000" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="typeOfForm" type="tns:TypeOfForm" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Faxno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BillingStatus" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PDF" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Orderdate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxyear2004" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxPayer1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxPayer2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Processor" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TypeOfForm">
+        <s:restriction base="s:string">
+          <s:enumeration value="S_None" />
+          <s:enumeration value="S_1040" />
+          <s:enumeration value="S_1120" />
+          <s:enumeration value="S_1065" />
+          <s:enumeration value="S_W2" />
+          <s:enumeration value="S_1099" />
+          <s:enumeration value="S_SSN" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetLastBatchNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastBatchNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLastBatchNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoicesByListID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoicesByListIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoicesByListIDResult" type="tns:ArrayOfInvoice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInvoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInvoicesByCustomerName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderDateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderDateTo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoicesByCustomerNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoicesByCustomerNameResult" type="tns:ArrayOfInvoice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevertLastBatchNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="RevertLastBatchNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RevertLastBatchNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ClearAllErrorsBeforeDownloadingSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearAllErrorsBeforeDownloading" />
+  </wsdl:message>
+  <wsdl:message name="ClearAllErrorsBeforeDownloadingSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearAllErrorsBeforeDownloadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearAllErrorsBeforeDownloadingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerFromListIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerFromListId" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerFromListIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerFromListIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerFromListIdAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalNewCustomersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTotalNewCustomers" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalNewCustomersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTotalNewCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalNewCustomersAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNextNewCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextNewCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetNextNewCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextNewCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextNewCustomerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesWithPendingInvoicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompaniesWithPendingInvoices" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesWithPendingInvoicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompaniesWithPendingInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesWithPendingInvoicesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="MarkInvoiceUpdatedInQBSoapIn">
+    <wsdl:part name="parameters" element="tns:MarkInvoiceUpdatedInQB" />
+  </wsdl:message>
+  <wsdl:message name="MarkInvoiceUpdatedInQBSoapOut">
+    <wsdl:part name="parameters" element="tns:MarkInvoiceUpdatedInQBResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarkInvoiceUpdatedInQBAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingInvoiceOfCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingInvoiceOfCompany" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingInvoiceOfCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingInvoiceOfCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingInvoiceOfCompanyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoice" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetLastBatchNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastBatchNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetLastBatchNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastBatchNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastBatchNumberAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByListIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoicesByListID" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByListIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoicesByListIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByListIDAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByCustomerNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoicesByCustomerName" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByCustomerNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoicesByCustomerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicesByCustomerNameAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="RevertLastBatchNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:RevertLastBatchNumber" />
+  </wsdl:message>
+  <wsdl:message name="RevertLastBatchNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:RevertLastBatchNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevertLastBatchNumberAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="IRSTaxServicesSoap">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input message="tns:GetCustomerSoapIn" />
+      <wsdl:output message="tns:GetCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearAllErrorsBeforeDownloading">
+      <wsdl:input message="tns:ClearAllErrorsBeforeDownloadingSoapIn" />
+      <wsdl:output message="tns:ClearAllErrorsBeforeDownloadingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerFromListId">
+      <wsdl:input message="tns:GetCustomerFromListIdSoapIn" />
+      <wsdl:output message="tns:GetCustomerFromListIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalNewCustomers">
+      <wsdl:input message="tns:GetTotalNewCustomersSoapIn" />
+      <wsdl:output message="tns:GetTotalNewCustomersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextNewCustomer">
+      <wsdl:input message="tns:GetNextNewCustomerSoapIn" />
+      <wsdl:output message="tns:GetNextNewCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesWithPendingInvoices">
+      <wsdl:input message="tns:GetCompaniesWithPendingInvoicesSoapIn" />
+      <wsdl:output message="tns:GetCompaniesWithPendingInvoicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkInvoiceUpdatedInQB">
+      <wsdl:input message="tns:MarkInvoiceUpdatedInQBSoapIn" />
+      <wsdl:output message="tns:MarkInvoiceUpdatedInQBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingInvoiceOfCompany">
+      <wsdl:input message="tns:GetPendingInvoiceOfCompanySoapIn" />
+      <wsdl:output message="tns:GetPendingInvoiceOfCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoice">
+      <wsdl:input message="tns:GetInvoiceSoapIn" />
+      <wsdl:output message="tns:GetInvoiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastBatchNumber">
+      <wsdl:input message="tns:GetLastBatchNumberSoapIn" />
+      <wsdl:output message="tns:GetLastBatchNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByListID">
+      <wsdl:input message="tns:GetInvoicesByListIDSoapIn" />
+      <wsdl:output message="tns:GetInvoicesByListIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByCustomerName">
+      <wsdl:input message="tns:GetInvoicesByCustomerNameSoapIn" />
+      <wsdl:output message="tns:GetInvoicesByCustomerNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevertLastBatchNumber">
+      <wsdl:input message="tns:RevertLastBatchNumberSoapIn" />
+      <wsdl:output message="tns:RevertLastBatchNumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IRSTaxServicesSoap" type="tns:IRSTaxServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearAllErrorsBeforeDownloading">
+      <soap:operation soapAction="http://tempuri.org/ClearAllErrorsBeforeDownloading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ClearAllErrorsBeforeDownloadingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerFromListId">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerFromListId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCustomerFromListIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalNewCustomers">
+      <soap:operation soapAction="http://tempuri.org/GetTotalNewCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTotalNewCustomersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextNewCustomer">
+      <soap:operation soapAction="http://tempuri.org/GetNextNewCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNextNewCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesWithPendingInvoices">
+      <soap:operation soapAction="http://tempuri.org/GetCompaniesWithPendingInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCompaniesWithPendingInvoicesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkInvoiceUpdatedInQB">
+      <soap:operation soapAction="http://tempuri.org/MarkInvoiceUpdatedInQB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MarkInvoiceUpdatedInQBAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingInvoiceOfCompany">
+      <soap:operation soapAction="http://tempuri.org/GetPendingInvoiceOfCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPendingInvoiceOfCompanyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoice">
+      <soap:operation soapAction="http://tempuri.org/GetInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastBatchNumber">
+      <soap:operation soapAction="http://tempuri.org/GetLastBatchNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLastBatchNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByListID">
+      <soap:operation soapAction="http://tempuri.org/GetInvoicesByListID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInvoicesByListIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByCustomerName">
+      <soap:operation soapAction="http://tempuri.org/GetInvoicesByCustomerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInvoicesByCustomerNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertLastBatchNumber">
+      <soap:operation soapAction="http://tempuri.org/RevertLastBatchNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RevertLastBatchNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IRSTaxServicesSoap12" type="tns:IRSTaxServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearAllErrorsBeforeDownloading">
+      <soap12:operation soapAction="http://tempuri.org/ClearAllErrorsBeforeDownloading" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ClearAllErrorsBeforeDownloadingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerFromListId">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerFromListId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomerFromListIdAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalNewCustomers">
+      <soap12:operation soapAction="http://tempuri.org/GetTotalNewCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTotalNewCustomersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextNewCustomer">
+      <soap12:operation soapAction="http://tempuri.org/GetNextNewCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNextNewCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesWithPendingInvoices">
+      <soap12:operation soapAction="http://tempuri.org/GetCompaniesWithPendingInvoices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCompaniesWithPendingInvoicesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkInvoiceUpdatedInQB">
+      <soap12:operation soapAction="http://tempuri.org/MarkInvoiceUpdatedInQB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MarkInvoiceUpdatedInQBAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingInvoiceOfCompany">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingInvoiceOfCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPendingInvoiceOfCompanyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoice">
+      <soap12:operation soapAction="http://tempuri.org/GetInvoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastBatchNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetLastBatchNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLastBatchNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByListID">
+      <soap12:operation soapAction="http://tempuri.org/GetInvoicesByListID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInvoicesByListIDAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesByCustomerName">
+      <soap12:operation soapAction="http://tempuri.org/GetInvoicesByCustomerName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInvoicesByCustomerNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertLastBatchNumber">
+      <soap12:operation soapAction="http://tempuri.org/RevertLastBatchNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RevertLastBatchNumberAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IRSTaxServices">
+    <wsdl:port name="IRSTaxServicesSoap" binding="tns:IRSTaxServicesSoap">
+      <soap:address location="http://localhost:1143/IRSTaxServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IRSTaxServicesSoap12" binding="tns:IRSTaxServicesSoap12">
+      <soap12:address location="http://localhost:1143/IRSTaxServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

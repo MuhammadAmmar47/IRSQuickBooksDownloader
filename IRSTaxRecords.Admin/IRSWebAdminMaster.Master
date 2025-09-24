@@ -1,0 +1,58 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IRSWebAdminMaster.master.vb"
+    Inherits="IRSTaxRecords.Admin.IRSWebAdminMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>IRSTaxRecrods.com - Admin</title>
+    <link href="/Styles/WebPageMessage.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/IRSAdminStyle.css" rel="stylesheet" type="text/css" />
+    <style>
+            .table 
+            {
+                min-width:800px;
+                width:100%;
+            }
+    </style>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="managerMain" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <table style="width: 100%" border="0">
+            <tr>
+                <td style="width: 25%">
+                </td>
+                <td style="width: 50%">
+                    <telerik:RadMenu ID="mnuMain" runat="server">
+                        <Items>
+                            <telerik:RadMenuItem Text="Home" NavigateUrl="Default.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Text="Manage List" NavigateUrl="ManageList.aspx"></telerik:RadMenuItem>
+                            <telerik:RadMenuItem Text="New Order" NavigateUrl="CreateOrder.aspx"></telerik:RadMenuItem>                            
+                        </Items>
+                    </telerik:RadMenu>
+                </td>
+                <td style="width: 25%">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 25%">
+                </td>
+                <td width="800px">
+                    <div style="width: 50%; text-align: left; background-color: White;" runat="server" id="divLeft">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+                <td style="width: 25%">
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

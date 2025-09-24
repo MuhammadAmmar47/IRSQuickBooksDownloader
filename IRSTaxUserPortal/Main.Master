@@ -1,0 +1,119 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.master.vb" Inherits="IRSTaxUserPortal.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>welcome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+  <form id="form1" runat="server">
+    <div class="content-wrapper mx-auto bg-white" style="max-width: 1600px;">
+
+        <!-- Header -->
+        <div class="row g-0 align-items-center px-4 py-3 bg-white border-bottom">
+
+            <!-- Logo (Left) -->
+            <div class="col-md-3 text-start">
+                <img src="/img/logo.png.png" class="img-fluid" alt="Logo" style="max-height: 500px; width: auto;" />
+            </div>
+
+            <!-- Center Text -->
+            <div class="col-md-6 text-center">
+                <div><span class="fw-bold">Form 4506-C</span> &nbsp; | &nbsp; <span class="fw-bold">Form 8821</span></div>
+                <div class="fw-medium">Request for Transcript of Tax Return</div>
+                <div class="text-muted small">One of the largest distribution hubs for Government records in the U.S.</div>
+            </div>
+
+            <!-- Flag & Thank You (Right) -->
+            <div class="col-md-3 text-end">
+                <small class="fw-semibold">THANK YOU</small>
+                <br />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" alt="U.S. Flag" style="height: 40px;" class="mb-1" />
+                <br />
+                <small class="fw-semibold">FOR 25 GREAT YEARS</small>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="py-2" style="background-color: #00468c; border-top: 3px solid #f2b100;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+                <!-- Left Navigation Links -->
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <a class="nav-link text-white px-0" href="#">Services Details and Solutions</a>
+                    <span class="text-white">|</span>
+                    <a class="nav-link text-white px-0" href="#">Customer Center</a>
+                    <span class="text-white">|</span>
+                    <a class="nav-link text-white px-0" href="#">Set up An Account and begin ordering today</a>
+                </div>
+
+                <!-- Account Login Button -->
+                <a class="nav-link text-white px-3 py-1 rounded" href="Login.aspx" style="background-color: red;">Account Login</a>
+            </div>
+        </div>
+
+    </div>
+            <!-- Main Content Placeholder -->
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    <!-- Footer Section -->
+    <footer class="footer text-white pt-5 pb-4" style="background-color: #00599D;">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <!-- Logo  -->
+                    <img src="/img/logo.png" alt="Logo" class="img-fluid mb-3" style="max-height: 80px; width: auto;" />
+                    <div class="border-top border-white w-25 mb-3"></div>
+                    <p class="small">
+                        1515 North Federal Highway, Suite 300 Boca Raton, Flordia 33432
+                        Customer Service:1-8-66-850-4506
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <h5 class="text-uppercase mb-1">Quick Links</h5>
+                    <div class="border-top border-white w-25 mb-3"></div>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Form 4506-C</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Form 8821</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <h5 class="text-uppercase mb-1">Contact</h5>
+                    <div class="border-top border-white w-25 mb-3"></div>
+                    <p class="small mb-1">
+                        <i class="fas fa-phone-alt me-2"></i> +1 (800) 123-4567
+                    </p>
+                    <p class="small mb-1">
+                        <i class="fas fa-envelope me-2"></i> info@irstaxrecords.com
+                    </p>
+                    <p class="small">
+                        <i class="fas fa-map-marker-alt me-2"></i> USA Nationwide Service
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center mt-4 border-top border-secondary pt-3 small">
+                &copy; 2025 IRS Tax Records. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+      </form>
+</body>
+</html>

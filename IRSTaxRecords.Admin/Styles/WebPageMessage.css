@@ -1,0 +1,48 @@
+﻿/* Error Message Boxes */
+.WebPageMessage
+{
+	width:500px;
+	border:solid 1px #000;
+	background:#FFF;
+	padding:0px;
+	margin:5px 0px 5px 0px;
+}
+
+.WebPageMessageError, .WebPageMessageWarning, .WebPageMessageInformation, .WebPageMessageQuestion, .WebPageMessageOK
+{
+	padding: 5px;
+	background-position: 5px 5px;
+	background-repeat: no-repeat;	
+}
+.WebPageMessageError
+{
+	background-image: url(/Styles/WebPageMessageError.gif);
+	color:Red;
+}
+.WebPageMessageWarning
+{
+		background-image: url(/Styles/WebPageMessageWarning.gif);
+}
+.WebPageMessageInformation
+{
+		background-image: url(/Styles/WebPageMessageInformation.gif);
+		color:Green;
+}
+.WebPageMessageQuestion
+{
+		background-image: url(/Styles/WebPageMessageQuestion.gif);
+}
+.WebPageMessageOK
+{
+		background-image: url(/Styles/WebPageMessageOK.gif);
+		color:Green;
+}
+.WebPageMessage .Message
+{
+	font: 11px Verdana, Arial, Helvetica, Sans-Serif;
+	padding: 0px 0px 15px 40px;
+	margin:0px;
+}
+.fpspecialsMLL {  color: white; font-size: 11px; font-family: Georgia;text-decoration: none }
+.fpspecialsMLLul {  color: white; font-size: 11px; font-family: Georgia }
+/* End Error Message Boxes */

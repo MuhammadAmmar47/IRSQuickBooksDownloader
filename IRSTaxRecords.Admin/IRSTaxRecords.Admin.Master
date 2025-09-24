@@ -1,0 +1,42 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IRSTaxRecords.Admin.master.vb"
+    Inherits="IRSTaxRecords.Admin.IRSTaxRecords_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>IRSTaxRecords - Admin</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="~/Styles/IRSTaxAdminStyles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/WebPageMessage.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="scriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div style="width:100%">
+        <table style="width:100%" border="0">
+            <tr>
+                <td style="width: 25%">
+                </td>
+                <td style="width: 50%">
+                </td>
+                <td style="width: 25%">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 25%">
+                </td>
+                <td style="width: 50%">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td style="width: 25%">
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

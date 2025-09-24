@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxRecords.Import", "IRSTaxRecords.Import\IRSTaxRecords.Import.vbproj", "{0B5030A8-C88C-44A9-930C-7CEB49089E80}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxRecords.QBHelper", "IRSTaxRecords.QBHelper\IRSTaxRecords.QBHelper.vbproj", "{CD74F514-A29C-4369-A524-46B9C8AEDBAE}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxRecords.WebServices", "IRSTaxRecords.WebServices\IRSTaxRecords.WebServices.vbproj", "{BFAAFB9A-9EF3-4E64-8659-B95C9DBA97BF}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxRecords.Core", "IRSTaxRecords.Core\IRSTaxRecords.Core.vbproj", "{1E98D851-A84A-49BD-877D-4F2DAA4940A5}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "QBInvoiceExport", "QBInvoiceExport\QBInvoiceExport.vbproj", "{BF17B834-8317-4884-918B-81EE718F0186}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxRecords.Admin", "IRSTaxRecords.Admin\IRSTaxRecords.Admin.vbproj", "{5DFAAC9C-2547-435F-8AA9-7EB7A29EA20F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestProject", "TestProject\TestProject.vbproj", "{3291B5DB-0064-4F5B-A818-3BC6356A1E8B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OrderPad", "OrderPad\OrderPad.vbproj", "{FBA17871-065C-4EB9-AC24-8ABCDD9C906A}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IRSTaxUserPortal", "IRSTaxUserPortal\IRSTaxUserPortal.vbproj", "{92E5F765-1736-45A2-9588-80F671B49CEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B5030A8-C88C-44A9-930C-7CEB49089E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5030A8-C88C-44A9-930C-7CEB49089E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5030A8-C88C-44A9-930C-7CEB49089E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5030A8-C88C-44A9-930C-7CEB49089E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD74F514-A29C-4369-A524-46B9C8AEDBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD74F514-A29C-4369-A524-46B9C8AEDBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD74F514-A29C-4369-A524-46B9C8AEDBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD74F514-A29C-4369-A524-46B9C8AEDBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFAAFB9A-9EF3-4E64-8659-B95C9DBA97BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAAFB9A-9EF3-4E64-8659-B95C9DBA97BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAAFB9A-9EF3-4E64-8659-B95C9DBA97BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAAFB9A-9EF3-4E64-8659-B95C9DBA97BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E98D851-A84A-49BD-877D-4F2DAA4940A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E98D851-A84A-49BD-877D-4F2DAA4940A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E98D851-A84A-49BD-877D-4F2DAA4940A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E98D851-A84A-49BD-877D-4F2DAA4940A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF17B834-8317-4884-918B-81EE718F0186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF17B834-8317-4884-918B-81EE718F0186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF17B834-8317-4884-918B-81EE718F0186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF17B834-8317-4884-918B-81EE718F0186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFAAC9C-2547-435F-8AA9-7EB7A29EA20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFAAC9C-2547-435F-8AA9-7EB7A29EA20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFAAC9C-2547-435F-8AA9-7EB7A29EA20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFAAC9C-2547-435F-8AA9-7EB7A29EA20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3291B5DB-0064-4F5B-A818-3BC6356A1E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3291B5DB-0064-4F5B-A818-3BC6356A1E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3291B5DB-0064-4F5B-A818-3BC6356A1E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3291B5DB-0064-4F5B-A818-3BC6356A1E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA17871-065C-4EB9-AC24-8ABCDD9C906A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA17871-065C-4EB9-AC24-8ABCDD9C906A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA17871-065C-4EB9-AC24-8ABCDD9C906A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA17871-065C-4EB9-AC24-8ABCDD9C906A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E5F765-1736-45A2-9588-80F671B49CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E5F765-1736-45A2-9588-80F671B49CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E5F765-1736-45A2-9588-80F671B49CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E5F765-1736-45A2-9588-80F671B49CEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://66.226.75.48:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = IRSTaxRecords.Core\\IRSTaxRecords.Core.vbproj
+		SccProjectName1 = IRSTaxRecords.Core
+		SccLocalPath1 = IRSTaxRecords.Core
+		SccProjectUniqueName2 = IRSTaxRecords.Import\\IRSTaxRecords.Import.vbproj
+		SccProjectName2 = IRSTaxRecords.Import
+		SccLocalPath2 = IRSTaxRecords.Import
+		SccProjectUniqueName3 = IRSTaxRecords.QBHelper\\IRSTaxRecords.QBHelper.vbproj
+		SccProjectName3 = IRSTaxRecords.QBHelper
+		SccLocalPath3 = IRSTaxRecords.QBHelper
+		SccProjectUniqueName4 = IRSTaxRecords.WebServices\\IRSTaxRecords.WebServices.vbproj
+		SccProjectName4 = IRSTaxRecords.WebServices
+		SccLocalPath4 = IRSTaxRecords.WebServices
+		SccProjectUniqueName5 = QBInvoiceExport\\QBInvoiceExport.vbproj
+		SccProjectName5 = QBInvoiceExport
+		SccLocalPath5 = QBInvoiceExport
+		SccProjectUniqueName6 = IRSTaxRecords.Admin\\IRSTaxRecords.Admin.vbproj
+		SccProjectName6 = IRSTaxRecords.Admin
+		SccLocalPath6 = IRSTaxRecords.Admin
+		SccProjectUniqueName7 = TestProject\\TestProject.vbproj
+		SccProjectName7 = TestProject
+		SccLocalPath7 = TestProject
+		SccProjectUniqueName8 = OrderPad\\OrderPad.vbproj
+		SccProjectName8 = OrderPad
+		SccLocalPath8 = OrderPad
+	EndGlobalSection
+EndGlobal
