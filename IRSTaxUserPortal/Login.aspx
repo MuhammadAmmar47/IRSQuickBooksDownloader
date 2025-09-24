@@ -40,8 +40,8 @@
                         </div>
 
                     <div class="d-flex justify-content-between mt-3">
-                        <a href="#" class="text-decoration-none small text-primary fw-semibold">Forgot Password?</a>
-                        <a href="#" class="text-decoration-none small text-primary fw-semibold">Create an account</a>
+                        <%--<a href="#" class="text-decoration-none small text-primary fw-semibold">Forgot Password?</a>--%>
+                        <%--<a href="#" class="text-decoration-none small text-primary fw-semibold">Create an account</a>--%>
                     </div>
 
                     <div class="row mt-4">
