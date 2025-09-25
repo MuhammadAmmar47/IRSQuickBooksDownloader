@@ -22,7 +22,7 @@
             <!-- Icon and Heading -->
             <div class="mb-4">
                 <i class="fas fa-file-signature fa-5x text-info"></i>
-                <h2 class="mt-3 fw-bold text-dark">Form 8821</h2>
+                <asp:Label ID="lblFormHeading" runat="server" CssClass="mt-3 fw-bold text-dark h2"></asp:Label>
                 <h4 class="text-primary fw-semibold">UPLOAD PDF</h4>
                 <p class="text-muted">for IRS Tax Information</p>
             </div>
@@ -34,10 +34,11 @@
 
             <!-- Buttons -->
             <div class="d-grid gap-3">
-                <a href="upload_8821.aspx" class="btn btn-outline-info btn-lg rounded-pill fw-semibold">
-                    <i class="fas fa-plus-circle me-2"></i> Submit another Form 8821
-                </a>
-                <a href="account_dashboard.aspx" class="btn btn-info btn-lg rounded-pill fw-semibold text-white">
+                <asp:HyperLink ID="lnkSubmitAnother" runat="server"
+                    CssClass="btn btn-outline-info btn-lg rounded-pill fw-semibold">
+                    <i class="fas fa-plus-circle me-2"></i> Submit another Form
+                </asp:HyperLink>
+                <a href="default.aspx" class="btn btn-info btn-lg rounded-pill fw-semibold text-white">
                     <i class="fas fa-user-circle me-2"></i> Go back to your online account
                 </a>
             </div>

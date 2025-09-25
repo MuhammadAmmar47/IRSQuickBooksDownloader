@@ -122,7 +122,7 @@ Public Class order_8821
             Next
         End With
 
-        Response.Redirect("~/Confirmation.aspx")
+        Response.Redirect("~/Confirmation.aspx?form=" & 8821)
     End Sub
 
     Private Function SelectedIDs(ByVal chk As CheckBoxList) As Generic.List(Of Integer)
