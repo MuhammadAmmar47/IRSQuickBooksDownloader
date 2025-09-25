@@ -7,7 +7,7 @@ Public Class orderSSV
 
     End Sub
     Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSubmit.Click
-        'If Not ValidateForm() Then Return
+        If Not ValidateForm() Then Return
         Dim savedFilePath As String = Nothing
         If ssa89File.HasFile Then
             savedFilePath = order_4506.UploadFile(ssa89File.PostedFile, "~/Uploads/")
@@ -48,14 +48,29 @@ Public Class orderSSV
             .fldSex = gender
 
             OrderServices.CreateNewOrder(o)
-                If o.fldordernumber < 1 Then
-                    'msg.ShowError("Failed to save order. " & DataHelper.LastErrorMessage)
-                End If
+            If o.fldordernumber < 1 Then
+                lblMessage.Text = "Failed to save order. " & DataHelper.LastErrorMessage
+            End If
             resultOrderIDs.Add(o.fldordernumber)
         End With
 
         Response.Redirect("~/Confirmation.aspx")
-        'msg.ShowInformation(resultOrderIDs.Count & " Orders created. Order numbers are " & Utilities.Translators.GenericArrayToString(resultOrderIDs))
     End Sub
+    Private Function ValidateForm() As Boolean
+        Dim msg As String = ""
+
+        If txtTaxPayerName.Text.Trim = "" Then msg &= "Please enter Tax Payer Name.<br>"
+        If txtSocialSecurityNumber.Text.Trim = "" Then msg &= "Please enter SSN.<br>"
+        If txtDob.Text.Trim = "" Then msg &= "Please enter the DOB.<br>"
+        If Me.txtLoanNumber.Visible AndAlso txtLoanNumber.Text.Trim = "" Then msg &= "Please enter Loan Number.<br>"
+        If Not ssa89File.HasFile Then msg &= "Please attach a PDF file.<br>"
+
+        If msg = "" Then
+            Return True
+        Else
+            lblMessage.Text = msg
+            Return False
+        End If
+    End Function
 
 End Class

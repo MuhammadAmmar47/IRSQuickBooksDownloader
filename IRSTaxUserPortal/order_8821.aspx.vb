@@ -116,14 +116,13 @@ Public Class order_8821
 
                 OrderServices.CreateNewOrder(o)
                 If o.fldordernumber < 1 Then
-                    'msg.ShowError("Failed to save order. " & DataHelper.LastErrorMessage)
+                    lblMessage.Text = "Failed to save order. " & DataHelper.LastErrorMessage
                 End If
                 resultOrderIDs.Add(o.fldordernumber)
             Next
         End With
 
         Response.Redirect("~/Confirmation.aspx")
-        'msg.ShowInformation(resultOrderIDs.Count & " Orders created. Order numbers are " & Utilities.Translators.GenericArrayToString(resultOrderIDs))
     End Sub
 
     Private Function SelectedIDs(ByVal chk As CheckBoxList) As Generic.List(Of Integer)

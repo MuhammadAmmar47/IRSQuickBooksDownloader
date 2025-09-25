@@ -25,15 +25,17 @@
       </div>
 
       <div class="card-body p-3">
+          <asp:Label ID="lblMessage" runat="server" 
+                CssClass="text-danger fw-bold d-block mb-3"></asp:Label>
         <!-- Row 1: Name + SSN -->
         <div class="row mb-3 pb-2 border-bottom border-dark bg-primary bg-opacity-10 rounded p-3">
           <div class="col-md-6 mb-2">
             <label class="form-label fw-semibold small mb-1">Taxpayer Full Name:</label>
-            <asp:TextBox  ID="txtTaxPayerName" class="form-control form-control-sm" runat="server" required  MaxLength="50" ></asp:TextBox>
+            <asp:TextBox  ID="txtTaxPayerName" class="form-control form-control-sm" runat="server"   MaxLength="50" ></asp:TextBox>
           </div>
           <div class="col-md-6">
             <label class="form-label fw-semibold small mb-1">Social Security Number:</label>
-             <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server" required  MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
+             <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server"   MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
             <small class="text-muted">Example Format: 145-74-9891</small>
           </div>
         </div>
@@ -42,7 +44,7 @@
         <div class="row mb-3 pb-2 border-bottom border-dark p-3">
           <div class="col-md-6 mb-2">
             <label class="form-label fw-semibold small mb-1">Date of Birth:</label>
-             <asp:TextBox  ID="txtDob" class="form-control form-control-sm" runat="server" required  MaxLength="10" placeholder="04/15/1941" ></asp:TextBox>
+             <asp:TextBox  ID="txtDob" class="form-control form-control-sm" runat="server"   MaxLength="10" placeholder="04/15/1941" ></asp:TextBox>
             <small class="text-muted">Example Format: 04/15/1941</small>
           </div>
           <div class="col-md-6">
@@ -61,13 +63,13 @@
         <!-- Row 3: Loan Number -->
         <div class="mb-3 pb-2 border-bottom border-dark bg-primary bg-opacity-10 rounded p-3">
           <label class="form-label fw-semibold small mb-1">Loan Number:</label>
-         <asp:TextBox type="text" ID="txtLoanNumber" class="form-control form-control-sm" runat="server" required  MaxLength="50" ></asp:TextBox>
+         <asp:TextBox type="text" ID="txtLoanNumber" class="form-control form-control-sm" runat="server"   MaxLength="50" ></asp:TextBox>
         </div>
 
         <!-- Row 4: File Upload -->
         <div class="mb-3 pb-2 border-bottom border-dark p-3">
           <label class="form-label fw-semibold small mb-2">Upload Form SSA-89:</label>
-           <asp:FileUpload  ID="ssa89File" class="form-control form-control-sm"  runat="server" required />
+           <asp:FileUpload  ID="ssa89File" class="form-control form-control-sm"  runat="server"  />
         </div>
 
         <!-- Submit -->
