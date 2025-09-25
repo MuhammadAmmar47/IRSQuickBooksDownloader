@@ -12,4 +12,22 @@ Option Explicit On
 
 
 Partial Public Class Default1
+
+    '''<summary>
+    '''pnlGrid control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlGrid As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Grid1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Grid1 As Global.System.Web.UI.WebControls.GridView
 End Class

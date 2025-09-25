@@ -11,6 +11,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+ .pagination-container {
+    text-align: right;   /* Align pager to right */
+    padding: 10px;
+}
+
+.pagination-container table {
+    margin: 0;
+}
+
+.pagination-container a, 
+.pagination-container span {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 5px 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pagination-container a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination-container span {
+    background-color: #007bff;
+    color: #fff;
+    cursor: default;
+}
+
+
+</style>
     <section class="hero-section border-top-yellow mt-2">
         <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
@@ -98,7 +132,21 @@
         <div class="container py-5">
             <div class="row g-4">
                 <div class="d-grid">
-                    Grid 1
+                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
+                        <asp:GridView ID="Grid1" runat="server"
+                            CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="true"
+                            AllowPaging="true"
+                            PageSize="5"
+                            OnPageIndexChanging="Grid1_PageIndexChanging"
+                            PagerStyle-CssClass="pagination-container"
+                            PagerSettings-Mode="NumericFirstLast"
+                            PagerSettings-FirstPageText="« First"
+                            PagerSettings-LastPageText="Last »"
+                            PagerSettings-NextPageText="Next ›"
+                            PagerSettings-PreviousPageText="‹ Prev">
+                        </asp:GridView>
+                </asp:Panel>
                 </div>
             </div>
         </div>

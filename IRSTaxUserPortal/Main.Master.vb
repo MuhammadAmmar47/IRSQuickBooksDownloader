@@ -16,7 +16,6 @@
                 lnkLoginLogout.Text = "Logout"
             Else
                 lnkLoginLogout.Text = "Account Login"
-                lnkLoginLogout.PostBackUrl = "~/Login.aspx"
             End If
         End If
     End Sub
