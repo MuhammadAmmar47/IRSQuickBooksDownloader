@@ -15,7 +15,8 @@ Public Class Global_asax
             Dim path As String = context.Request.AppRelativeCurrentExecutionFilePath.ToLower()
 
             ' Allow login.aspx and static resources
-            If path.Contains("login.aspx") OrElse
+            If path.Contains("default.aspx") OrElse
+               path.Contains("login.aspx") OrElse
                path.Contains("css") OrElse
                path.Contains("js") OrElse
                path.Contains("images") OrElse

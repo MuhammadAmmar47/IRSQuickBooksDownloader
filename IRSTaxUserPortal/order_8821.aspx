@@ -49,27 +49,29 @@
                 <!-- Row 2: Tax Years -->
                 <div class="mb-4 pb-3 border-bottom border-dark">
                     <label class="form-label fw-semibold small mb-2 d-block">Tax Years Requested:</label>
-                    <div class="d-flex flex-wrap gap-3">
-                          <asp:CheckBox ID="chk2024" runat="server" Text="2024" />
-                          <asp:CheckBox ID="chk2023" runat="server" Text="2023" />
-                          <asp:CheckBox ID="chk2022" runat="server" Text="2022" />
-                          <asp:CheckBox ID="chk2021" runat="server" Text="2021" />
-                          <asp:CheckBox ID="chk2020" runat="server" Text="2020" />
-                    </div>
+                    <asp:CheckBoxList ID="chkTaxyears" runat="server" 
+                        RepeatDirection="Horizontal" 
+                        RepeatLayout="Flow"
+                        CssClass="d-flex flex-wrap gap-3">
+                        <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                        <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                        <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                        <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                        <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                    </asp:CheckBoxList>
                 </div>
 
                 <!-- Row 3: Forms -->
                 <div class="mb-4 pb-3 border-bottom border-dark">
                     <label class="form-label fw-semibold small mb-2 d-block">Forms Requested:</label>
-                    <div class="d-flex flex-wrap gap-2">
-                         <asp:CheckBox ID="chk1040Rec" runat="server" Text="1040 + Record of Account" />
-                         <asp:CheckBox ID="chk1040" runat="server" Text="1040" />
-                         <asp:CheckBox ID="chkW2" runat="server" Text="W2" />
-                         <asp:CheckBox ID="chk1099" runat="server" Text="1099" />
-                         <asp:CheckBox ID="chkRecAcc" runat="server" Text="Record of Account" />
-                         <asp:CheckBox ID="chk1120" runat="server" Text="Form 1120" />
-                         <asp:CheckBox ID="chk1065" runat="server" Text="Form 1065" />
-                    </div>
+                      <asp:RadioButtonList ID="rdoTaxForms" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" class="d-flex flex-wrap gap-3">
+                          <asp:ListItem Text="1040" Value="1040"></asp:ListItem>
+                          <asp:ListItem Text="1040/W2" Value="1040/W2"></asp:ListItem>
+                          <asp:ListItem Text="1120" Value="1120"></asp:ListItem>
+                          <asp:ListItem Text="1065" Value="1065"></asp:ListItem>
+                          <asp:ListItem Text="W-2" Value="W-2"></asp:ListItem>
+                          <asp:ListItem Text="1099" Value="1099"></asp:ListItem>
+                      </asp:RadioButtonList>
                 </div>
 
                 <!-- Row 4: File Upload -->

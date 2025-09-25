@@ -12,7 +12,7 @@
         lst.fldlistid = DataServices.List_AddNewList(lst.fldlisttype, lst.fldListname, lst.fldCurrentdate, lst.fldDateCheck)
     End Function
     Public Shared Function GetCurrentListID(ByVal listType As ListTypeCodeType) As Integer
-        Dim strQ As String = "select max(fldListid) as chkListid  from tbllist where fldListType=" & CInt(listType) & " and fldDateCheck='" & Now.ToShortDateString & "'"
+        Dim strQ As String = "select max(fldListid) as chkListid  from tbllist where fldListType=" & CInt(listType) & " and fldDateCheck='" & Now.ToString("yyyy-MM-dd") & "'"
         Return Val(DataHelper.ExecuteAndReadFirstValueTrimNull(strQ))
     End Function
     Public Shared Function GetListTypeFromFormType(ByVal formType As TypeOfForm) As ListTypeCodeType
