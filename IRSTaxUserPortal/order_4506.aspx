@@ -29,19 +29,21 @@
                     </div>
 
                     <div class="card-body">
+                        <asp:Label ID="lblMessage" runat="server" 
+                             CssClass="text-danger fw-bold d-block mb-3"></asp:Label>
                         <!-- Row 1 -->
                         <div class="row mb-4">
                             <div class="col-12 col-md-4 mb-3 mb-md-0">
                                 <label class="form-label fw-semibold">Taxpayer Name</label>
-                                <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                                <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                             </div>
                             <div class="col-12 col-md-4 mb-3 mb-md-0">
                                 <label class="form-label fw-semibold">Social Security Number</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                             </div>
                             <div class="col-12 col-md-4">
                                 <label class="form-label fw-semibold">Loan Number</label>
-                                <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                                <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                             </div>
                         </div>
 
@@ -78,7 +80,7 @@
                         <!-- Row 4: File Upload -->
                         <div class="mb-4 p-3 rounded bg-primary bg-opacity-10">
                             <label class="fw-semibold d-block mb-2">Upload Form 4506-C:</label>
-                            <asp:FileUpload ID="fuform4506C" class="form-control"  runat="server" required />
+                            <asp:FileUpload ID="fuform4506C" class="form-control"  runat="server"  />
                         </div>
 
                         <!-- Submit -->

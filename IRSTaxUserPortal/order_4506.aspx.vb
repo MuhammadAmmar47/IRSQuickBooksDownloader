@@ -137,28 +137,23 @@ Public Class order_4506
         End Try
     End Function
 
-    'Private Function ValidateForm() As Boolean
-    '    Dim msg As String = ""
-    '    If Me.txtLoanNumber.Visible AndAlso txtLoanNumber.Text.Trim = "" Then msg += "Please enter loan number.<br>"
-    '    If txtName.Text.Trim = "" Then msg += "Please enter request name.<br>"
-    '    If txtSSN.Text.Trim = "" Then msg += "Please enter SSN.<br>"
-    '    If SelectedIDs(Me.chkTaxyears).Count = 0 Then msg += "Please select at least one year to order.<br>"
-    '    If Me.rdoTaxForms.SelectedItem Is Nothing Then msg += "Please select at least one form type.<br>"
+    Private Function ValidateForm() As Boolean
+        Dim msg As String = ""
 
-    '    Dim typeOfForms As Generic.List(Of TypeOfForm) = GetTypeOfFormsSelected()
-    '    For Each formtype As TypeOfForm In typeOfForms
-    '        Dim listType As ListTypeCodeType = ListServices.GetListTypeFromFormType(formtype)
-    '        Dim listID As Integer = ListServices.GetCurrentListID(listType)
-    '        If listID < 1 Then
-    '            msg += "There is no current list for form type " & formtype.ToString & ", ListType=" & listType.ToString & "<br>"
-    '        End If
-    '    Next
+        If txtTaxPayerName.Text.Trim = "" Then msg &= "Please enter Tax Payer Name.<br>"
+        If txtSocialSecurityNumber.Text.Trim = "" Then msg &= "Please enter SSN.<br>"
+        If Me.txtLoanNumber.Visible AndAlso txtLoanNumber.Text.Trim = "" Then msg &= "Please enter Loan Number.<br>"
+        If SelectedIDs(Me.chkTaxyears).Count = 0 Then msg &= "Please select at least one year to order.<br>"
+        If Me.rdoTaxForms.SelectedItem Is Nothing Then msg &= "Please select at least one form type.<br>"
+        If Not fuform4506C.HasFile Then msg &= "Please attach a PDF file.<br>"
 
-
-    '    If msg = "" Then Return True
-    '    Me.msg.ShowError(msg)
-    '    Return False
-    'End Function
+        If msg = "" Then
+            Return True
+        Else
+            lblMessage.Text = msg
+            Return False
+        End If
+    End Function
     Private Function GetTypeOfFormsSelected() As Generic.List(Of TypeOfForm)
         Dim typeOfForms As New Generic.List(Of TypeOfForm)
         Select Case Me.rdoTaxForms.SelectedValue
@@ -181,7 +176,7 @@ Public Class order_4506
         Return typeOfForms
     End Function
     Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSubmit.Click
-        'If Not ValidateForm() Then Return
+        If Not ValidateForm() Then Return
         Dim savedFilePath As String = Nothing
         If fuform4506C.HasFile Then
             savedFilePath = UploadFile(fuform4506C.PostedFile, "~/Uploads/")

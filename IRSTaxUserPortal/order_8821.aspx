@@ -30,19 +30,21 @@
 
             <!-- Body -->
             <div class="card-body p-3">
+                  <asp:Label ID="lblMessage" runat="server" 
+                        CssClass="text-danger fw-bold d-block mb-3"></asp:Label>
                 <!-- Row 1: Name, SSN, Loan -->
                 <div class="row mb-4 pb-3 border-bottom border-dark">
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Taxpayer Name:</label>
-                        <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                        <asp:TextBox ID="txtTaxPayerName" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                     </div>
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Social Security Number:</label>
-                         <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                         <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                     </div>
                     <div class="col-md-4 mb-2">
                         <label class="form-label fw-semibold small">Loan Number:</label>
-                        <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server" required  MaxLength="50" ></asp:TextBox>
+                        <asp:TextBox ID="txtLoanNumber" class="form-control" runat="server"   MaxLength="50" ></asp:TextBox>
                     </div>
                 </div>
 
@@ -77,7 +79,7 @@
                 <!-- Row 4: File Upload -->
                 <div class="mb-4 pb-3 border-bottom border-dark bg-primary bg-opacity-10 p-3 rounded">
                     <label class="form-label fw-semibold small mb-2">Upload Form 8821</label>
-                    <asp:FileUpload ID="fuform8821" class="form-control"  runat="server" required />
+                    <asp:FileUpload ID="fuform8821" class="form-control"  runat="server"  />
                 </div>
 
                 <!-- Submit Button -->
