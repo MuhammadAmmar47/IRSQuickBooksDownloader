@@ -1,4 +1,7 @@
-﻿Public Class Default1
+﻿Imports System.Data.SqlClient
+Imports IRSTaxRecords.Core
+
+Public Class Default1
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -14,21 +17,22 @@
         End If
     End Sub
     Private Sub BindGrid()
-        ' Example data (you can replace with database query)
-        Dim dt As New DataTable()
-        dt.Columns.Add("ID")
-        dt.Columns.Add("Name")
-        dt.Columns.Add("Email")
+        Dim connStr As String = ConfigurationManager.ConnectionStrings("IRSConnection").ConnectionString
+        Using conn As New SqlConnection(connStr)
+            Dim query As String = "SELECT TOP 500 fldordernumber as [Order Number], fldrequestname as [Tax Payer], fldssnno as [SSN], fldLoanNumber as [Loan Number], fldOrderdate as [Order Date], 
+                        fldtypeofform as [Form Type], fldstatus as Status, fldPdf as [File Name]" &
+                      "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " &
+                      "ORDER BY fldOrderdate DESC"
 
-        dt.Rows.Add("1", "John Doe", "john@example.com")
-        dt.Rows.Add("2", "Jane Smith", "jane@example.com")
-        dt.Rows.Add("3", "Ali Khan", "ali@example.com")
-        dt.Rows.Add("4", "John Doe", "john@example.com")
-        dt.Rows.Add("5", "Jane Smith", "jane@example.com")
-        dt.Rows.Add("6", "Ali Khan", "ali@example.com")
 
-        Grid1.DataSource = dt
-        Grid1.DataBind()
+            Dim cmd As New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter(cmd)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+
+            Grid1.DataSource = dt
+            Grid1.DataBind()
+        End Using
     End Sub
 
     ' For paging

@@ -8,6 +8,12 @@ Public Class OrderServices
         If dt.Rows.Count = 0 Then Return Nothing
         Return DataRowToOrder(dt.Rows(0))
     End Function
+
+    Public Shared Function GetCustomerOrders(ByVal CustomerID As Integer) As Orders.Order
+        Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT * FROM tblOrder WHERE fldcustomeriD = " & CustomerID)
+        If dt.Rows.Count = 0 Then Return Nothing
+        Return DataRowToOrder(dt.Rows(0))
+    End Function
     Public Shared Function CreateNewOrder(ByVal o As Orders.Order) As Boolean
         Dim _helper As New DataServices()
         o.fldordernumber = _helper.Orders_AddNew(o.fldListid, o.fldlisttype, o.fldCompanyID, o.fldcustomeriD, o.fldrequestname, o.fldsecondname, o.fldssnno, o.fldtaxyear2003, o.fldtaxyear2002, o.fldtaxyear2001, o.fldtaxyear2000, o.fldtypeofform, o.fldemail, o.fldfax, o.fldfaxno, o.fldstatus, o.fldDOB, o.fldSex, o.fldbillingstatus, o.flddeliverydate, o.fldPdf, o.fldOrderdate, o.fldTaxyear2004, o.fldSpecialFlag, o.fldTaxyear2005, o.fldTaxyear2006, o.ListID, o.bUpdatedInQB, o.fldTaxyear2007, o.fldTaxyear2008, o.fldTaxyear2009, o.fldTaxyear2010, o.fldLoanNumber, o.QBBatchNumber, o.UpdatedInQBOn, o.fldTaxyear2011, o.fldTaxyear2012, o.IsRejected, o.RejectCode, "", o.IsDismissedForRejection, o.fldTaxyear2013, o.fldTaxyear2014, o.fldTaxyear2015, o.fldTaxyear2016, o.fldTaxyear2017, o.fldTaxyear2018, o.fldTaxyear2019, o.fldTaxyear2020, o.fldTaxyear2021, o.fldTaxyear2022, o.fldTaxyear2023, o.fldTaxyear2024, o.fldTaxyear2025)
