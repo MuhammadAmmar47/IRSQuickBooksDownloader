@@ -68,13 +68,13 @@ Partial Public Class order_4506
     Protected WithEvents chkTaxyears As Global.System.Web.UI.WebControls.CheckBoxList
 
     '''<summary>
-    '''rdoTaxForms control.
+    '''chkTaxForms control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rdoTaxForms As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents chkTaxForms As Global.System.Web.UI.WebControls.CheckBoxList
 
     '''<summary>
     '''fuform4506C control.

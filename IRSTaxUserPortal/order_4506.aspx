@@ -67,14 +67,17 @@
                         <!-- Row 3: Forms -->
                         <div class="mb-4">
                             <label class="fw-semibold d-block mb-2">Forms Requested:</label>
-                                <asp:RadioButtonList ID="rdoTaxForms" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" class="d-flex flex-wrap gap-3">
+                                <asp:CheckBoxList ID="chkTaxForms" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" class="d-flex flex-wrap gap-3">
+                                    <asp:ListItem Text="1040 + Record of Account" Value="1040R"></asp:ListItem>
                                     <asp:ListItem Text="1040" Value="1040"></asp:ListItem>
+                                    <asp:ListItem Text="W2" Value="W-2"></asp:ListItem>
+                                    <asp:ListItem Text="1099" Value="1099"></asp:ListItem>
+                                    <asp:ListItem Text="Record of Account" Value="ROA"></asp:ListItem>
+                                    <asp:ListItem Text="Account Transcript" Value="AT"></asp:ListItem>
                                     <asp:ListItem Text="1040/W2" Value="1040/W2"></asp:ListItem>
                                     <asp:ListItem Text="1120" Value="1120"></asp:ListItem>
                                     <asp:ListItem Text="1065" Value="1065"></asp:ListItem>
-                                    <asp:ListItem Text="W-2" Value="W-2"></asp:ListItem>
-                                    <asp:ListItem Text="1099" Value="1099"></asp:ListItem>
-                                </asp:RadioButtonList>
+                                </asp:CheckBoxList>
                         </div>
 
                         <!-- Row 4: File Upload -->
