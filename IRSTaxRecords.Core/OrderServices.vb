@@ -8,6 +8,14 @@ Public Class OrderServices
         If dt.Rows.Count = 0 Then Return Nothing
         Return DataRowToOrder(dt.Rows(0))
     End Function
+    Public Shared Function GetOrderByCustomers(ByVal CustomerID As Integer) As DataTable
+        Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT TOP 500 fldordernumber as [Order Number], fldrequestname as [Tax Payer], fldssnno as [SSN], fldLoanNumber as [Loan Number], fldOrderdate as [Order Date], 
+                        fldtypeofform as [Form Type], fldstatus as Status, fldPdf as [File Name]" &
+                       "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " &
+                       "ORDER BY fldOrderdate DESC")
+
+        Return dt
+    End Function
 
     Public Shared Function GetCustomerOrders(ByVal CustomerID As Integer) As Orders.Order
         Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT * FROM tblOrder WHERE fldcustomeriD = " & CustomerID)
