@@ -129,28 +129,62 @@
     </section>
 
     <section>
-        <div class="container py-5">
-            <div class="row g-4">
-                <div class="d-grid">
-                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
-                        <asp:GridView ID="Grid1" runat="server"
-                            CssClass="table table-striped table-bordered"
-                            AutoGenerateColumns="true"
-                            AllowPaging="true"
-                            PageSize="5"
-                            OnPageIndexChanging="Grid1_PageIndexChanging"
-                            PagerStyle-CssClass="pagination-container"
-                            PagerSettings-Mode="NumericFirstLast"
-                            PagerSettings-FirstPageText="« First"
-                            PagerSettings-LastPageText="Last »"
-                            PagerSettings-NextPageText="Next ›"
-                            PagerSettings-PreviousPageText="‹ Prev">
-                        </asp:GridView>
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="d-grid">
+                <asp:Panel ID="pnlGrid" runat="server" Visible="false">
+
+                    <h4>Form 4506 Orders</h4>
+                    <asp:GridView ID="Grid1" runat="server"
+                        CssClass="table table-striped table-bordered"
+                        AutoGenerateColumns="true"
+                        AllowPaging="true"
+                        PageSize="5"
+                        OnPageIndexChanging="Grid1_PageIndexChanging"
+                        PagerStyle-CssClass="pagination-container"
+                        PagerSettings-Mode="NumericFirstLast"
+                        PagerSettings-FirstPageText="« First"
+                        PagerSettings-LastPageText="Last »"
+                        PagerSettings-NextPageText="Next ›"
+                        PagerSettings-PreviousPageText="‹ Prev">
+                    </asp:GridView>
+
+                    <h4 class="mt-4">Form 8821 Orders</h4>
+                    <asp:GridView ID="Grid2" runat="server"
+                        CssClass="table table-striped table-bordered"
+                        AutoGenerateColumns="true"
+                        AllowPaging="true"
+                        PageSize="5"
+                        OnPageIndexChanging="Grid2_PageIndexChanging"
+                        PagerStyle-CssClass="pagination-container"
+                        PagerSettings-Mode="NumericFirstLast"
+                        PagerSettings-FirstPageText="« First"
+                        PagerSettings-LastPageText="Last »"
+                        PagerSettings-NextPageText="Next ›"
+                        PagerSettings-PreviousPageText="‹ Prev">
+                    </asp:GridView>
+
+                    <h4 class="mt-4">SSV Orders</h4>
+                    <asp:GridView ID="Grid3" runat="server"
+                        CssClass="table table-striped table-bordered"
+                        AutoGenerateColumns="true"
+                        AllowPaging="true"
+                        PageSize="5"
+                        OnPageIndexChanging="Grid3_PageIndexChanging"
+                        PagerStyle-CssClass="pagination-container"
+                        PagerSettings-Mode="NumericFirstLast"
+                        PagerSettings-FirstPageText="« First"
+                        PagerSettings-LastPageText="Last »"
+                        PagerSettings-NextPageText="Next ›"
+                        PagerSettings-PreviousPageText="‹ Prev">
+                    </asp:GridView>
+
                 </asp:Panel>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Trust Icons Section -->
     <section>

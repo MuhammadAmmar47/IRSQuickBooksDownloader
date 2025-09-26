@@ -16,15 +16,35 @@ Public Class Default1
             End If
         End If
     End Sub
+
     Private Sub BindGrid()
-        Dim dt As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId)
-        Grid1.DataSource = dt
+        Dim dt4506 As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId, "1")
+        Dim dt8821 As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId, "7")
+        Dim dtSSV As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId, "SSV")
+
+        Grid1.DataSource = dt4506
         Grid1.DataBind()
+
+        Grid2.DataSource = dt8821
+        Grid2.DataBind()
+
+        Grid3.DataSource = dtSSV
+        Grid3.DataBind()
     End Sub
 
     ' For paging
     Protected Sub Grid1_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
         Grid1.PageIndex = e.NewPageIndex
+        BindGrid()
+    End Sub
+
+    Protected Sub Grid2_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        Grid2.PageIndex = e.NewPageIndex
+        BindGrid()
+    End Sub
+
+    Protected Sub Grid3_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        Grid3.PageIndex = e.NewPageIndex
         BindGrid()
     End Sub
 End Class
