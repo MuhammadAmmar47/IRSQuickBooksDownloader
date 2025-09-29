@@ -1,21 +1,11 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="order_8821.aspx.vb" Inherits="IRSTaxUserPortal.order_8821" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false"     MasterPageFile="~/Main.Master"  CodeBehind="order_8821.aspx.vb" Inherits="IRSTaxUserPortal.order_8821" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Order 8821</title>
+    <!-- Optional: Add page-specific CSS or JS here -->
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>order_8821</title>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
          <!-- Centering Wrapper -->    <div class="d-flex justify-content-center align-items-center min-vh-100 px-2">
         <div class="card shadow border-0 w-100" style="max-width: 800px;">
 
@@ -93,6 +83,4 @@
             </div>
         </div>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

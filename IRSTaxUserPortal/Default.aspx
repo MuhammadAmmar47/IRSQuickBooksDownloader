@@ -1,125 +1,122 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Main.Master" CodeBehind="Default.aspx.vb" Inherits="IRSTaxUserPortal.Default1" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Main.Master" CodeBehind="Default.aspx.vb" Inherits="IRSTaxUserPortal.Welcome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>welcome</title>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap CSS + JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
- .pagination-container {
-    text-align: right;   /* Align pager to right */
-    padding: 10px;
-}
+  <!-- Card Section -->
 
-.pagination-container table {
-    margin: 0;
-}
-
-.pagination-container a, 
-.pagination-container span {
-    display: inline-block;
-    margin: 0 2px;
-    padding: 5px 10px;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.pagination-container a:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.pagination-container span {
-    background-color: #007bff;
-    color: #fff;
-    cursor: default;
-}
-
-
-</style>
-    <section class="hero-section border-top-yellow mt-2">
-        <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner h-100">
-                <div class="carousel-item active h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
-                </div>
-                <div class="carousel-item h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
-                </div>
-                <div class="carousel-item h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
-                </div>
+ <!-- Trust Icons Section -->
+ <section>
+     <section class="hero-section border-top-yellow mt-2">
+    <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
             </div>
-
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item h-100">
+                <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
         </div>
-    </section>
 
-    <!-- Card Section -->
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+     <div class="container-fluid py-5" style="background-color: #f9f9f9;">
+    <div class="container px-4">
+        <!-- Card Section -->
     <section>
         <div class="container py-5">
             <div class="row g-4">
 
-                <!-- Card 1: Form 4506-C -->
+                <!-- Card 1 -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow rounded border border-3">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;">
+                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
                                 <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>4506-C</strong><br>
-                                    <span class="text-primary fs-6">UPLOAD PDF<br>for IRS Transcripts</span>
+                                    Form <strong>4506-C</strong><br />
+                                    <a href="Login.aspx" class="text-primary fs-8 text-decoration-underline">UPLOAD PDF</a>
                                 </h5>
                             </div>
-                            <a href="order_4506.aspx" target="_blank" class="btn btn-primary w-100 fw-semibold fs-5">Order 4506-C</a>
+                            <h6 class="text-danger fs-5">IRS Income Verification</h6>
+                            <p class="text-primary fs-5">
+                                Verify your applicants income with US Government tax records.
+                                <br /><br />
+                                Obtain 1040s, W2s, 1099s, Corporate 1120s, 1065s, Record of Account, and Account Transcripts directly from the IRS.
+                            </p>
+                            <p class="text-primary fs-6">
+                                Do not be fooled by altered W2s, forged verification of deposits, fake tax returns.
+                            </p>
+                            <img src="/img/hud.png" alt="HUD Partners" class="img-fluid mb-3 mt-auto" />
+                            <a href="Login.aspx" class="btn btn-outline-primary w-100 fw-semibold text-decoration-underline fs-5">Get Started</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Form 8821 -->
+                <!-- Card 2 -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow rounded border border-3">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;">
+                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
                                 <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>8821</strong><br>
-                                    <span class="text-primary fs-6">UPLOAD PDF<br>for IRS Transcripts</span>
+                                    Form <strong>8821</strong><br />
+                                    <a href="Login.aspx" class="text-primary fs-8 text-decoration-underline">UPLOAD PDF</a>
                                 </h5>
                             </div>
-                            <a href="order_8821.aspx" target="_blank" class="btn btn-dark w-100 fw-semibold fs-5">Order 8821</a>
+                            <h6 class="text-danger fs-5">Expedited Income Verification</h6>
+                            <p class="text-primary fs-5">
+                                Verify your applicants income with same day service.
+                                <br /><br />
+                                Secure online ordering — IRS transcripts delivered within hours of request.
+                            </p>
+                            <p class="text-primary fs-6">
+                                Last minute transcript conditions? We have you covered.
+                            </p>
+                            <img src="/img/hud.png" alt="HUD Partners" class="img-fluid mb-3 mt-auto" />
+                            <a href="Login.aspx" class="btn btn-outline-primary w-100 fw-semibold text-decoration-underline fs-5">Get Started</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3: Social Security Validation -->
+                <!-- Card 3 -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow rounded border border-3">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/verified-account.png" alt="Verify Icon" style="width: 64px; height: 64px;">
+                                <img src="https://img.icons8.com/color/64/000000/verified-account.png" alt="Verify Icon" style="width: 64px; height: 64px;" />
                                 <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    ORDER SOCIAL SECURITY<br>VALIDATIONS ONLINE
+                                    Order Social Security<br />
+                                    Validations Online
                                 </h5>
                             </div>
-                            <small class="text-muted">via the SOCIAL SECURITY ADMINISTRATION</small>
-                            <a href="orderSSV.aspx" target="_blank" class="btn btn-success w-100 mt-auto fw-semibold fs-5">Order Social Security Verification</a>
+                            <h6 class="text-danger fs-5">Social Security Verification</h6>
+                            <p class="text-primary fs-5">
+                                Verify your applicant's Social Security Number with our fast and accurate online system via the U.S. Social Security Administration.
+                            </p>
+                            <ul class="small text-primary fs-5">
+                                <li>SSN Match or No Match report</li>
+                                <li>Data authenticated via SSA</li>
+                                <li>Fast &amp; cost-effective</li>
+                            </ul>
+                            <a href="Login.aspx" class="btn btn-outline-primary w-100 mt-auto text-decoration-underline fw-semibold fs-5">Start ordering today</a>
                         </div>
                     </div>
                 </div>
@@ -127,64 +124,6 @@
             </div>
         </div>
     </section>
-
-    <section>
-    <div class="container py-5">
-        <div class="row g-4">
-            <div class="d-grid">
-                <asp:Panel ID="pnlGrid" runat="server" Visible="false">
-
-                    <h4>Form 4506 Orders</h4>
-                    <asp:GridView ID="Grid1" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid1_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
-
-                    <h4 class="mt-4">Form 8821 Orders</h4>
-                    <asp:GridView ID="Grid2" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid2_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
-
-                    <h4 class="mt-4">SSV Orders</h4>
-                    <asp:GridView ID="Grid3" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid3_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
-
-                </asp:Panel>
-            </div>
-        </div>
-    </div>
-</section>
-
 
     <!-- Trust Icons Section -->
     <section>
@@ -194,13 +133,16 @@
 
                     <!-- TRUST & EXPERIENCE -->
                     <div class="col-md-3 d-flex flex-column align-items-center px-3">
-                        <img src="https://img.icons8.com/color/128/medal.png" alt="Award Medal" class="mb-4" />
+                        <!-- Your Local Logo -->
+                        <img src="/img/logo.png" alt="Company Logo" class="mb-4" style="max-height: 80px;" />
+
                         <h5 class="fw-bold text-primary mb-3">TRUSTED BY THOUSANDS</h5>
                         <p class="text-primary fs-6">
                             For more than 25 years IRStaxrecords.com has been trusted by thousands of US Banks and Mortgage Companies nationally.
                         </p>
                         <p class="fw-semibold text-primary fs-5 mt-3">TRUST & EXPERIENCE</p>
                     </div>
+
 
                     <!-- PROVEN & DEPENDABLE -->
                     <div class="col-md-3 d-flex flex-column align-items-center px-3">
@@ -233,4 +175,8 @@
             </div>
         </div>
     </section>
+
+    </div>
+</div>
+ </section>
 </asp:Content>

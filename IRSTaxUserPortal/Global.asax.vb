@@ -14,9 +14,28 @@ Public Class Global_asax
             ' Current path
             Dim path As String = context.Request.AppRelativeCurrentExecutionFilePath.ToLower()
 
+            If path = "~/" OrElse path = "~\" Then
+                context.Response.Redirect("~/Default.aspx")
+                Return
+            End If
+
+            ' Always allow Default.aspx and Login.aspx
+            If path.Contains("default.aspx") Then
+                ' If cookie exists, clear it and redirect to login
+                Dim Cookie = context.Request.Cookies(".ASPXAUTH")
+                If Cookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(Cookie.Value) Then
+                    Dim expiredCookie As New HttpCookie(".ASPXAUTH")
+                    expiredCookie.Expires = DateTime.Now.AddDays(-1)
+                    context.Response.Cookies.Add(expiredCookie)
+
+                    context.Response.Redirect("~/login.aspx")
+                End If
+
+                Return
+            End If
+
             ' Allow login.aspx and static resources
-            If path.Contains("default.aspx") OrElse
-               path.Contains("login.aspx") OrElse
+            If path.Contains("login.aspx") OrElse
                path.Contains("css") OrElse
                path.Contains("js") OrElse
                path.Contains("images") OrElse

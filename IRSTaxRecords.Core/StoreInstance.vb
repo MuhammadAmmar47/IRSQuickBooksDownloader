@@ -16,6 +16,7 @@ Public Class StoreInstance
 
             Dim redirectUrl As String
             redirectUrl = FormsAuthentication.GetRedirectUrl(c.UserID, bRemember)
+            If Not (String.IsNullOrEmpty(redirectUrl)) Then redirectUrl = "/Welcome.aspx"
             'If c.IsAdmin Then
             '    'redirectUrl = "~/Admin/"
             '    redirectUrl = "~/Admin"
@@ -25,18 +26,18 @@ Public Class StoreInstance
 
             HttpContext.Current.Session("LoginId") = 100001
 
-            'FormsAuthentication.SetAuthCookie(c.ID, False)
-            HttpContext.Current.Response.Redirect(redirectUrl)
+                'FormsAuthentication.SetAuthCookie(c.ID, False)
+                HttpContext.Current.Response.Redirect(redirectUrl)
 
-            If Not HttpContext.Current.Request.QueryString("ReturnUrl") Is Nothing Then
-                HttpContext.Current.Response.Redirect(HttpContext.Current.Request.QueryString("ReturnUrl"))
+                If Not HttpContext.Current.Request.QueryString("ReturnUrl") Is Nothing Then
+                    HttpContext.Current.Response.Redirect(HttpContext.Current.Request.QueryString("ReturnUrl"))
+                Else
+                    HttpContext.Current.Response.Redirect("MyInvoices.aspx")
+                End If
+
+                Return True
             Else
-                HttpContext.Current.Response.Redirect("MyInvoices.aspx")
-            End If
-
-            Return True
-        Else
-            Throw New Exception("Password doesn't match")
+                Throw New Exception("Password doesn't match")
         End If
     End Function
     Public Shared Function LoginUser(ByVal email As String, ByVal pwd As String) As Boolean
