@@ -22,6 +22,8 @@
 
     Protected Sub lnkLoginLogout_Click(sender As Object, e As EventArgs)
         If lnkLoginLogout.Text = "Logout" Then
+            Session.Clear()
+            Session.Abandon()
             ' Clear cookie
             If Request.Cookies(".ASPXAUTH") IsNot Nothing Then
                 Dim cookie As New HttpCookie(".ASPXAUTH")
