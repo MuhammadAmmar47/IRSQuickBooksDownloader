@@ -1,6 +1,6 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" 
-    MasterPageFile="~/Main.Master" 
-    CodeBehind="order_4506.aspx.vb" 
+﻿<%@ Page Language="vb" AutoEventWireup="false"
+    MasterPageFile="~/Main.Master"
+    CodeBehind="order_4506.aspx.vb"
     Inherits="IRSTaxUserPortal.order_4506" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -10,8 +10,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container py-4">
-        <div class="d-flex justify-content-center align-items-center min-vh-100">
-            <div class="w-100 px-3" style="max-width: 900px;">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="w-100 px-3">
                 <div class="card shadow">
                     <div class="card-header d-flex align-items-center gap-3 bg-primary bg-opacity-10 flex-wrap">
                         <i class="fa-solid fa-file-invoice-dollar fa-3x text-primary"></i>
@@ -76,7 +76,7 @@
 
                         <!-- Submit -->
                         <div class="text-center bg-light py-3 rounded mt-4">
-                            <asp:Button ID="btnSubmit" runat="server" Text="Upload and Submit Order" CssClass="btn btn-primary px-5 fw-bold"/>
+                            <asp:Button ID="btnSubmit" runat="server" Text="Upload and Submit Order" CssClass="btn btn-primary px-5 fw-bold" />
                         </div>
                     </div>
                 </div>

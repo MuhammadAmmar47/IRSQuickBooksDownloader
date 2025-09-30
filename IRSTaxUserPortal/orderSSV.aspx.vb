@@ -44,7 +44,7 @@ Public Class orderSSV
             .fldlisttype = 0
             .FormType = 0
             .fldordernumber = 0
-            .fldDOB = If(String.IsNullOrWhiteSpace(txtDob.Text), Nothing, txtDob.Text.Trim())
+            .fldDOB = If(String.IsNullOrEmpty(txtDob.Text), Nothing, txtDob.Text.Trim())
             .fldSex = gender
             .fldordertype = "SSV"
             OrderServices.CreateNewOrder(o)

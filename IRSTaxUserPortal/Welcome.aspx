@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Main.Master" CodeBehind="Welcome.aspx.vb" Inherits="IRSTaxUserPortal.Default1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,39 +13,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <style>
- .pagination-container {
-    text-align: right;   /* Align pager to right */
-    padding: 10px;
-}
+        .pagination-container {
+            text-align: right; /* Align pager to right */
+            padding: 10px;
+        }
 
-.pagination-container table {
-    margin: 0;
-}
+            .pagination-container table {
+                margin: 0;
+            }
 
-.pagination-container a, 
-.pagination-container span {
-    display: inline-block;
-    margin: 0 2px;
-    padding: 5px 10px;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    color: #007bff;
-    text-decoration: none;
-}
+            .pagination-container a,
+            .pagination-container span {
+                display: inline-block;
+                margin: 0 2px;
+                padding: 5px 10px;
+                border: 1px solid #dee2e6;
+                border-radius: 4px;
+                color: #007bff;
+                text-decoration: none;
+            }
 
-.pagination-container a:hover {
-    background-color: #007bff;
-    color: #fff;
-}
+                .pagination-container a:hover {
+                    background-color: #007bff;
+                    color: #fff;
+                }
 
-.pagination-container span {
-    background-color: #007bff;
-    color: #fff;
-    cursor: default;
-}
-
-
-</style>
+            .pagination-container span {
+                background-color: #007bff;
+                color: #fff;
+                cursor: default;
+            }
+    </style>
     <section class="hero-section border-top-yellow mt-2">
         <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
@@ -82,9 +81,9 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;">
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>4506-C</strong><br>
-                                    <span class="text-primary fs-6">UPLOAD PDF<br>for IRS Transcripts</span>
+                                <h5 class="ms-3 mb-0 fs-3 text-primary">Form <strong>4506-C</strong><br>
+                                    <span class="text-primary fs-6">UPLOAD PDF<br>
+                                        for IRS Transcripts</span>
                                 </h5>
                             </div>
                             <a href="order_4506.aspx" class="btn btn-primary w-100 fw-semibold fs-5">Order 4506-C</a>
@@ -98,9 +97,9 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;">
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>8821</strong><br>
-                                    <span class="text-primary fs-6">UPLOAD PDF<br>for IRS Transcripts</span>
+                                <h5 class="ms-3 mb-0 fs-3 text-primary">Form <strong>8821</strong><br>
+                                    <span class="text-primary fs-6">UPLOAD PDF<br>
+                                        for IRS Transcripts</span>
                                 </h5>
                             </div>
                             <a href="order_8821.aspx" class="btn btn-dark w-100 fw-semibold fs-5">Order 8821</a>
@@ -114,8 +113,8 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/verified-account.png" alt="Verify Icon" style="width: 64px; height: 64px;">
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    ORDER SOCIAL SECURITY<br>VALIDATIONS ONLINE
+                                <h5 class="ms-3 mb-0 fs-3 text-primary">ORDER SOCIAL SECURITY<br>
+                                    VALIDATIONS ONLINE
                                 </h5>
                             </div>
                             <small class="text-muted">via the SOCIAL SECURITY ADMINISTRATION</small>
@@ -129,61 +128,162 @@
     </section>
 
     <section>
-    <div class="container py-5">
-        <div class="row g-4">
-            <div class="d-grid">
-                <asp:Panel ID="pnlGrid" runat="server" Visible="false">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="d-grid">
+                    <asp:Panel ID="pnlGrid" runat="server" Visible="false">
 
-                    <h4>Form 4506 Orders</h4>
-                    <asp:GridView ID="Grid1" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid1_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
+                        <h4>Form 4506 Orders</h4>
+                        <asp:GridView ID="Grid1" runat="server"
+                            CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="false"
+                            AllowPaging="true"
+                            PageSize="5"
+                            OnPageIndexChanging="Grid1_PageIndexChanging"
+                            PagerStyle-CssClass="pagination-container"
+                            PagerSettings-Mode="NumericFirstLast"
+                            PagerSettings-FirstPageText="« First"
+                            PagerSettings-LastPageText="Last »"
+                            PagerSettings-NextPageText="Next ›"
+                            PagerSettings-PreviousPageText="‹ Prev">
+                            <Columns>
+                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
+                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
+                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
+                                <asp:BoundField DataField="Status" HeaderText="Status" />
+                                <asp:TemplateField HeaderText="Form Type">
+                                    <ItemTemplate>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="File Name">
+                                    <ItemTemplate>
+                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
+                                            <%# Eval("File Name") %>
+                                        </a>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
 
-                    <h4 class="mt-4">Form 8821 Orders</h4>
-                    <asp:GridView ID="Grid2" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid2_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
 
-                    <h4 class="mt-4">SSV Orders</h4>
-                    <asp:GridView ID="Grid3" runat="server"
-                        CssClass="table table-striped table-bordered"
-                        AutoGenerateColumns="true"
-                        AllowPaging="true"
-                        PageSize="5"
-                        OnPageIndexChanging="Grid3_PageIndexChanging"
-                        PagerStyle-CssClass="pagination-container"
-                        PagerSettings-Mode="NumericFirstLast"
-                        PagerSettings-FirstPageText="« First"
-                        PagerSettings-LastPageText="Last »"
-                        PagerSettings-NextPageText="Next ›"
-                        PagerSettings-PreviousPageText="‹ Prev">
-                    </asp:GridView>
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                        <asp:Button ID="btnView" runat="server"
+                                            CommandName="ViewOrder"
+                                            CommandArgument='<%# Eval("Order Number") %>'
+                                            Text="View" CssClass="btn btn-primary btn-sm" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                        <asp:Label ID="lblGrid1Message" runat="server" ForeColor="Red" Visible="False" />
+                        <hr />
 
-                </asp:Panel>
+                        <h4 class="mt-4">Form 8821 Orders</h4>
+                        <asp:GridView ID="Grid2" runat="server"
+                            CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="false"
+                            AllowPaging="true"
+                            PageSize="5"
+                            OnPageIndexChanging="Grid2_PageIndexChanging"
+                            PagerStyle-CssClass="pagination-container"
+                            PagerSettings-Mode="NumericFirstLast"
+                            PagerSettings-FirstPageText="« First"
+                            PagerSettings-LastPageText="Last »"
+                            PagerSettings-NextPageText="Next ›"
+                            PagerSettings-PreviousPageText="‹ Prev">
+                            <Columns>
+                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
+                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
+                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
+                                <asp:BoundField DataField="Status" HeaderText="Status" />
+                                <asp:TemplateField HeaderText="Form Type">
+                                    <ItemTemplate>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="File Name">
+                                    <ItemTemplate>
+                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
+                                            <%# Eval("File Name") %>
+                                        </a>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
+
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                        <asp:Button ID="btnView" runat="server"
+                                            CommandName="ViewOrder"
+                                            CommandArgument='<%# Eval("Order Number") %>'
+                                            Text="View" CssClass="btn btn-primary btn-sm" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                        <asp:Label ID="lblGrid2Message" runat="server" ForeColor="Red" Visible="False" />
+                        <hr />
+
+                        <h4 class="mt-4">SSV Orders</h4>
+                        <asp:GridView ID="Grid3" runat="server"
+                            CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="false"
+                            AllowPaging="true"
+                            PageSize="5"
+                            OnPageIndexChanging="Grid3_PageIndexChanging"
+                            PagerStyle-CssClass="pagination-container"
+                            PagerSettings-Mode="NumericFirstLast"
+                            PagerSettings-FirstPageText="« First"
+                            PagerSettings-LastPageText="Last »"
+                            PagerSettings-NextPageText="Next ›"
+                            PagerSettings-PreviousPageText="‹ Prev">
+                            <Columns>
+                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
+                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
+                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
+                                <asp:BoundField DataField="Status" HeaderText="Status" />
+                                <asp:TemplateField HeaderText="Form Type">
+                                    <ItemTemplate>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="File Name">
+                                    <ItemTemplate>
+                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
+                                            <%# Eval("File Name") %>
+                                        </a>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
+
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                        <asp:Button ID="btnView" runat="server"
+                                            CommandName="ViewOrder"
+                                            CommandArgument='<%# Eval("Order Number") %>'
+                                            Text="View" CssClass="btn btn-primary btn-sm" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                        <asp:Label ID="lblGrid3Message" runat="server" ForeColor="Red" Visible="False" />
+
+                    </asp:Panel>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Trust Icons Section -->

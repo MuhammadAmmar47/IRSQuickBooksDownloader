@@ -32,6 +32,15 @@ Partial Public Class Default1
     Protected WithEvents Grid1 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''lblGrid1Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGrid1Message As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Grid2 control.
     '''</summary>
     '''<remarks>
@@ -41,6 +50,15 @@ Partial Public Class Default1
     Protected WithEvents Grid2 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''lblGrid2Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGrid2Message As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Grid3 control.
     '''</summary>
     '''<remarks>
@@ -48,4 +66,13 @@ Partial Public Class Default1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Grid3 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''lblGrid3Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGrid3Message As Global.System.Web.UI.WebControls.Label
 End Class
