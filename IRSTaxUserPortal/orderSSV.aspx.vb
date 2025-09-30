@@ -34,7 +34,7 @@ Public Class orderSSV
             .fldrequestname = txtTaxPayerName.Text.Trim()
             .fldssnno = txtSocialSecurityNumber.Text.Trim()
             .fldstatus = "p"
-            .fldPdf = ssa89File.PostedFile.FileName
+            .fldPdf = System.IO.Path.GetFileName(savedFilePath)
             .fldTaxyear2020 = Nothing
             .fldTaxyear2021 = Nothing
             .fldTaxyear2022 = Nothing

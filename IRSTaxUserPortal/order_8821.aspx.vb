@@ -117,7 +117,7 @@ Public Class order_8821
                     .fldrequestname = txtTaxPayerName.Text.Trim()
                     .fldssnno = txtSocialSecurityNumber.Text.Trim()
                     .fldstatus = "p"
-                    .fldPdf = fuform8821.PostedFile.FileName
+                    .fldPdf = System.IO.Path.GetFileName(savedFilePath)
 
                     ' assign tax years
                     For Each Year As Integer In years

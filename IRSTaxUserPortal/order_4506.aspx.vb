@@ -21,7 +21,7 @@ Public Class order_4506
             End If
 
             Dim extension As String = Path.GetExtension(file.FileName)
-            Dim newFileName As String = DateTime.Now.ToString("yyyyMMddHHmmss") & "_" & Guid.NewGuid().ToString() & extension
+            Dim newFileName As String = DateTime.Now.ToString("yyyyMMddHHmmss").ToString() & extension
 
 
             Dim filePath As String = Path.Combine(serverPath, newFileName)
@@ -118,7 +118,7 @@ Public Class order_4506
                     .fldrequestname = txtTaxPayerName.Text.Trim()
                     .fldssnno = txtSocialSecurityNumber.Text.Trim()
                     .fldstatus = "p"
-                    .fldPdf = fuform4506C.PostedFile.FileName
+                    .fldPdf = System.IO.Path.GetFileName(savedFilePath)
 
                     ' assign tax years
                     For Each Year As Integer In years
