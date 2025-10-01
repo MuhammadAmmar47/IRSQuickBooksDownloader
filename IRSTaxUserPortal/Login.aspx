@@ -55,5 +55,4 @@
             </div>
         </div>
     </div>
-    <hr class="border border-primary border-2 opacity-100 my-4">
 </asp:Content>

@@ -46,7 +46,7 @@
 
                 <!-- Card 1 -->
                 <div class="col-md-4">
-                    <div class="card h-100 shadow rounded border border-3">
+                    <div class="card shadow-lg h-100 rounded-4 border-1">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
@@ -72,7 +72,7 @@
 
                 <!-- Card 2 -->
                 <div class="col-md-4">
-                    <div class="card h-100 shadow rounded border border-3">
+                    <div class="card shadow-lg h-100 rounded-4 border-1">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
@@ -98,7 +98,7 @@
 
                 <!-- Card 3 -->
                 <div class="col-md-4">
-                    <div class="card h-100 shadow rounded border border-3">
+                    <div class="card shadow-lg h-100 rounded-4 border-1">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/verified-account.png" alt="Verify Icon" style="width: 64px; height: 64px;" />
@@ -124,58 +124,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Trust Icons Section -->
-    <section>
-        <div class="container-fluid py-5" style="background-color: #f9f9f9;">
-            <div class="container px-4">
-                <div class="row text-center gy-5">
-
-                    <!-- TRUST & EXPERIENCE -->
-                    <div class="col-md-3 d-flex flex-column align-items-center px-3">
-                        <!-- Your Local Logo -->
-                        <img src="/img/logo.png" alt="Company Logo" class="mb-4" style="max-height: 80px;" />
-
-                        <h5 class="fw-bold text-primary mb-3">TRUSTED BY THOUSANDS</h5>
-                        <p class="text-primary fs-6">
-                            For more than 25 years IRStaxrecords.com has been trusted by thousands of US Banks and Mortgage Companies nationally.
-                        </p>
-                        <p class="fw-semibold text-primary fs-5 mt-3">TRUST & EXPERIENCE</p>
-                    </div>
-
-
-                    <!-- PROVEN & DEPENDABLE -->
-                    <div class="col-md-3 d-flex flex-column align-items-center px-3">
-                        <img src="https://img.icons8.com/color/128/usa.png" alt="USA Map" class="mb-4" />
-                        <h5 class="fw-bold text-primary mb-3">PROVEN & DEPENDABLE</h5>
-                        <p class="text-primary fs-6">
-                            With millions of transcripts delivered, IRStaxrecords.com is one of the largest distribution hubs for U.S. government tax data.
-                        </p>
-                    </div>
-
-                    <!-- SECURE & COMPLIANT -->
-                    <div class="col-md-3 d-flex flex-column align-items-center px-3">
-                        <img src="https://img.icons8.com/color/128/lock--v1.png" alt="Secure Lock" class="mb-4" />
-                        <h5 class="fw-bold text-primary mb-3">SECURE & COMPLIANT</h5>
-                        <p class="text-primary fs-6">
-                            Fast, easy, and secure processing with top-level encryption. Our data centers exceed compliance standards.
-                        </p>
-                    </div>
-
-                    <!-- SPEED & ACCURACY -->
-                    <div class="col-md-3 d-flex flex-column align-items-center px-3">
-                        <img src="https://img.icons8.com/color/128/delivery.png" alt="Speed Icon" class="mb-4" />
-                        <h5 class="fw-bold text-primary mb-3">SPEED & ACCURACY</h5>
-                        <p class="text-primary fs-6">
-                            Government records — we provide accurate transcripts with the fastest turnaround times in the industry.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
     </div>
 </div>
  </section>
