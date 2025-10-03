@@ -14,9 +14,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="background-color: black">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
-        <div class="content-wrapper mx-auto bg-white" style="max-width: 1600px;">
+        <div class="content-wrapper mx-auto" style="max-width: 1900px; background-color: #ffcc00;">
 
             <!-- Header -->
             <div class="row g-0 align-items-center px-4 py-3 bg-white border-bottom">
@@ -35,13 +35,13 @@
                     <div class="text-muted small">One of the largest distribution hubs for Government records in the U.S.</div>
                 </div>--%>
                 <div class="col-md-6 text-center">
-                        <div style="text-align: center; font-family: Arial, sans-serif; margin-top: 20px;">
-                            <!-- First row: Form numbers -->
+                    <div style="text-align: center; font-family: Arial, sans-serif; margin-top: 20px;">
+                        <!-- First row: Form numbers -->
                         <div style="font-size: 20px;">
-                            <span style="font-size: small;">Form</span> 
+                            <span style="font-size: small;">Form</span>
                             <span style="font-weight: bolder; font-size: 30px;">4506-C</span>
                             <span style="font-size: 30px; font-weight: bold;">|</span>
-                            <span style="font-size: small">Form</span> 
+                            <span style="font-size: small">Form</span>
                             <span style="font-weight: bolder; font-size: 30px;">8821</span>
                         </div>
 
@@ -51,12 +51,12 @@
                         </div>
 
                         <!-- Third row: Description -->
-                        <div style="font-size: 14px; margin-top: 5px;font-weight: bolder;">
-                            <span style="font-size: 16px; margin-right: 5px; ">&#9658;</span>
+                        <div style="font-size: 14px; margin-top: 5px; font-weight: bolder;">
+                            <span style="font-size: 16px; margin-right: 5px;">&#9658;</span>
                             One of the largest distribution hubs for Government records in the U.S.
                         </div>
                     </div>
-                 </div>
+                </div>
 
 
 
@@ -69,7 +69,7 @@
             </div>
 
             <!-- Navigation Bar -->
-            <div class="py-2" style="background-color: #00468c; border-top: 3px solid #f2b100;">
+            <div class="py-2" style="background-color: #00468c;">
                 <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
                     <!-- Left Navigation Links -->
@@ -88,77 +88,75 @@
                 </div>
             </div>
 
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            <div class="content-wrapper mx-auto bg-white" style="max-width: 1900px;">
+                <img src="/img/TRUST.jpg"
+                    alt="Trust and Experience"
+                    class="img-fluid mx-auto d-block"
+                    style="max-width: 100%; height: auto;" />
+                <div style="width:100%; background-color:#00599D; max-height:0.50rem">&nbsp</div>
+                <div style="width:100%; background-color:#fff; max-height:0.20rem">&nbsp</div>
+                <div style="width:100%; background-color:#ffcc00; max-height:0.60rem">&nbsp</div>
+            </div>
+            <!-- Footer Section -->
+            <footer class="footer text-white pb-4" style="background-color: #00599D;">
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-md-4 mb-4 text-center text-md-start">
+                            <!-- Logo  -->
+                            <img src="/img/Footer.jpg" alt="Logo" class="img-fluid mb-3" style="max-height: 140px; width: auto;" />
+                            <div style="padding-left: 30px;">
+                                <h6>1515 North Federal Highway, Suite 300 
+                    <br />
+                                    Boca Raton, Flordia 33432
+                                </h6>
+                                <p class="small mb-1">
+                                    <i class="fas fa-phone-alt me-2"></i>Customer Service: +1 (800) 123-4567
+                                </p>
+                                <p class="small mb-1">
+                                    <i class="fas fa-envelope me-2"></i>info@irstaxrecords.com
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Quick Links -->
+                        <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
+                            <h5 class="text-uppercase mb-1">Learn More</h5>
+                            <div class="border-top border-white mb-3" style="width: 80%"></div>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
+                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
+                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">About IRStaxrecords.com</a></li>
+                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Get Started and begin ordering records today</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 3: Contact Info -->
+                        <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
+                            <h5 class="text-uppercase mb-1">Getting Started</h5>
+                            <div class="border-top border-white mb-3" style="width: 80%"></div>
+                            <asp:LinkButton href="Login.aspx" Style="width: 50%; background-color: #2596be;" runat="server" CssClass="nav-link text-white px-3 py-1 rounded">
+                     Set up and Account
+                            </asp:LinkButton>
+                            <ul class="list-unstyled small mt-4">
+                                <li class="mb-2 mt-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
+                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom Line -->
+                    <div class="text-center mt-4 border-top border-secondary pt-3 small">
+                        &copy; 2025 IRS Tax Records. All Rights Reserved.
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- Main Content Placeholder -->
-        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-          <div class="content-wrapper mx-auto bg-white" style="max-width: 1920px;">
-                <div class="container-fluid py-1" style="background-color: #f9f9f9;">
-                        <!-- Replace 4 columns with single full-width image -->
-                        <img src="/img/TRUST.jpg" 
-                             alt="Trust and Experience" 
-                             class="img-fluid mx-auto d-block" 
-                             style="max-width: 100%; height: auto;" />
-                </div>
-             </div>
-        <!-- Footer Section -->
-        <footer class="footer text-white pb-4" style="background-color: #00599D;">
-            <div class="container">
-                <div class="row">
-
-
-                    <div class="col-md-4 mb-4 text-center text-md-start">
-                        <!-- Logo  -->
-                        <img src="/img/Footer.jpg" alt="Logo" class="img-fluid mb-3" style="max-height: 140px; width: auto;" />
-                        <div style="padding-left: 30px;">
-                        <h6>
-                            
-                            1515 North Federal Highway, Suite 300 
-                            <br />
-                            Boca Raton, Flordia 33432
-                        </h6>
-                         <p class="small mb-1">
-                             <i class="fas fa-phone-alt me-2"></i>Customer Service: +1 (800) 123-4567
-                         </p>
-                         <p class="small mb-1">
-                             <i class="fas fa-envelope me-2"></i>info@irstaxrecords.com
-                         </p>
-                        </div>
-                    </div>
-
-                    <!-- Column 2: Quick Links -->
-                    <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
-                        <h5 class="text-uppercase mb-1">Learn More</h5>
-                        <div class="border-top border-white mb-3" style="width:80%"></div>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">About IRStaxrecords.com</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Get Started and begin ordering records today</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Column 3: Contact Info -->
-                    <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
-                        <h5 class="text-uppercase mb-1">Getting Started</h5>
-                        <div class="border-top border-white mb-3" style="width:80%"></div>
-                        <asp:LinkButton href="Login.aspx" style="width:50%;background-color: #2596be;" runat="server" CssClass="nav-link text-white px-3 py-1 rounded">
-                             Set up and Account
-                             </asp:LinkButton>
-                          <ul class="list-unstyled small mt-4">
-                           <li class="mb-2 mt-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
-                           <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
-                       </ul>
-                    </div>
-
-                </div>
-
-                <!-- Bottom Line -->
-                <div class="text-center mt-4 border-top border-secondary pt-3 small">
-                    &copy; 2025 IRS Tax Records. All Rights Reserved.
-                </div>
-            </div>
-        </footer>
     </form>
 </body>
 </html>
