@@ -50,10 +50,10 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
+                                <h8 class="ms-3 mb-0 fs-3 text-primary">
                                     Form <strong>4506-C</strong><br />
                                     <a href="Login.aspx" class="text-primary fs-8 text-decoration-underline">UPLOAD PDF</a>
-                                </h5>
+                                </h8>
                             </div>
                             <h6 class="text-danger fs-5">IRS Income Verification</h6>
                             <p class="text-primary fs-5">
