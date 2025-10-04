@@ -9,8 +9,26 @@ Public Class OrderServices
         Return DataRowToOrder(dt.Rows(0))
     End Function
     Public Shared Function GetOrderByCustomers(ByVal CustomerID As Integer) As DataTable
-        Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT TOP 500 fldordernumber as [Order Number], fldrequestname as [Tax Payer], fldssnno as [SSN], fldLoanNumber as [Loan Number], fldOrderdate as [Order Date], 
-                        fldtypeofform as [Form Type], fldstatus as Status, fldPdf as [File Name], fldordertype as [OrderType]" &
+        Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT TOP 500 
+                        fldordernumber as [Order Number], 
+                        fldsecondname as [Tax Payer], 
+                        fldtypeofform as [Form Type], 
+                         RTRIM(
+                                CONCAT(
+                                    CASE WHEN fldTaxYear2020 = 1 THEN '2020 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2021 = 1 THEN '2021 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2022 = 1 THEN '2022 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2023 = 1 THEN '2023 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2024 = 1 THEN '2024 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2025 = 1 THEN '2025 ' ELSE '' END
+                                )
+                            )
+                        AS [Requested Tax Years],
+                        flddeliverydate AS [Delivery Date],    
+                        fldOrderdate  as [Order Date], 
+                        fldstatus as [Status], 
+                        fldPdf as [File Name], 
+                        fldordertype as [OrderType]" &
                        "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " & " AND fldordertype IN  ('1','7','SSV') ORDER BY fldOrderdate DESC")
 
         Return dt

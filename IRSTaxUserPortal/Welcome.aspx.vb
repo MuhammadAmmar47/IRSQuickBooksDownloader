@@ -85,4 +85,26 @@ Public Class Default1
             Return "Unknown"
         End If
     End Function
+
+    Protected Function GetStatusText(obj As Object) As String
+        If obj Is Nothing OrElse String.IsNullOrEmpty(obj.ToString()) Then
+            Return String.Empty
+        End If
+
+        Select Case obj.ToString().Trim().ToLower()
+            Case "d" : Return "Delivered"
+            Case "p" : Return "Pending"
+            Case "a" : Return "Address Reject"
+            Case "s" : Return "Not Matched"
+            Case "n" : Return "Bad SSN"
+            Case "m" : Return "Matched"
+            Case "e" : Return "Expired"
+            Case "i" : Return "Invalid SSN"
+            Case "r" : Return "No Record"
+            Case "u" : Return "Updated"
+            Case "c" : Return "Cancelled"
+            Case Else : Return String.Empty
+        End Select
+    End Function
+
 End Class

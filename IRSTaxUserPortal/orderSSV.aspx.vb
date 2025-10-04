@@ -1,4 +1,6 @@
-﻿Imports IRSTaxRecords.Core
+﻿Imports IRSTaxRecords
+Imports IRSTaxRecords.Core
+Imports IRSTaxRecords.Core.Content
 
 Public Class orderSSV
     Inherits System.Web.UI.Page
@@ -20,6 +22,17 @@ Public Class orderSSV
         ElseIf rbFemale.Checked Then
             gender = rbFemale.Value
         End If
+        Dim lst As New Core.Content.ListType
+
+        ' Addition of ListType for OrderService SSV
+        With lst
+            .fldCurrentdate = Now.ToLongDateString
+            .fldDateCheck = Now.ToShortDateString
+            .fldListname = DateTime.Now.ToString("dddd, MMMM dd, yyyy")
+            .fldlisttype = ListTypeCodeType.SSN
+        End With
+        ListServices.AddNewList(lst)
+
         Dim o As New Orders.Order
         With o
             .fldCompanyID = StoreInstance.GetCustomerId()
@@ -27,11 +40,12 @@ Public Class orderSSV
             .fldemail = "OFF"
             .fldfax = "OFF"
             .fldfaxno = ""
-            .fldListid = 0
-            .fldlisttype = 1
+            .fldListid = lst.fldlistid
+            .fldlisttype = ListTypeCodeType.SSN
             .fldLoanNumber = Me.txtLoanNumber.Text.Trim
             .fldOrderdate = Now.ToShortDateString
             .fldrequestname = txtTaxPayerName.Text.Trim()
+            .fldsecondname = txtTaxPayerName.Text.Trim()
             .fldssnno = txtSocialSecurityNumber.Text.Trim()
             .fldstatus = "p"
             .fldPdf = System.IO.Path.GetFileName(savedFilePath)
@@ -40,8 +54,6 @@ Public Class orderSSV
             .fldTaxyear2022 = Nothing
             .fldTaxyear2023 = Nothing
             .fldTaxyear2024 = Nothing
-            .fldListid = 0
-            .fldlisttype = 0
             .FormType = 0
             .fldordernumber = 0
             .fldDOB = If(String.IsNullOrEmpty(txtDob.Text), Nothing, txtDob.Text.Trim())

@@ -133,7 +133,9 @@
                 <div class="d-grid">
                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
 
-                        <h4>Form 4506 Orders</h4>
+                        <img runat="server" src="/img/Grid4506.gif" 
+                         alt="Form 4506 Orders" 
+                         style="display:block;width:100%; height:auto;" />
                         <asp:GridView ID="Grid1" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -147,18 +149,25 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
+                                <asp:BoundField DataField="Order Number" HeaderText="#" />
                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
-                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
-                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
-                                <asp:BoundField DataField="Status" HeaderText="Status" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
                                         <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <%# GetStatusText(Eval("Status")) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
                                         <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
@@ -167,7 +176,6 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
 
                                 <asp:TemplateField HeaderText="Action">
                                     <ItemTemplate>
@@ -182,7 +190,9 @@
                         <asp:Label ID="lblGrid1Message" runat="server" ForeColor="Red" Visible="False" />
                         <hr />
 
-                        <h4 class="mt-4">Form 8821 Orders</h4>
+                        <img runat="server" src="/img/Grid8821.gif" 
+                         alt="Form 8821 Orders" 
+                         style="display:block;width:100%; height:auto;" />
                         <asp:GridView ID="Grid2" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -196,18 +206,25 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
-                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
-                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
-                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
-                                <asp:BoundField DataField="Status" HeaderText="Status" />
-                                <asp:TemplateField HeaderText="Form Type">
+                              <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                 <asp:TemplateField HeaderText="Form Type">
+                                     <ItemTemplate>
+                                         <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+                                 <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
+                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
-                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                        <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+
+                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
+                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
                                         <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
@@ -216,7 +233,6 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
 
                                 <asp:TemplateField HeaderText="Action">
                                     <ItemTemplate>
@@ -231,7 +247,9 @@
                         <asp:Label ID="lblGrid2Message" runat="server" ForeColor="Red" Visible="False" />
                         <hr />
 
-                        <h4 class="mt-4">SSV Orders</h4>
+                         <img runat="server" src="/img/GridSSV.gif" 
+                          alt="Form SSV Orders" 
+                          style="display:block;width:100%; height:auto;" />
                         <asp:GridView ID="Grid3" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -245,18 +263,25 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="Order Number" />
-                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
-                                <asp:BoundField DataField="SSN" HeaderText="SSN" />
-                                <asp:BoundField DataField="Loan Number" HeaderText="Loan Number" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM/dd/yyyy}" HtmlEncode="False" />
-                                <asp:BoundField DataField="Status" HeaderText="Status" />
-                                <asp:TemplateField HeaderText="Form Type">
+                                <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                 <asp:TemplateField HeaderText="Form Type">
+                                     <ItemTemplate>
+                                         <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+                                 <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" Visible="false"/>
+                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
-                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                        <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+
+                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
+                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
                                         <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
@@ -265,7 +290,6 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
 
                                 <asp:TemplateField HeaderText="Action">
                                     <ItemTemplate>
