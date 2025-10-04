@@ -133,14 +133,23 @@ Public Class order_4506
 
                     ' form type & list info
                     Dim listType As ListTypeCodeType = ListServices.GetListTypeFromFormType(formType)
-                    Dim listID As Integer = ListServices.GetCurrentListID(listType)
+                    Dim lst As New Core.Content.ListType
 
-                    .fldListid = listID
+                    ' Addition of ListType for OrderService SSV
+                    With lst
+                        .fldCurrentdate = Now.ToLongDateString
+                        .fldDateCheck = Now.ToShortDateString
+                        .fldListname = DateTime.Now.ToString("dddd, MMMM dd, yyyy")
+                        .fldlisttype = listType
+                    End With
+                    ListServices.AddNewList(lst)
+
+                    .fldListid = lst.fldlistid
                     .fldlisttype = CInt(listType)
                     .FormType = formType
                     .fldordernumber = 0
                     .fldordertype = "1"
-
+                    .fldtypeofform = formType
                     ' set second name based on rules
                     If formType = TypeOfForm.S_1040 AndAlso loopIndex = 2 Then
                         .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"

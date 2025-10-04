@@ -59,6 +59,7 @@ Public Class orderSSV
             .fldDOB = If(String.IsNullOrEmpty(txtDob.Text), Nothing, txtDob.Text.Trim())
             .fldSex = gender
             .fldordertype = "SSV"
+            .fldtypeofform = TypeOfForm.S_SSN
             OrderServices.CreateNewOrder(o)
             If o.fldordernumber < 1 Then
                 lblMessage.Text = "Failed to save order. " & DataHelper.LastErrorMessage

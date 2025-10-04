@@ -311,7 +311,7 @@
 
 
     <!-- Trust Icons Section -->
-    <section>
+  <%--  <section>
         <div class="container-fluid py-5" style="background-color: #f9f9f9;">
             <div class="container px-4">
                 <div class="row text-center gy-5">
@@ -356,5 +356,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--%>
 </asp:Content>
