@@ -3,128 +3,189 @@
     <!-- Bootstrap CSS + JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+
+  .text-custom-blue {
+    color: #003366 !important;
+  }
+
+  /* Border + right shadow */
+  .custom-shadow-right {
+    border: 2px solid #b3b6af !important; 
+    box-shadow: 6px 0 12px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Buttons in cards */
+  .btn-custom-blue {
+    --bs-btn-color: #003366;
+    --bs-btn-border-color: #003366;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #003366;
+    --bs-btn-hover-border-color: #003366;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0; /* squared corners */
+  }
+
+  /* Card headings */
+  .card h6 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #d80000; /* red */
+  }
+
+  /* Card body text */
+  .card p, .card ul {
+   font-size: 0.875rem !important;
+  line-height: 1.5;
+   font-weight: 500 ;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003366;
+  }
+</style>
+  
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
   <!-- Card Section -->
 
- <!-- Trust Icons Section -->
- <section>
-     <section class="hero-section border-top-yellow mt-2">
-    <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
-        <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100">
-                <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
-            </div>
-            <div class="carousel-item h-100">
-                <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
-            </div>
-            <div class="carousel-item h-100">
-                <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
-            </div>
-        </div>
+  <!-- Trust Icons Section -->
+    <section class="hero-section border-top border-warning border-5">
+  <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner h-100">
+      
+      <div class="carousel-item active">
+        <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg" 
+             class="d-block w-100 img-fluid object-fit-cover" 
+             alt="Slide 1">
+      </div>
 
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+      <div class="carousel-item">
+        <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg" 
+             class="d-block w-100 img-fluid object-fit-cover" 
+             alt="Slide 2">
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg" 
+             class="d-block w-100 img-fluid object-fit-cover" 
+             alt="Slide 3">
+      </div>
     </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </section>
-     <div class="container-fluid py-5" style="background-color: #f9f9f9;">
-    <div class="container px-4">
+
+
+
+    <div class="container-fluid " style="background-color: #f9f9f9;">
+      <div class="container px-4">
         <!-- Card Section -->
-    <section>
-        <div class="container py-5">
-            <div class="row g-4">
+        <section>
+  <div class="container py-5">
+    <div class="row g-4">
 
-                <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="card shadow-lg h-100 rounded-4 border-1">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
-                                <h8 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>4506-C</strong><br />
-                                    <a href="Login.aspx" class="text-primary fs-8 text-decoration-underline">UPLOAD PDF</a>
-                                </h8>
-                            </div>
-                            <h6 class="text-danger fs-5">IRS Income Verification</h6>
-                            <p class="text-primary fs-5">
-                                Verify your applicants income with US Government tax records.
-                                <br /><br />
-                                Obtain 1040s, W2s, 1099s, Corporate 1120s, 1065s, Record of Account, and Account Transcripts directly from the IRS.
-                            </p>
-                            <p class="text-primary fs-6">
-                                Do not be fooled by altered W2s, forged verification of deposits, fake tax returns.
-                            </p>
-                            <img src="/img/hud.png" alt="HUD Partners" class="img-fluid mb-3 mt-auto" />
-                            <a href="Login.aspx" class="btn btn-outline-primary w-100 fw-semibold text-decoration-underline fs-5">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="card shadow-lg h-100 rounded-4 border-1">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/pdf.png" alt="PDF Icon" style="width: 64px; height: 64px;" />
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Form <strong>8821</strong><br />
-                                    <a href="Login.aspx" class="text-primary fs-8 text-decoration-underline">UPLOAD PDF</a>
-                                </h5>
-                            </div>
-                            <h6 class="text-danger fs-5">Expedited Income Verification</h6>
-                            <p class="text-primary fs-5">
-                                Verify your applicants income with same day service.
-                                <br /><br />
-                                Secure online ordering — IRS transcripts delivered within hours of request.
-                            </p>
-                            <p class="text-primary fs-6">
-                                Last minute transcript conditions? We have you covered.
-                            </p>
-                            <img src="/img/hud.png" alt="HUD Partners" class="img-fluid mb-3 mt-auto" />
-                            <a href="Login.aspx" class="btn btn-outline-primary w-100 fw-semibold text-decoration-underline fs-5">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="card shadow-lg h-100 rounded-4 border-1">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://img.icons8.com/color/64/000000/verified-account.png" alt="Verify Icon" style="width: 64px; height: 64px;" />
-                                <h5 class="ms-3 mb-0 fs-3 text-primary">
-                                    Order Social Security<br />
-                                    Validations Online
-                                </h5>
-                            </div>
-                            <h6 class="text-danger fs-5">Social Security Verification</h6>
-                            <p class="text-primary fs-5">
-                                Verify your applicant's Social Security Number with our fast and accurate online system via the U.S. Social Security Administration.
-                            </p>
-                            <ul class="small text-primary fs-5">
-                                <li>SSN Match or No Match report</li>
-                                <li>Data authenticated via SSA</li>
-                                <li>Fast &amp; cost-effective</li>
-                            </ul>
-                            <a href="Login.aspx" class="btn btn-outline-primary w-100 mt-auto text-decoration-underline fw-semibold fs-5">Start ordering today</a>
-                        </div>
-                    </div>
-                </div>
-
+      <!-- Card 1 -->
+      <div class="col-md-4 col-sm-12">
+        <div class="card h-100 rounded-4 custom-shadow-right">
+          <div class="card-body d-flex flex-column text-center text-md-start">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+              <img src="/img/Pdf_4506-C.png" alt="PDF Icon" class="img-fluid w-75 w-md-auto" />
             </div>
+            <h6>IRS Income Verification</h6>
+            <h5 class="text-custom-blue">
+              Verify your applicant's income with US Government tax records.
+            </h5>
+            <br><br>
+            <p>
+              Obtain 1040s, W2s, 1099s, Corporate 1120s, 1065s, Record of Account, and Account Transcripts directly from the IRS.
+              Do not be fooled by altered W2s, forged verification of deposits, fake tax returns and Bogus Financial Statements.
+              <br><br>
+              Cross reference your applicant's declared income with what is actually being reported to the
+              Internal Revenue Service
+              <br><br>
+              Turn around time with form 4506-C is 48 hours
+            </p>
+         <img src="/img/hud.png" 
+     alt="HUD Partners" 
+     class="img-fluid mb-3 mt-auto w-75 w-md-100 mx-auto mx-md-0" />
+
+            <a href="Login.aspx" class="btn btn-custom-blue w-100 text-decoration-underline">Get Started</a>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 col-sm-12">
+        <div class="card h-100 rounded-4 custom-shadow-right">
+          <div class="card-body d-flex flex-column text-center text-md-start">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+              <img src="img/pdf8821.png" alt="PDF Icon" class="img-fluid w-75 w-md-auto" />
+            </div>
+            <h6>Expedited Income Verification</h6>
+            <h5 class="text-custom-blue">
+              Verify your applicant's income with same day service.
+            </h5>
+            <br><br>
+            <p>Secure online ordering — IRS transcripts delivered within hours of request.</p>
+            <p>
+              Last minute transcript conditions? We have you covered with 8821 expedited service.
+              <br><br>
+              Fast, Easy and Secure online ordering makes obtaining IRS transcripts a snap!
+              Secure, efficient, and trusted nationwide.
+            </p>
+         <img src="/img/hud.png" 
+     alt="HUD Partners" 
+     class="img-fluid mb-3 mt-auto w-75 w-md-100 mx-auto mx-md-0" />
+
+            <a href="Login.aspx" class="btn btn-custom-blue w-100 text-decoration-underline">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 col-sm-12">
+        <div class="card h-100 rounded-4 custom-shadow-right">
+          <div class="card-body d-flex flex-column text-center text-md-start">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+              <img src="/img/social_security.png" alt="Verify Icon" class="img-fluid w-75 w-md-auto" />
+            </div>
+            <h6>Social Security Verification</h6>
+            <h5 class="text-custom-blue">
+              Verify your applicant's Social Security Number with our fast and accurate online system via the U.S. Social Security Administration.
+            </h5>
+            <ul class="text-start text-md-start mx-auto mx-md-0">
+              <li>Verification the Social Security Number was issued to your browser</li>
+              <li>Verification of your browser identity</li>
+              <li>Fast 15 minute turn times</li>
+              <li class="text-danger">Fast 15 minute turn times</li>
+              <li>100% accurate information, all data is authenticated via U.S. Social Security Administration database</li>
+              <li>Easy and cost effective</li>
+              <li>Receive Social Security MATCH validation certificate or NO MATCH certificate</li>
+            </ul>
+            <a href="Login.aspx" class="btn btn-custom-blue w-100 text-decoration-underline mt-auto">Start ordering today</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-</div>
- </section>
+  </div>
+</section>
+
+      </div>
+    </div>
+
 </asp:Content>
