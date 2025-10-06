@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Main.Master" CodeBehind="Welcome.aspx.vb" Inherits="IRSTaxUserPortal.Default1" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site1.Master" CodeBehind="Welcome.aspx.vb" Inherits="IRSTaxUserPortal.Default1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />
@@ -10,6 +10,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .text-custom-blue {
+            color: #003366 !important;
+        }
+
+        /* Border + right shadow */
+        .custom-shadow-right {
+            border: 2px solid #b3b6af !important;
+            box-shadow: 6px 0 12px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Buttons in cards */
+        .btn-custom-blue {
+            --bs-btn-color: #003366;
+            --bs-btn-border-color: #003366;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: #003366;
+            --bs-btn-hover-border-color: #003366;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0; /* squared corners */
+        }
+
+        /* Card headings */
+        .card h6 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d80000; /* red */
+        }
+
+        /* Card body text */
+        .card p, .card ul {
+            font-size: 0.875rem !important;
+            line-height: 1.5;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #003366;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -44,17 +85,27 @@
                 cursor: default;
             }
     </style>
-    <section class="hero-section border-top-yellow mt-2">
-        <div id="heroCarousel" class="carousel slide carousel-fade h-80" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- Trust Icons Section -->
+    <section class="hero-section border-top border-warning border-5">
+        <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner h-100">
-                <div class="carousel-item active h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+
+                <div class="carousel-item active">
+                    <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg"
+                        class="d-block w-100 img-fluid object-fit-cover"
+                        alt="Slide 1">
                 </div>
-                <div class="carousel-item h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+
+                <div class="carousel-item">
+                    <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg"
+                        class="d-block w-100 img-fluid object-fit-cover"
+                        alt="Slide 2">
                 </div>
-                <div class="carousel-item h-100">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+
+                <div class="carousel-item">
+                    <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg"
+                        class="d-block w-100 img-fluid object-fit-cover"
+                        alt="Slide 3">
                 </div>
             </div>
 
@@ -63,6 +114,7 @@
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
+
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -133,9 +185,9 @@
                 <div class="d-grid">
                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
 
-                        <img runat="server" src="/img/Grid4506.gif" 
-                         alt="Form 4506 Orders" 
-                         style="display:block;width:100%; height:auto;" />
+                        <img runat="server" src="/img/Grid4506.gif"
+                            alt="Form 4506 Orders"
+                            style="display: block; width: 100%; height: auto;" />
                         <asp:GridView ID="Grid1" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -164,9 +216,9 @@
                                 </asp:TemplateField>
 
                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
@@ -190,9 +242,9 @@
                         <asp:Label ID="lblGrid1Message" runat="server" ForeColor="Red" Visible="False" />
                         <hr />
 
-                        <img runat="server" src="/img/Grid8821.gif" 
-                         alt="Form 8821 Orders" 
-                         style="display:block;width:100%; height:auto;" />
+                        <img runat="server" src="/img/Grid8821.gif"
+                            alt="Form 8821 Orders"
+                            style="display: block; width: 100%; height: auto;" />
                         <asp:GridView ID="Grid2" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -206,24 +258,24 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                              <asp:BoundField DataField="Order Number" HeaderText="#" />
-                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
-                                 <asp:TemplateField HeaderText="Form Type">
-                                     <ItemTemplate>
-                                         <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
-                                     </ItemTemplate>
-                                 </asp:TemplateField>
-                                 <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
-                                 <asp:TemplateField HeaderText="Status">
+                                <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:TemplateField HeaderText="Form Type">
+                                    <ItemTemplate>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
+                                <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
-                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
@@ -247,9 +299,9 @@
                         <asp:Label ID="lblGrid2Message" runat="server" ForeColor="Red" Visible="False" />
                         <hr />
 
-                         <img runat="server" src="/img/GridSSV.gif" 
-                          alt="Form SSV Orders" 
-                          style="display:block;width:100%; height:auto;" />
+                        <img runat="server" src="/img/GridSSV.gif"
+                            alt="Form SSV Orders"
+                            style="display: block; width: 100%; height: auto;" />
                         <asp:GridView ID="Grid3" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -264,23 +316,23 @@
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
                                 <asp:BoundField DataField="Order Number" HeaderText="#" />
-                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
-                                 <asp:TemplateField HeaderText="Form Type">
-                                     <ItemTemplate>
-                                         <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
-                                     </ItemTemplate>
-                                 </asp:TemplateField>
-                                 <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" Visible="false"/>
-                                 <asp:TemplateField HeaderText="Status">
+                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:TemplateField HeaderText="Form Type">
+                                    <ItemTemplate>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" Visible="false" />
+                                <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" /> 
-                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False"     ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
                                 <asp:TemplateField HeaderText="File Name">
                                     <ItemTemplate>
@@ -311,7 +363,7 @@
 
 
     <!-- Trust Icons Section -->
-  <%--  <section>
+    <%--  <section>
         <div class="container-fluid py-5" style="background-color: #f9f9f9;">
             <div class="container px-4">
                 <div class="row text-center gy-5">
