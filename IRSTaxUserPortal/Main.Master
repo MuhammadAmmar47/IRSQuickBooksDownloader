@@ -87,7 +87,11 @@
             </div>
 
             <!-- Footer Section -->
-            <footer class="footer text-white pb-4 border-top border-warning border-5" style="background-color: #00599D;">
+            <footer class="footer text-white pb-4 position-relative" style="background-color: #00599D;">
+
+                <!-- Top Double Borders -->
+                <div class="border-top border-primary border-5"></div>
+                <div class="border-top" style="border-color: #FFD700 !important; border-top-width: 5px !important;"></div>
                 <div class="container">
                     <div class="row">
 
@@ -95,8 +99,8 @@
                         <div class="col-md-4 mb-4 text-center text-md-start">
                             <img src="/img/Footer.jpg" alt="Logo" class="img-fluid mb-3" style="max-height: 140px; width: auto;" />
                             <div style="padding-left: 30px;">
-                                <h6>
-                                    1515 North Federal Highway, Suite 300 <br />
+                                <h6>1515 North Federal Highway, Suite 300
+                                    <br />
                                     Boca Raton, Florida 33432
                                 </h6>
                                 <p class="small mb-1">
@@ -132,10 +136,6 @@
                                 <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="text-center mt-4 border-top border-secondary pt-3 small">
-                        &copy; 2025 IRS Tax Records. All Rights Reserved.
                     </div>
                 </div>
             </footer>

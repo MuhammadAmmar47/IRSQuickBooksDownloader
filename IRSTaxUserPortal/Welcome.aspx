@@ -187,7 +187,7 @@
 
                         <img runat="server" src="/img/Grid4506.gif"
                             alt="Form 4506 Orders"
-                            style="display: block; width: 100%; height: auto;" />
+                            style="display: block; height: auto;" />
                         <asp:GridView ID="Grid1" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -244,7 +244,7 @@
 
                         <img runat="server" src="/img/Grid8821.gif"
                             alt="Form 8821 Orders"
-                            style="display: block; width: 100%; height: auto;" />
+                            style="display: block; height: auto;" />
                         <asp:GridView ID="Grid2" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
@@ -301,7 +301,7 @@
 
                         <img runat="server" src="/img/GridSSV.gif"
                             alt="Form SSV Orders"
-                            style="display: block; width: 100%; height: auto;" />
+                            style="display: block; height: auto;" />
                         <asp:GridView ID="Grid3" runat="server"
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"

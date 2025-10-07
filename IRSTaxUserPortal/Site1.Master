@@ -87,7 +87,10 @@
             </div>
 
             <!-- Footer Section -->
-            <footer class="footer text-white pb-4 border-top border-warning border-5" style="background-color: #00599D;">
+            <footer class="footer text-white pb-4 position-relative" style="background-color: #00599D;">
+                <!-- Top Double Borders -->
+                <div class="border-top border-primary border-5"></div>
+                <div class="border-top" style="border-color: #FFD700 !important; border-top-width: 5px !important;"></div>
                 <div class="container">
                     <div class="row">
 
@@ -123,10 +126,10 @@
                         <!-- Column 3 -->
                         <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
                             <h5 class="text-uppercase mb-1">Getting Started</h5>
-                           <%-- <div class="border-top border-white mb-3 mx-auto mx-md-0" style="width: 80%"></div>
+                            <div class="border-top border-white mb-3 mx-auto mx-md-0" style="width: 80%"></div>
                             <asp:LinkButton href="Login.aspx" Style="width: 50%; background-color: #2596be;" runat="server" CssClass="nav-link text-white px-3 py-1 rounded">
-                             Set up and Account
-                            </asp:LinkButton>--%>
+                                Set up and Account
+                            </asp:LinkButton>
                             <ul class="list-unstyled small mt-4">
                                 <li class="mb-2 mt-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
                                 <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
@@ -134,9 +137,7 @@
                         </div>
                     </div>
 
-                    <div class="text-center mt-4 border-top border-secondary pt-3 small">
-                        &copy; 2025 IRS Tax Records. All Rights Reserved.
-                    </div>
+
                 </div>
             </footer>
         </div>
