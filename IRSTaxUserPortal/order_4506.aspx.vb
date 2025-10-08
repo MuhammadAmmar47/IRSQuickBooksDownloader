@@ -7,7 +7,9 @@ Public Class order_4506
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If StoreInstance.IsUserLoggedIn = False Then
+            Response.Redirect("~/Login.aspx?ReturnUrl=" & Server.UrlEncode(Request.RawUrl))
+        End If
     End Sub
     Public Shared Function UploadFile(file As HttpPostedFile, uploadFolderPath As String) As String
         If file Is Nothing OrElse file.ContentLength = 0 Then
@@ -15,16 +17,11 @@ Public Class order_4506
         End If
 
         Try
-            Dim serverPath As String = HttpContext.Current.Server.MapPath(uploadFolderPath)
-            If Not Directory.Exists(serverPath) Then
-                Directory.CreateDirectory(serverPath)
-            End If
 
-            Dim extension As String = Path.GetExtension(file.FileName)
-            Dim newFileName As String = DateTime.Now.ToString("yyyyMMddHHmmss").ToString() & extension
+            Dim newFileName As String = $"{Guid.NewGuid.ToString}{System.IO.Path.GetExtension(file.FileName)}"
 
 
-            Dim filePath As String = Path.Combine(serverPath, newFileName)
+            Dim filePath As String = Path.Combine(uploadFolderPath, newFileName)
             file.SaveAs(filePath)
 
             Return filePath
@@ -94,14 +91,22 @@ Public Class order_4506
         If Not ValidateForm() Then Return
         Dim savedFilePath As String = Nothing
         If fuform4506C.HasFile Then
-            savedFilePath = UploadFile(fuform4506C.PostedFile, "~/Uploads/")
+            savedFilePath = UploadFile(fuform4506C.PostedFile, AppSettings.PDFSavePath)
+            Dim file As New Core.Content.PDFFileUpload With {
+                .UserID = StoreInstance.CurrentUserId,
+                .PDFFileName = System.IO.Path.GetFileName(savedFilePath),
+                .OriginalFileName = fuform4506C.FileName,
+                .UploadedOn = Now,
+                .LoanNumber = Me.txtLoanNumber.Text.Trim()
+            }
+            PDFFileUploadServices.SavePDFFileUploaded(file)
         End If
         Dim years As Generic.List(Of Integer) = SelectedIDs(chkTaxyears)
 
         Dim resultOrderIDs As New Generic.List(Of Integer)
         Dim typeOfForms = GetTypeOfFormsSelected()
         Dim loopIndex As Integer = 1
-
+        Dim currentUser = StoreInstance.CurrentUser
         For Each kvp In typeOfForms   ' kvp.Key = checkbox value, kvp.Value = List(Of TypeOfForm)
             For Each formType As TypeOfForm In kvp.Value
                 Dim o As New Orders.Order
@@ -118,7 +123,7 @@ Public Class order_4506
                     .fldrequestname = txtTaxPayerName.Text.Trim()
                     .fldssnno = txtSocialSecurityNumber.Text.Trim()
                     .fldstatus = "p"
-                    .fldPdf = System.IO.Path.GetFileName(savedFilePath)
+                    .fldPdf = ""
 
                     ' assign tax years
                     For Each Year As Integer In years
@@ -171,7 +176,7 @@ Public Class order_4506
                 End With
             Next
         Next
-
+        Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "4506", resultOrderIDs.ToSqlList)
         Response.Redirect("~/Confirmation.aspx?form=" & 4506)
     End Sub
 

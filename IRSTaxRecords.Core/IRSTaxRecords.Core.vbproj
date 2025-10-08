@@ -92,6 +92,7 @@
     <Compile Include="Content\Analysis.vb" />
     <Compile Include="Content\ListType.vb" />
     <Compile Include="Content\OrderPadFile.vb" />
+    <Compile Include="Content\PDFFileUpload.vb" />
     <Compile Include="Controls\WebPageMessage.vb" />
     <Compile Include="Customer.vb" />
     <Compile Include="DataFunctions\DataRequest.vb" />
@@ -147,6 +148,7 @@
     <Compile Include="Payment\PaymentTerminal.vb" />
     <Compile Include="Payment\PaymentType.vb" />
     <Compile Include="Payment\Response_Code.vb" />
+    <Compile Include="PDFFileUploadServices.vb" />
     <Compile Include="ReferAFriend.vb" />
     <Compile Include="TypeOfForm.vb" />
     <Compile Include="StoreInstance.vb" />

@@ -1635,4 +1635,21 @@ Public Class DataServices
         Return Data.ExecuteNonQuery(req) > 0
     End Function
 #End Region
+
+#Region "PDF File Upload"
+    Public Function PDFFileUpload_AddNew(ByVal UserID As Integer, PDFFileName As String, OriginalFileName As String, UploadedOn As DateTime, LoanNumber As String) As Integer
+        Dim strQ As String = "INSERT INTO PDFFileUpload(UserID, PDFFileName, OriginalFileName, UploadedOn, LoanNumber) "
+        strQ += " Values (@UserID, @PDFFileName, @OriginalFileName, @UploadedOn, @LoanNumber)" & vbCrLf
+        strQ += " SELECT SCOPE_IDENTITY() AS NEW_ID"
+        Dim req As New DataRequest
+        req.Command = strQ
+        req.CommandType = CommandType.Text
+        req.AddParameter("@UserID", UserID)
+        req.AddParameter("@UploadedOn", UploadedOn)
+        req.AddParameter("@PDFFileName", PDFFileName)
+        req.AddParameter("@OriginalFileName", OriginalFileName)
+        req.AddParameter("@LoanNumber", LoanNumber)
+        Return Data.ExecuteAndReadInteger(req, "NEW_ID")
+    End Function
+#End Region
 End Class

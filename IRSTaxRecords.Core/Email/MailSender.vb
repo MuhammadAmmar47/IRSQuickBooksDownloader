@@ -252,6 +252,34 @@ Namespace Email
 
             Return SendMail(AppSettings.CustomerSupportEmail, AppSettings.CustomerSupportEmail, template, attachments)
         End Function
+
+        Public Shared Function SendOrderCreatedEmail(customerName As String, emailTo As String, OrderName As String, FormName As String, OrderNumbers As String) As Boolean
+            Dim content As String = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=1").Rows(0)("fldmessage")
+            content = content.Replace("<$CustomerName$>", customerName)
+            content = content.Replace("<$ordername$>", OrderName)
+            content = content.Replace("<$frmname$>", FormName)
+            content = content.Replace("<$ordernumber$>", OrderNumbers)
+            Dim t As New Email.EmailTemplate With {
+            .Body = content,
+            .IsHtml = True,
+            .Name = "Order Received",
+            .SenderEmail = AppSettings.CustomerSupportEmail,
+            .SenderName = AppSettings.CustomerSupportName,
+            .Subject = "Order Received"
+            }
+            Try
+                If Email.MailSender.Send(t.SenderEmail, emailTo, "", t.Subject, t.Body, Nothing) Then
+                    Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {OrderNumbers}")
+                    Return True
+                Else
+                    Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {Email.MailSender.LastError}")
+                    Return False
+                End If
+            Catch ex As Exception
+                Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {ex.MessageWithInnerExceptionDetails}")
+            End Try
+            Return False
+        End Function
 #End Region
     End Class
 End Namespace

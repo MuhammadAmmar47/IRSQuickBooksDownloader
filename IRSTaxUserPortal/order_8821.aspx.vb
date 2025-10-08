@@ -6,7 +6,9 @@ Public Class order_8821
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If StoreInstance.IsUserLoggedIn = False Then
+            Response.Redirect("~/Login.aspx?ReturnUrl=" & Server.UrlEncode(Request.RawUrl))
+        End If
     End Sub
     Public Shared Function UploadFile(file As HttpPostedFile, uploadFolderPath As String) As String
         If file Is Nothing OrElse file.ContentLength = 0 Then
@@ -94,7 +96,15 @@ Public Class order_8821
         If Not ValidateForm() Then Return
         Dim savedFilePath As String = Nothing
         If fuform8821.HasFile Then
-            savedFilePath = UploadFile(fuform8821.PostedFile, "~/Uploads/")
+            savedFilePath = UploadFile(fuform8821.PostedFile, AppSettings.PDFSavePath)
+            Dim file As New Core.Content.PDFFileUpload With {
+                .UserID = StoreInstance.CurrentUserId,
+                .PDFFileName = System.IO.Path.GetFileName(savedFilePath),
+                .OriginalFileName = fuform8821.FileName,
+                .UploadedOn = Now,
+                .LoanNumber = Me.txtLoanNumber.Text.Trim()
+            }
+            PDFFileUploadServices.SavePDFFileUploaded(file)
         End If
         Dim years As Generic.List(Of Integer) = SelectedIDs(chkTaxyears)
 
@@ -102,6 +112,7 @@ Public Class order_8821
         Dim typeOfForms = GetTypeOfFormsSelected()
         Dim loopIndex As Integer = 1
 
+        Dim currentUser = StoreInstance.CurrentUser
         For Each kvp In typeOfForms   ' kvp.Key = checkbox value, kvp.Value = List(Of TypeOfForm)
             For Each formType As TypeOfForm In kvp.Value
                 Dim o As New Orders.Order
@@ -116,7 +127,7 @@ Public Class order_8821
                     .fldrequestname = txtTaxPayerName.Text.Trim()
                     .fldssnno = txtSocialSecurityNumber.Text.Trim()
                     .fldstatus = "p"
-                    .fldPdf = System.IO.Path.GetFileName(savedFilePath)
+                    .fldPdf = ""
 
                     ' assign tax years
                     For Each Year As Integer In years
@@ -169,7 +180,7 @@ Public Class order_8821
                 End With
             Next
         Next
-
+        Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList)
         Response.Redirect("~/Confirmation.aspx?form=" & 8821)
     End Sub
 
