@@ -28,8 +28,8 @@ Public Class OrderServices
                         fldOrderdate  as [Order Date], 
                         fldstatus as [Status], 
                         fldPdf as [File Name], 
-                        fldordertype as [OrderType]" &
-                       "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " & " AND fldordertype IN  ('1','7','SSV') ORDER BY fldOrderdate DESC")
+                        IsNull(fldordertype, 0) as [OrderType]" &
+                       "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " & " ORDER BY fldOrderdate DESC")
 
         Return dt
     End Function

@@ -148,7 +148,7 @@ Public Class order_4506
                     .fldlisttype = CInt(listType)
                     .FormType = formType
                     .fldordernumber = 0
-                    .fldordertype = "1"
+                    .fldordertype = Orders.OrderType.Form_4506
                     .fldtypeofform = formType
                     ' set second name based on rules
                     If formType = TypeOfForm.S_1040 AndAlso loopIndex = 2 Then

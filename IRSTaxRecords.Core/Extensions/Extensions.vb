@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports System.Linq
 
-Module Extensions
+Public Module Extensions
     <Extension()>
     Public Function MessageWithInnerExceptionDetails(ByVal e As Exception) As String
         If e Is Nothing Then Return ""

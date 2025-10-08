@@ -33,6 +33,7 @@ Public Class orderSSV
         End With
         ListServices.AddNewList(lst)
 
+        Dim currentUser = StoreInstance.CurrentUser
         Dim o As New Orders.Order
         With o
             .fldCompanyID = StoreInstance.GetCustomerId()
@@ -58,7 +59,7 @@ Public Class orderSSV
             .fldordernumber = 0
             .fldDOB = If(String.IsNullOrEmpty(txtDob.Text), Nothing, txtDob.Text.Trim())
             .fldSex = gender
-            .fldordertype = "SSV"
+            .fldordertype = Orders.OrderType.Form_SSN
             .fldtypeofform = TypeOfForm.S_SSN
             OrderServices.CreateNewOrder(o)
             If o.fldordernumber < 1 Then
@@ -66,6 +67,29 @@ Public Class orderSSV
             End If
             resultOrderIDs.Add(o.fldordernumber)
         End With
+
+        Dim content As String = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=1")(0)("fldmessage")
+        content = content.Replace("<$CustomerName$>", currentUser.Name)
+        content = content.Replace("<$ordername$>", o.fldrequestname)
+        content = content.Replace("<$frmname$>", "SSN")
+        content = content.Replace("<$ordernumber$>", resultOrderIDs.ToSqlList)
+        Dim t As New Email.EmailTemplate With {
+            .Body = content,
+            .IsHtml = True,
+            .Name = "Order Received",
+            .SenderEmail = AppSettings.CustomerSupportEmail,
+            .SenderName = AppSettings.CustomerSupportName,
+            .Subject = "Order Received"
+            }
+        Try
+            If Email.MailSender.Send(t.SenderEmail, currentUser.Email, "", t.Subject, t.Body, Nothing) Then
+                Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {resultOrderIDs.ToSqlList}")
+            Else
+                Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {resultOrderIDs.ToSqlList}. {Email.MailSender.LastError}")
+            End If
+        Catch ex As Exception
+            Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {resultOrderIDs.ToSqlList}. {ex.MessageWithInnerExceptionDetails}")
+        End Try
 
         Response.Redirect("~/Confirmation.aspx")
     End Sub

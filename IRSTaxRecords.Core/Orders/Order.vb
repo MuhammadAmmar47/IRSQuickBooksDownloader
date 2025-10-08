@@ -13,7 +13,6 @@ Namespace Orders
         Private _fldtaxyear2001 As Boolean
         Private _fldtaxyear2000 As Boolean
         Private _fldtypeofform As String = ""
-        Private _fldordertype As String = ""
         Private _fldemail As String = ""
         Private _fldfax As String = ""
         Private _fldfaxno As String = ""
@@ -207,14 +206,7 @@ Namespace Orders
                 _fldtypeofform = Value
             End Set
         End Property
-        Public Property fldordertype() As String
-            Get
-                Return _fldordertype
-            End Get
-            Set(ByVal Value As String)
-                _fldordertype = Value
-            End Set
-        End Property
+        Public Property fldordertype() As OrderType = OrderType.Form_4506
 
         Public Property fldemail() As String
             Get
@@ -477,4 +469,9 @@ Namespace Orders
             End Set
         End Property
     End Class
+    Public Enum OrderType
+        Form_4506 = 0
+        Form_8821 = 1
+        Form_SSN = 2
+    End Enum
 End Namespace

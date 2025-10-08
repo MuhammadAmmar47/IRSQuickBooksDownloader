@@ -21,7 +21,7 @@ Public Class Default1
         Dim dtAll As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId)
 
         ' Grid1
-        Dim dr1() As DataRow = dtAll.Select("OrderType = '1'")
+        Dim dr1() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)}")
         If dr1.Length > 0 Then
             Grid1.DataSource = dr1.CopyToDataTable()
             lblGrid1Message.Visible = False
@@ -33,7 +33,7 @@ Public Class Default1
         Grid1.DataBind()
 
         ' Grid2
-        Dim dr2() As DataRow = dtAll.Select("OrderType = '7'")
+        Dim dr2() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_8821)}")
         If dr2.Length > 0 Then
             Grid2.DataSource = dr2.CopyToDataTable()
             lblGrid2Message.Visible = False
@@ -45,7 +45,7 @@ Public Class Default1
         Grid2.DataBind()
 
         ' Grid3
-        Dim dr3() As DataRow = dtAll.Select("OrderType = 'SSV'")
+        Dim dr3() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_SSN)}")
         If dr3.Length > 0 Then
             Grid3.DataSource = dr3.CopyToDataTable()
             lblGrid3Message.Visible = False
