@@ -1,4 +1,5 @@
-﻿Imports IRSTaxRecords
+﻿Imports System.Web.Services.Description
+Imports IRSTaxRecords
 Imports IRSTaxRecords.Core
 Imports IRSTaxRecords.Core.Content
 
@@ -32,16 +33,24 @@ Public Class orderSSV
         ElseIf rbFemale.Checked Then
             gender = rbFemale.Value
         End If
-        Dim lst As New Core.Content.ListType
 
-        ' Addition of ListType for OrderService SSV
-        With lst
-            .fldCurrentdate = Now.ToLongDateString
-            .fldDateCheck = Now.ToShortDateString
-            .fldListname = DateTime.Now.ToString("dddd, MMMM dd, yyyy")
-            .fldlisttype = ListTypeCodeType.SSN
-        End With
-        ListServices.AddNewList(lst)
+        ' form type & list info
+        Dim listType As ListTypeCodeType = ListTypeCodeType.SSN
+        Dim currentListID = ListServices.GetCurrentListID(listType)
+        Dim lst As Core.Content.ListType = Nothing
+        If currentListID > 0 Then
+            lst = ListServices.GetList(currentListID)
+        Else
+            ' Addition of ListType for OrderService SSV
+            lst = New Content.ListType
+            With lst
+                .fldCurrentdate = Now.ToLongDateString
+                .fldDateCheck = Now.ToShortDateString
+                .fldListname = DateTime.Now.ToString("dddd, MMMM dd, yyyy")
+                .fldlisttype = listType
+            End With
+            ListServices.AddNewList(lst)
+        End If
 
         Dim currentUser = StoreInstance.CurrentUser
         Dim o As New Orders.Order

@@ -52,8 +52,21 @@ Public Class order_8821
         End If
     End Function
 
-    Private Function GetTypeOfFormsSelected() As Dictionary(Of String, List(Of TypeOfForm))
-        Dim typeOfFormsMap As New Dictionary(Of String, List(Of TypeOfForm))()
+    Public Class FormsToAdd
+        Public Property FormType As TypeOfForm
+        Public Property RecordOfAccount As Boolean = False
+        Public Property AccountTranscript As Boolean = False
+        Public Sub New()
+        End Sub
+        Public Sub New(ftype As TypeOfForm, RA As Boolean, AT As Boolean)
+            MyBase.New
+            FormType = ftype
+            RecordOfAccount = RA
+            AccountTranscript = AT
+        End Sub
+    End Class
+    Private Function GetTypeOfFormsSelected() As List(Of FormsToAdd)
+        Dim list As New List(Of FormsToAdd)
 
         For Each item As ListItem In chkTaxForms.Items
             If item.Selected Then
@@ -61,34 +74,32 @@ Public Class order_8821
 
                 Select Case item.Value
                     Case "1040"
-                        forms.Add(TypeOfForm.S_1040)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, False, False))
                     Case "1040R"
-                        forms.Add(TypeOfForm.S_1040)
-                        forms.Add(TypeOfForm.S_1040)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, False, False))
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, True, False))
                     Case "AT"
-                        forms.Add(TypeOfForm.S_1040)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, False, True))
                     Case "ROA"
-                        forms.Add(TypeOfForm.S_1040)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, True, False))
                     Case "1040/W2"
-                        forms.Add(TypeOfForm.S_1040)
-                        forms.Add(TypeOfForm.S_W2)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1040, False, False))
+                        list.Add(New FormsToAdd(TypeOfForm.S_W2, False, False))
                     Case "1120"
-                        forms.Add(TypeOfForm.S_1120)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1120, False, False))
                     Case "1065"
-                        forms.Add(TypeOfForm.S_1065)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1065, False, False))
                     Case "W-2"
-                        forms.Add(TypeOfForm.S_W2)
+                        list.Add(New FormsToAdd(TypeOfForm.S_W2, False, False))
                     Case "1099"
-                        forms.Add(TypeOfForm.S_1099)
+                        list.Add(New FormsToAdd(TypeOfForm.S_1099, False, False))
                     Case Else
                         Throw New Exception("Form type " & item.Value & " is not a valid form type.")
                 End Select
-
-                typeOfFormsMap.Add(item.Value, forms)
             End If
         Next
 
-        Return typeOfFormsMap
+        Return list
     End Function
 
 
@@ -110,41 +121,44 @@ Public Class order_8821
 
         Dim resultOrderIDs As New Generic.List(Of Integer)
         Dim typeOfForms = GetTypeOfFormsSelected()
-        Dim loopIndex As Integer = 1
 
         Dim currentUser = StoreInstance.CurrentUser
-        For Each kvp In typeOfForms   ' kvp.Key = checkbox value, kvp.Value = List(Of TypeOfForm)
-            For Each formType As TypeOfForm In kvp.Value
-                Dim o As New Orders.Order
-                With o
-                    .fldCompanyID = StoreInstance.GetCustomerId()
-                    .fldcustomeriD = StoreInstance.GetCustomerId()
-                    .fldemail = "OFF"
-                    .fldfax = "OFF"
-                    .fldfaxno = ""
-                    .fldLoanNumber = Me.txtLoanNumber.Text.Trim
-                    .fldOrderdate = Now.ToShortDateString
-                    .fldrequestname = txtTaxPayerName.Text.Trim()
-                    .fldssnno = txtSocialSecurityNumber.Text.Trim()
-                    .fldstatus = "p"
-                    .fldPdf = ""
 
-                    ' assign tax years
-                    For Each Year As Integer In years
-                        Select Case Year
-                            Case 2020 : .fldTaxyear2020 = True
-                            Case 2021 : .fldTaxyear2021 = True
-                            Case 2022 : .fldTaxyear2022 = True
-                            Case 2023 : .fldTaxyear2023 = True
-                            Case 2024 : .fldTaxyear2024 = True
-                        End Select
-                    Next
+        For Each frm In typeOfForms
+            Dim o As New Orders.Order
+            With o
+                .fldCompanyID = StoreInstance.GetCustomerId()
+                .fldcustomeriD = StoreInstance.GetCustomerId()
+                .fldemail = "OFF"
+                .fldfax = "OFF"
+                .fldfaxno = ""
+                .fldLoanNumber = Me.txtLoanNumber.Text.Trim
+                .fldOrderdate = Now.ToShortDateString
+                .fldrequestname = txtTaxPayerName.Text.Trim()
+                .fldssnno = txtSocialSecurityNumber.Text.Trim()
+                .fldstatus = "p"
+                .fldPdf = ""
 
-                    ' form type & list info
-                    Dim listType As ListTypeCodeType = ListServices.GetListTypeFromFormType(formType)
-                    Dim lst As New Core.Content.ListType
+                ' assign tax years
+                For Each Year As Integer In years
+                    Select Case Year
+                        Case 2020 : .fldTaxyear2020 = True
+                        Case 2021 : .fldTaxyear2021 = True
+                        Case 2022 : .fldTaxyear2022 = True
+                        Case 2023 : .fldTaxyear2023 = True
+                        Case 2024 : .fldTaxyear2024 = True
+                    End Select
+                Next
 
+                ' form type & list info
+                Dim listType As ListTypeCodeType = ListServices.GetListTypeFromFormType(frm.FormType)
+                Dim currentListID = ListServices.GetCurrentListID(listType)
+                Dim lst As Core.Content.ListType = Nothing
+                If currentListID > 0 Then
+                    lst = ListServices.GetList(currentListID)
+                Else
                     ' Addition of ListType for OrderService SSV
+                    lst = New Content.ListType
                     With lst
                         .fldCurrentdate = Now.ToLongDateString
                         .fldDateCheck = Now.ToShortDateString
@@ -152,34 +166,32 @@ Public Class order_8821
                         .fldlisttype = listType
                     End With
                     ListServices.AddNewList(lst)
+                End If
 
-                    .fldListid = lst.fldlistid
-                    .fldlisttype = CInt(listType)
-                    .FormType = formType
-                    .fldordernumber = 0
-                    .fldordertype = Orders.OrderType.Form_8821
-                    .fldtypeofform = TypeOfForm.S_8821
-                    ' set second name based on rules
-                    If formType = TypeOfForm.S_1040 AndAlso loopIndex = 2 Then
-                        .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"
-                    ElseIf kvp.Key = "ROA" Then
-                        .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"
-                    ElseIf kvp.Key = "AT" Then
-                        .fldsecondname = txtTaxPayerName.Text.Trim() & " AT"
-                    Else
-                        .fldsecondname = txtTaxPayerName.Text.Trim()
-                    End If
+                .fldListid = lst.fldlistid
+                .fldlisttype = CInt(listType)
+                .FormType = frm.FormType
+                .fldordernumber = 0
+                .fldordertype = Orders.OrderType.Form_8821
+                .fldtypeofform = TypeOfForm.S_8821
 
-                    ' save order
-                    OrderServices.CreateNewOrder(o)
-                    If o.fldordernumber < 1 Then
-                        lblMessage.Text = "Failed to save order. " & DataHelper.LastErrorMessage
-                    End If
-                    resultOrderIDs.Add(o.fldordernumber)
-                    loopIndex += 1
-                End With
-            Next
+                If frm.AccountTranscript Then
+                    .fldsecondname = txtTaxPayerName.Text.Trim() & " AT"
+                ElseIf frm.RecordOfAccount Then
+                    .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"
+                Else
+                    .fldsecondname = txtTaxPayerName.Text.Trim()
+                End If
+
+                ' save order
+                OrderServices.CreateNewOrder(o)
+                If o.fldordernumber < 1 Then
+                    lblMessage.Text = "Failed to save order. " & DataHelper.LastErrorMessage
+                End If
+                resultOrderIDs.Add(o.fldordernumber)
+            End With
         Next
+
         Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList)
         Response.Redirect("~/Confirmation.aspx?form=" & 8821)
     End Sub

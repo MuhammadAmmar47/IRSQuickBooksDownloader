@@ -32,7 +32,13 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label fw-semibold">Social Security Number</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="11" Mask="000-00-0000"></asp:TextBox>                                
+                                <asp:RegularExpressionValidator ID="revSSN" runat="server"
+                                    ControlToValidate="txtSocialSecurityNumber"
+                                    ValidationExpression="\d{3}-\d{2}-\d{4}"
+                                    ErrorMessage="Invalid SSN format (e.g., 123-45-6789)"
+                                    Display="Dynamic">
+                                </asp:RegularExpressionValidator>                                
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label fw-semibold">Loan Number</label>
@@ -83,4 +89,21 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function formatSSN(input) {
+            var ssn = input.value.replace(/\D/g, ''); // Remove non-digit characters
+            var formattedSSN = '';
+
+            if (ssn.length > 0) {
+                formattedSSN += ssn.substring(0, 3);
+            }
+            if (ssn.length > 3) {
+                formattedSSN += '-' + ssn.substring(3, 5);
+            }
+            if (ssn.length > 5) {
+                formattedSSN += '-' + ssn.substring(5, 9);
+            }
+            input.value = formattedSSN;
+        }
+    </script>
 </asp:Content>

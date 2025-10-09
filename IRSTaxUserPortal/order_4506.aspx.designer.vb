@@ -41,6 +41,15 @@ Partial Public Class order_4506
     Protected WithEvents txtSocialSecurityNumber As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revSSN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revSSN As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtLoanNumber control.
     '''</summary>
     '''<remarks>
