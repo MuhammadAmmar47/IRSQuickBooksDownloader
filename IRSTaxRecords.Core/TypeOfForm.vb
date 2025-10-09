@@ -6,7 +6,6 @@ Public Enum TypeOfForm
     S_W2 = 4
     S_1099 = 5
     S_SSN = 6
-    S_8821 = 7
 End Enum
 
 Public Enum ListTypeCodeType

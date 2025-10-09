@@ -173,8 +173,7 @@ Public Class order_8821
                 .FormType = frm.FormType
                 .fldordernumber = 0
                 .fldordertype = Orders.OrderType.Form_8821
-                '.fldtypeofform = frm.FormType
-                .fldtypeofform = TypeOfForm.S_8821
+                .fldtypeofform = frm.FormType
 
                 If frm.AccountTranscript Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 AT"
