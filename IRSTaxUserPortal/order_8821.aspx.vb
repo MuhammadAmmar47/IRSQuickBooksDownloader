@@ -176,11 +176,11 @@ Public Class order_8821
                 .fldtypeofform = TypeOfForm.S_8821
 
                 If frm.AccountTranscript Then
-                    .fldsecondname = txtTaxPayerName.Text.Trim() & " AT"
+                    .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 AT"
                 ElseIf frm.RecordOfAccount Then
-                    .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"
+                    .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 ROA"
                 Else
-                    .fldsecondname = txtTaxPayerName.Text.Trim()
+                    .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821"
                 End If
 
                 ' save order

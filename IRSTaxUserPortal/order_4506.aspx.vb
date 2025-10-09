@@ -160,11 +160,11 @@ Public Class order_4506
                 .fldtypeofform = frm.FormType
                 ' set second name based on rules
                 If frm.AccountTranscript Then
-                    .fldsecondname = txtTaxPayerName.Text.Trim() & " AT"
+                    .fldrequestname = txtTaxPayerName.Text.Trim() & " AT"
                 ElseIf frm.RecordOfAccount Then
-                    .fldsecondname = txtTaxPayerName.Text.Trim() & " ROA"
+                    .fldrequestname = txtTaxPayerName.Text.Trim() & " ROA"
                 Else
-                    .fldsecondname = txtTaxPayerName.Text.Trim()
+                    .fldrequestname = txtTaxPayerName.Text.Trim()
                 End If
 
                 ' save order
