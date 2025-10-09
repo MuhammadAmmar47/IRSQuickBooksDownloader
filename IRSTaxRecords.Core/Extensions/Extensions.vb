@@ -21,4 +21,14 @@ Public Module Extensions
 
         Return String.Join(", ", strings)
     End Function
+    <Extension>
+    Public Function IsNullOrEmpty(value As String) As Boolean
+        If value Is Nothing Then Return True
+        If value.Trim() = "" Then Return True
+        Return False
+    End Function
+    <Extension>
+    Public Function IsNotNullOrEmpty(value As String) As Boolean
+        Return Not value.IsNullOrEmpty()
+    End Function
 End Module

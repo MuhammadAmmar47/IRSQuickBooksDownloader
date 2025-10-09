@@ -88,7 +88,7 @@ Public Class orderSSV
         End With
 
         Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, o.fldrequestname, "SSN", resultOrderIDs.ToSqlList)
-        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, o.fldrequestname, "SSN", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim)
+        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, o.fldrequestname, "SSN", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
         Response.Redirect("~/Confirmation.aspx")
     End Sub
     Private Function ValidateForm() As Boolean

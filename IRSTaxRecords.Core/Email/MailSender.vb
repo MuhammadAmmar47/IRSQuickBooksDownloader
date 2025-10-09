@@ -280,7 +280,7 @@ Namespace Email
             End Try
             Return False
         End Function
-        Public Shared Function SendOrderCreatedEmailToAdmin(customerName As String, UserID As String, OrderName As String, FormName As String, OrderNumbers As String, LoanNumber As String) As Boolean
+        Public Shared Function SendOrderCreatedEmailToAdmin(customerName As String, UserID As String, OrderName As String, FormName As String, OrderNumbers As String, LoanNumber As String, pdfFilePath As String) As Boolean
             Dim content As String = $"Dear Admin,<br />  
    Customer name ({customerName}) with User ID ({UserID}), has ordered ({FormName}) for Taxpayer Name ({OrderName}). <br />
    The order form is attached. This order was entered at {Now.ToString()}. The loan number for this order is ({LoanNumber}).
@@ -293,8 +293,13 @@ Namespace Email
             .SenderName = AppSettings.CustomerSupportName,
             .Subject = "New Order Received"
             }
+            Dim attachments As New List(Of String)
+            If pdfFilePath.IsNotNullOrEmpty AndAlso System.IO.File.Exists(pdfFilePath) Then
+                attachments.Add(pdfFilePath)
+            End If
             Try
-                If Email.MailSender.Send(t.SenderEmail, AppSettings.CustomerSupportEmail, "", t.Subject, t.Body, Nothing) Then
+
+                If Email.MailSender.Send(t.SenderEmail, AppSettings.CustomerSupportEmail, "", t.Subject, t.Body, attachments) Then
                     Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {OrderNumbers}")
                     Return True
                 Else

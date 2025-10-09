@@ -193,7 +193,7 @@ Public Class order_8821
         Next
 
         Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList)
-        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim)
+        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
         Response.Redirect("~/Confirmation.aspx?form=" & 8821)
     End Sub
 

@@ -177,7 +177,7 @@ Public Class order_4506
         Next
 
         Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "4506", resultOrderIDs.ToSqlList)
-        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, "4506", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim)
+        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, "4506", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
         Response.Redirect("~/Confirmation.aspx?form=" & 4506)
     End Sub
 
