@@ -1,8 +1,16 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site1.Master" CodeBehind="order_8821.aspx.vb" Inherits="IRSTaxUserPortal.order_8821" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site1.Master" CodeBehind="order_8821.aspx.vb" Inherits="IRSTaxUserPortal.order_8821" Title="Order 8821" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Order 8821</title>
     <!-- Optional: Add page-specific CSS or JS here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $('#<%= txtSocialSecurityNumber.ClientID %>').mask('000-00-0000');
+        });
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -33,7 +41,7 @@
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="form-label fw-semibold small">Social Security Number:</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="form-label fw-semibold small">Loan Number:</label>

@@ -1,11 +1,19 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false"
     MasterPageFile="~/Site1.Master"
     CodeBehind="order_4506.aspx.vb"
-    Inherits="IRSTaxUserPortal.order_4506" %>
+    Inherits="IRSTaxUserPortal.order_4506" Title="Order 4506"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Order 4506-C</title>
     <!-- Optional: Add page-specific CSS or JS here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $('#<%= txtSocialSecurityNumber.ClientID %>').mask('000-00-0000');
+    });
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,13 +40,13 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label fw-semibold">Social Security Number</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="11" Mask="000-00-0000"></asp:TextBox>                                
+                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="11" Mask="000-00-0000" placeholder="145-74-9891"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="revSSN" runat="server"
                                     ControlToValidate="txtSocialSecurityNumber"
                                     ValidationExpression="\d{3}-\d{2}-\d{4}"
                                     ErrorMessage="Invalid SSN format (e.g., 123-45-6789)"
                                     Display="Dynamic">
-                                </asp:RegularExpressionValidator>                                
+                                </asp:RegularExpressionValidator>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label fw-semibold">Loan Number</label>
