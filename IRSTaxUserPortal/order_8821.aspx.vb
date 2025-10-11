@@ -179,6 +179,8 @@ Public Class order_8821
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 AT"
                 ElseIf frm.RecordOfAccount Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 ROA"
+                ElseIf frm.FormType = TypeOfForm.S_1099 Then
+                    .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 1099"
                 Else
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821"
                 End If

@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold small mb-1">Social Security Number:</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server" MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server" MaxLength="50" placeholder="123-45-6789"></asp:TextBox>
                                 <small class="text-muted">Example Format: 145-74-9891</small>
                             </div>
                         </div>

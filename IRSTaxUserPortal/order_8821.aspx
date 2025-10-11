@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="form-label fw-semibold small">Social Security Number:</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" MaxLength="50" placeholder="145-74-9891"></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" class="form-control" runat="server" MaxLength="50" placeholder="123-45-6789"></asp:TextBox>
                             </div>
                             <div class="col-md-4 mb-2">
                                 <label class="form-label fw-semibold small">Loan Number:</label>

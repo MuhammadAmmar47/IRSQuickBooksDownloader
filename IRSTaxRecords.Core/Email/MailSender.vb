@@ -281,10 +281,12 @@ Namespace Email
             Return False
         End Function
         Public Shared Function SendOrderCreatedEmailToAdmin(customerName As String, UserID As String, OrderName As String, FormName As String, OrderNumbers As String, LoanNumber As String, pdfFilePath As String) As Boolean
-            Dim content As String = $"Dear Admin,<br />  
-   Customer name ({customerName}) with User ID ({UserID}), has ordered ({FormName}) for Taxpayer Name ({OrderName}). <br />
-   The order form is attached. This order was entered at {Now.ToString()}. The loan number for this order is ({LoanNumber}).
-"
+            Dim content As String = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=12").Rows(0)("fldmessage")
+            content = content.Replace("<$CustomerName$>", customerName)
+            content = content.Replace("<$ordername$>", OrderName)
+            content = content.Replace("<$frmname$>", FormName)
+            content = content.Replace("<$ordernumber$>", OrderNumbers)
+
             Dim t As New Email.EmailTemplate With {
             .Body = content,
             .IsHtml = True,

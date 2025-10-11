@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label fw-semibold">Social Security Number</label>
-                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="11" Mask="000-00-0000" placeholder="145-74-9891"></asp:TextBox>
+                                <asp:TextBox ID="txtSocialSecurityNumber" CssClass="form-control" runat="server" MaxLength="11" Mask="000-00-0000" placeholder="123-45-6789"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="revSSN" runat="server"
                                     ControlToValidate="txtSocialSecurityNumber"
                                     ValidationExpression="\d{3}-\d{2}-\d{4}"
