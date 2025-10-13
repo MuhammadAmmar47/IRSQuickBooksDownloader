@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports System.Linq
+Imports System.Web
 
 Public Module Extensions
     <Extension()>
@@ -31,4 +32,15 @@ Public Module Extensions
     Public Function IsNotNullOrEmpty(value As String) As Boolean
         Return Not value.IsNullOrEmpty()
     End Function
+
+    <Extension>
+    Public Function StreamFileToUser(fileToStream As String, DisplayName As String) As Boolean
+        HttpContext.Current.Response.Clear()
+        HttpContext.Current.Response.ContentType = "application/pdf"
+        HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" & DisplayName)
+        HttpContext.Current.Response.WriteFile(fileToStream)
+        HttpContext.Current.Response.Flush()
+        HttpContext.Current.Response.End()
+    End Function
+
 End Module

@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.CodeDom
+Imports System.Data.SqlClient
+Imports System.Security.AccessControl
 Imports IRSTaxRecords.Core
 
 Public Class Default1
@@ -80,7 +82,7 @@ Public Class Default1
         Dim intVal As Integer = Convert.ToInt32(value)
 
         If [Enum].IsDefined(GetType(TypeOfForm), intVal) Then
-            Return DirectCast([Enum].ToObject(GetType(TypeOfForm), intVal), TypeOfForm).ToString()
+            Return DirectCast([Enum].ToObject(GetType(TypeOfForm), intVal), TypeOfForm).ToString().Replace("S_", "")
         Else
             Return "Unknown"
         End If
@@ -107,4 +109,30 @@ Public Class Default1
         End Select
     End Function
 
+    Private Sub Grid1_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles Grid1.RowCommand, Grid2.RowCommand, Grid3.RowCommand
+        If e.CommandName = "DownloadFile" Then
+            Dim fileNAme = e.CommandArgument.ToString()
+            Dim filePath = System.IO.Path.Combine(AppSettings.MoveDeliveredPDFToFolderPath, fileNAme)
+            If Not System.IO.File.Exists(filePath) Then
+                ' File does not exist
+                ClientScript.RegisterStartupScript(Me.GetType(), "alert", "alert('File not found.');", True)
+                Return
+            End If
+            StreamFileToUser(filePath, fileNAme)
+        End If
+    End Sub
+
+    Private Sub Grid3_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles Grid1.RowDataBound, Grid2.RowDataBound, Grid3.RowDataBound
+        Dim btnView = CType(e.Row.FindControl("btnView"), ImageButton)
+        If btnView Is Nothing Then Return
+        Dim dr As DataRowView = CType(e.Row.DataItem, DataRowView)
+        Dim OrderNumber = CInt(dr("Order Number"))
+        Dim FileName = dr("File Name").ToString
+        If FileName.IsNullOrEmpty Then
+            btnView.OnClientClick = "return false;"
+        Else
+            btnView.OnClientClick = $"downloadFile({OrderNumber}); return false;"
+        End If
+
+    End Sub
 End Class

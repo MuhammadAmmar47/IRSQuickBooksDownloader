@@ -192,7 +192,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="5"
+                            PageSize="10"
                             OnPageIndexChanging="Grid1_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -219,22 +219,28 @@
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
-                                <asp:TemplateField HeaderText="File Name">
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
+                                <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
-                                            <%# Eval("File Name") %>
-                                        </a>
+                                        
+                                        <asp:ImageButton ID="btnView" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/view.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' 
+                                            OnClientClick ='<%# Eval("File Name") %>'/>
+                                        
                                     </ItemTemplate>
                                 </asp:TemplateField>
-
-
-                                <asp:TemplateField HeaderText="Action">
+                                <asp:TemplateField HeaderText="Download File">
                                     <ItemTemplate>
-                                        <asp:Button ID="btnView" runat="server"
-                                            CommandName="ViewOrder"
-                                            CommandArgument='<%# Eval("Order Number") %>'
-                                            Text="View" CssClass="btn btn-primary btn-sm" />
+                                        <asp:ImageButton ID="btnDownload" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/download.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -249,7 +255,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="5"
+                            PageSize="10"
                             OnPageIndexChanging="Grid2_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -276,24 +282,31 @@
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
-                                <asp:TemplateField HeaderText="File Name">
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
+                                <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
-                                            <%# Eval("File Name") %>
-                                        </a>
+                                        
+                                        <asp:ImageButton ID="btnView" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/view.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' 
+                                            OnClientClick ='<%# Eval("File Name") %>'/>
+                                        
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Download File">
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="btnDownload" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/download.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-
-                                <asp:TemplateField HeaderText="Action">
-                                    <ItemTemplate>
-                                        <asp:Button ID="btnView" runat="server"
-                                            CommandName="ViewOrder"
-                                            CommandArgument='<%# Eval("Order Number") %>'
-                                            Text="View" CssClass="btn btn-primary btn-sm" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                         <asp:Label ID="lblGrid2Message" runat="server" ForeColor="Red" Visible="False" />
@@ -306,7 +319,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="5"
+                            PageSize="10"
                             OnPageIndexChanging="Grid3_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -333,24 +346,31 @@
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Order Date" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="true" />
-                                <asp:TemplateField HeaderText="File Name">
+                                <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
+                                <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        <a href='<%#  ResolveUrl("~/Uploads/") & Eval("File Name") %>' target="_blank">
-                                            <%# Eval("File Name") %>
-                                        </a>
+                                        
+                                        <asp:ImageButton ID="btnView" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/view.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' 
+                                            OnClientClick ='<%# Eval("File Name") %>'/>
+                                        
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Download File">
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="btnDownload" runat="server"
+                                            CommandName="DownloadFile"
+                                            CommandArgument='<%# Eval("File Name") %>'
+                                            ImageUrl="img/download.gif"
+                                            Width="24px" 
+                                            Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-
-                                <asp:TemplateField HeaderText="Action">
-                                    <ItemTemplate>
-                                        <asp:Button ID="btnView" runat="server"
-                                            CommandName="ViewOrder"
-                                            CommandArgument='<%# Eval("Order Number") %>'
-                                            Text="View" CssClass="btn btn-primary btn-sm" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                         <asp:Label ID="lblGrid3Message" runat="server" ForeColor="Red" Visible="False" />
@@ -361,7 +381,11 @@
         </div>
     </section>
 
-
+    <script type="text/javascript">
+        function downloadFile(orderID) {
+            window.open('DownloadDocument.aspx?OrderID=' + orderID);
+        }
+    </script>
     <!-- Trust Icons Section -->
     <%--  <section>
         <div class="container-fluid py-5" style="background-color: #f9f9f9;">

@@ -172,6 +172,17 @@ Public Class AppSettings
             Return value
         End Get
     End Property
+    Public Shared ReadOnly Property MoveDeliveredPDFToFolderPath As String
+        Get
+            Dim path As String = GetSetting("MoveDeliveredPDFToFolderPath")
+            If String.IsNullOrEmpty(path) Then
+                Throw New Exception("MoveDeliveredPDFToFolderPath is not defined.")
+            End If
+            If Not path.EndsWith("\") Then path += "\"
+            If Not System.IO.Directory.Exists(path) Then System.IO.Directory.CreateDirectory(path)
+            Return path
+        End Get
+    End Property
     Public Shared ReadOnly Property PDFSavePath() As String
         Get
             Dim path As String = System.Configuration.ConfigurationManager.AppSettings("PDFSavePath")
