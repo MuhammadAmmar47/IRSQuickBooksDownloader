@@ -36,7 +36,7 @@ Partial Public Class DownloadDocument '181061
 
         Response.ClearContent()
         Response.ClearHeaders()
-        Response.AddHeader("Content-disposition", "attachment; filename=" & order.fldrequestname.Replace(" ", "") & ".pdf")
+        Response.AddHeader("Content-disposition", "attachment; filename=" & order.fldPdf)
         Response.ContentType = "application/octet-stream"
         System.Threading.Thread.Sleep(1000)
         Response.WriteFile(fullPath)
