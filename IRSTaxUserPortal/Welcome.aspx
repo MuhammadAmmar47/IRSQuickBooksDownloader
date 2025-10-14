@@ -52,9 +52,9 @@
         }
 
         .highlightRow td {
-    background-color: #d6e17e !important;
-    color: #fff; /* optional - makes text readable */
-}
+            background-color: #d6e17e !important;
+            color: #fff; /* optional - makes text readable */
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
