@@ -50,6 +50,11 @@
             font-family: Arial, Helvetica, sans-serif;
             color: #003366;
         }
+
+        .highlightRow td {
+    background-color: #d6e17e !important;
+    color: #fff; /* optional - makes text readable */
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -228,15 +233,15 @@
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        
+
                                         <asp:ImageButton ID="btnView" runat="server"
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
-                                            Width="24px" 
-                                            Visible='<%# Eval("File Name") <> ""%>' 
-                                            OnClientClick ='<%# Eval("File Name") %>'/>
-                                        
+                                            Width="24px"
+                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            OnClientClick='<%# Eval("File Name") %>' />
+
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Download File">
@@ -245,7 +250,7 @@
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
-                                            Width="24px" 
+                                            Width="24px"
                                             Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -296,15 +301,15 @@
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        
+
                                         <asp:ImageButton ID="btnView" runat="server"
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
-                                            Width="24px" 
-                                            Visible='<%# Eval("File Name") <> ""%>' 
-                                            OnClientClick ='<%# Eval("File Name") %>'/>
-                                        
+                                            Width="24px"
+                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            OnClientClick='<%# Eval("File Name") %>' />
+
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Download File">
@@ -313,7 +318,7 @@
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
-                                            Width="24px" 
+                                            Width="24px"
                                             Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -365,15 +370,15 @@
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
-                                        
+
                                         <asp:ImageButton ID="btnView" runat="server"
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
-                                            Width="24px" 
-                                            Visible='<%# Eval("File Name") <> ""%>' 
-                                            OnClientClick ='<%# Eval("File Name") %>'/>
-                                        
+                                            Width="24px"
+                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            OnClientClick='<%# Eval("File Name") %>' />
+
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Download File">
@@ -382,7 +387,7 @@
                                             CommandName="DownloadFile"
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
-                                            Width="24px" 
+                                            Width="24px"
                                             Visible='<%# Eval("File Name") <> ""%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>

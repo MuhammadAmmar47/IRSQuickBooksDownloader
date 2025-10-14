@@ -132,7 +132,7 @@ Public Class Default1
         Dim status = dr("Status").ToString.Trim
         Select Case status.ToLower
             Case "p", "c"
-                e.Row.BackColor = System.Drawing.Color.LightYellow
+                e.Row.CssClass &= " highlightRow"
         End Select
 
         If dr("Delivery Date") IsNot DBNull.Value Then
