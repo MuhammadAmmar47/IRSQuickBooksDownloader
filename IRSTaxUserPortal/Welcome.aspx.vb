@@ -23,7 +23,7 @@ Public Class Default1
         Dim dtAll As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId)
 
         ' Grid1
-        Dim dr1() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)}")
+        Dim dr1() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND [Form Type] <> {CInt(Orders.FormTypeCodeType.S_SSN)}")
         If dr1.Length > 0 Then
             Grid1.DataSource = dr1.CopyToDataTable()
             lblGrid1Message.Visible = False
@@ -47,7 +47,7 @@ Public Class Default1
         Grid2.DataBind()
 
         ' Grid3
-        Dim dr3() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_SSN)}")
+        Dim dr3() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND [Form Type] = {CInt(Orders.FormTypeCodeType.S_SSN)}")
         If dr3.Length > 0 Then
             Grid3.DataSource = dr3.CopyToDataTable()
             lblGrid3Message.Visible = False
@@ -124,8 +124,28 @@ Public Class Default1
 
     Private Sub Grid3_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles Grid1.RowDataBound, Grid2.RowDataBound, Grid3.RowDataBound
         Dim btnView = CType(e.Row.FindControl("btnView"), ImageButton)
-        If btnView Is Nothing Then Return
+        Dim lblDeliveryDate = CType(e.Row.FindControl("lblDeliveryDate"), Label)
         Dim dr As DataRowView = CType(e.Row.DataItem, DataRowView)
+        If dr Is Nothing Then Return
+
+        If dr("Status") Is DBNull.Value Then dr("Status") = "p"
+        Dim status = dr("Status").ToString.Trim
+        Select Case status.ToLower
+            Case "p", "c"
+                e.Row.BackColor = System.Drawing.Color.LightYellow
+        End Select
+
+        If dr("Delivery Date") IsNot DBNull.Value Then
+            Dim deliveryDate As DateTime = CDate(dr("Delivery Date").ToString)
+            If deliveryDate > New Date(2001, 1, 1) Then
+                lblDeliveryDate.Text = deliveryDate.ToString("MM-dd-yyyy")
+            Else
+                lblDeliveryDate.Text = ""
+            End If
+        End If
+
+        If btnView Is Nothing Then Return
+
         Dim OrderNumber = CInt(dr("Order Number"))
         Dim FileName = dr("File Name").ToString
         If FileName.IsNullOrEmpty Then

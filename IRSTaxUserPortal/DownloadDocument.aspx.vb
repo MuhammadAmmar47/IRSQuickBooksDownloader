@@ -34,14 +34,13 @@ Partial Public Class DownloadDocument '181061
             Return
         End If
 
-        Response.ClearContent()
-        Response.ClearHeaders()
-        Response.AddHeader("Content-disposition", "attachment; filename=" & order.fldPdf)
-        Response.ContentType = "application/octet-stream"
-        System.Threading.Thread.Sleep(1000)
-        Response.WriteFile(fullPath)
-        Response.Flush()
-        Response.End()
-
+        StreamFileToUser(fullPath)
     End Sub
+    Private Sub StreamFileToUser(outfilePath As String)
+        Dim FileBuffer = System.IO.File.ReadAllBytes(outfilePath)
+        Response.ContentType = "application/pdf"
+        Response.AddHeader("content-length", FileBuffer.Length.ToString())
+        Response.BinaryWrite(FileBuffer)
+    End Sub
+
 End Class

@@ -472,6 +472,5 @@ Namespace Orders
     Public Enum OrderType
         Form_4506 = 0
         Form_8821 = 1
-        Form_SSN = 2
     End Enum
 End Namespace

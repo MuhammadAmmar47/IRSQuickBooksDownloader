@@ -78,7 +78,7 @@ Public Class orderSSV
             .fldordernumber = 0
             .fldDOB = If(String.IsNullOrEmpty(txtDob.Text), Nothing, txtDob.Text.Trim())
             .fldSex = gender
-            .fldordertype = Orders.OrderType.Form_SSN
+            .fldordertype = Orders.OrderType.Form_4506
             .fldtypeofform = TypeOfForm.S_SSN
             OrderServices.CreateNewOrder(o)
             If o.fldordernumber < 1 Then

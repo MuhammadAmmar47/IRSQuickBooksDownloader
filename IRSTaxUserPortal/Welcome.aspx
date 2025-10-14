@@ -202,6 +202,8 @@
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
                                 <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
@@ -215,10 +217,14 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
+                                <asp:TemplateField HeaderText="Delivery Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDeliveryDate" runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
@@ -265,6 +271,8 @@
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
                                 <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
@@ -277,11 +285,14 @@
                                         <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Delivery Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDeliveryDate" runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
 
                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
@@ -329,6 +340,8 @@
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
                                 <asp:BoundField DataField="Order Number" HeaderText="#" />
+                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
                                 <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
@@ -341,11 +354,14 @@
                                         <%# GetStatusText(Eval("Status")) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Delivery Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDeliveryDate" runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
 
                                 <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
-                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
+                                    DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
                                     <ItemTemplate>
@@ -383,7 +399,10 @@
 
     <script type="text/javascript">
         function downloadFile(orderID) {
-            window.open('DownloadDocument.aspx?OrderID=' + orderID);
+            var url = 'DownloadDocument.aspx?OrderID=' + orderID;
+            var opts = 'width=800,height=600,toolbar=0,menubar=0,location=1,status=1,scrollbars=1,resizable=1,left=0,top=0';
+            var newWindow = window.open(url, 'name', opts);
+            //newWindow.print();
         }
     </script>
     <!-- Trust Icons Section -->
