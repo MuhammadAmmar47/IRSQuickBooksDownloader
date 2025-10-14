@@ -52,8 +52,8 @@
         }
 
         .highlightRow td {
-            background-color: #d6e17e !important;
-            color: #fff; /* optional - makes text readable */
+            background-color: #ADD8E6 !important;
+            /* color: #fff;  optional - makes text readable */
         }
     </style>
 </asp:Content>
