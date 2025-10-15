@@ -7,9 +7,10 @@ Public Class Default1
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Page.MaintainScrollPositionOnPostBack = True
+
         If Not IsPostBack Then
             Dim authCookie = Request.Cookies(".ASPXAUTH")
-
             If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
                 pnlGrid.Visible = True
                 BindGrid()
@@ -131,7 +132,7 @@ Public Class Default1
         If dr("Status") Is DBNull.Value Then dr("Status") = "p"
         Dim status = dr("Status").ToString.Trim
         Select Case status.ToLower
-            Case "p", "c"
+            Case "p"
                 e.Row.CssClass &= " highlightRow"
         End Select
 

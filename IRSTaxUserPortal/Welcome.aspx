@@ -239,7 +239,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>'
                                             OnClientClick='<%# Eval("File Name") %>' />
 
                                     </ItemTemplate>
@@ -251,7 +251,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>' />
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -307,7 +307,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>'
                                             OnClientClick='<%# Eval("File Name") %>' />
 
                                     </ItemTemplate>
@@ -319,7 +319,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>' />
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
@@ -376,7 +376,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/view.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>'
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>'
                                             OnClientClick='<%# Eval("File Name") %>' />
 
                                     </ItemTemplate>
@@ -388,7 +388,7 @@
                                             CommandArgument='<%# Eval("File Name") %>'
                                             ImageUrl="img/download.gif"
                                             Width="24px"
-                                            Visible='<%# Eval("File Name") <> ""%>' />
+                                            Visible='<%# Eval("File Name") <> "" AndAlso Eval("Status").ToString().Trim() <> "p"%>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
