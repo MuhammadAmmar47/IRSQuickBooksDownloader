@@ -197,7 +197,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="10"
+                            PageSize="30"
                             OnPageIndexChanging="Grid1_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -206,16 +206,16 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="#" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                <asp:BoundField DataField="OrderNumber" HeaderText="#" />
+                                <asp:BoundField DataField="OrderDate" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="TaxPayer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
-                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("FormType"))) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
+                                <asp:BoundField DataField="RequestedTaxYears" HeaderText="Requested Tax Years" />
                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <%# GetStatusText(Eval("Status")) %>
@@ -228,7 +228,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                <asp:BoundField DataField="DeliveryDate" HeaderText="Delivery Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
@@ -266,7 +266,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="10"
+                            PageSize="30"
                             OnPageIndexChanging="Grid2_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -275,16 +275,16 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="#" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                <asp:BoundField DataField="OrderNumber" HeaderText="#" />
+                                <asp:BoundField DataField="OrderDate" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="TaxPayer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
-                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("FormType"))) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" />
+                                <asp:BoundField DataField="RequestedTaxYears" HeaderText="Requested Tax Years" />
                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <%# GetStatusText(Eval("Status")) %>
@@ -296,7 +296,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                <asp:BoundField DataField="DeliveryDate" HeaderText="Delivery Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">
@@ -335,7 +335,7 @@
                             CssClass="table table-striped table-bordered"
                             AutoGenerateColumns="false"
                             AllowPaging="true"
-                            PageSize="10"
+                            PageSize="30"
                             OnPageIndexChanging="Grid3_PageIndexChanging"
                             PagerStyle-CssClass="pagination-container"
                             PagerSettings-Mode="NumericFirstLast"
@@ -344,16 +344,16 @@
                             PagerSettings-NextPageText="Next ›"
                             PagerSettings-PreviousPageText="‹ Prev">
                             <Columns>
-                                <asp:BoundField DataField="Order Number" HeaderText="#" />
-                                <asp:BoundField DataField="Order Date" HeaderText="Order Date"
+                                <asp:BoundField DataField="OrderNumber" HeaderText="#" />
+                                <asp:BoundField DataField="OrderDate" HeaderText="Order Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" />
-                                <asp:BoundField DataField="Tax Payer" HeaderText="Tax Payer" />
+                                <asp:BoundField DataField="TaxPayer" HeaderText="Tax Payer" />
                                 <asp:TemplateField HeaderText="Form Type">
                                     <ItemTemplate>
-                                        <%# GetFormTypeName(Convert.ToInt32(Eval("Form Type"))) %>
+                                        <%# GetFormTypeName(Convert.ToInt32(Eval("FormType"))) %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Requested Tax Years" HeaderText="Requested Tax Years" Visible="false" />
+                                <asp:BoundField DataField="RequestedTaxYears" HeaderText="Requested Tax Years" Visible="false" />
                                 <asp:TemplateField HeaderText="Status">
                                     <ItemTemplate>
                                         <%# GetStatusText(Eval("Status")) %>
@@ -365,7 +365,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="Delivery Date" HeaderText="Delivery Date"
+                                <asp:BoundField DataField="DeliveryDate" HeaderText="Delivery Date"
                                     DataFormatString="{0:MM-dd-yyyy}" HtmlEncode="False" ApplyFormatInEditMode="True" Visible="false" />
                                 <asp:BoundField DataField="OrderType" HeaderText="Order Type" Visible="false" />
                                 <asp:TemplateField HeaderText="View File">

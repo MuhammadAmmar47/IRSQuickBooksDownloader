@@ -23,8 +23,8 @@
             <div class="row g-0 bg-white border-bottom mb-0">
                 <div class="col-12">
                     <div class="d-flex align-items-center justify-content-center gap-5 py-2 flex-column flex-md-row text-center text-md-start">
-
-                        <!-- Logo -->
+                        <img src="/img/top3.gif" alt="IRSTaxRecords.com" style="" class="img-fluid" />
+                       <%-- <!-- Logo -->
                         <div class="d-flex align-items-center justify-content-center mb-2 mb-md-0">
                             <a href="Welcome.aspx">
                                 <img src="/img/header.jpg" class="img-fluid" alt="Logo" style="max-height: 100px; width: auto;" />
@@ -52,7 +52,7 @@
                         <!-- Flag -->
                         <div class="d-flex align-items-center justify-content-center px-0 mt-2 mt-md-0">
                             <img src="/img/Flag.png" alt="U.S. Flag" style="height: 80px;" class="img-fluid" />
-                        </div>
+                        </div>--%>
 
                     </div>
                 </div>

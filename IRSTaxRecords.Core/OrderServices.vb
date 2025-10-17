@@ -9,10 +9,10 @@ Public Class OrderServices
         Return DataRowToOrder(dt.Rows(0))
     End Function
     Public Shared Function GetOrderByCustomers(ByVal CustomerID As Integer) As DataTable
-        Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT TOP 500 
-                        fldordernumber as [Order Number], 
-                        fldRequestName as [Tax Payer], 
-                        fldtypeofform as [Form Type], 
+        Dim dt As DataTable = DataHelper.ExecuteQuery($"SELECT 
+                        fldordernumber as OrderNumber, 
+                        fldRequestName as TaxPayer, 
+                        fldtypeofform as FormType, 
                          RTRIM(
                                 CONCAT(
                                     CASE WHEN fldTaxYear2025 = 1 THEN '2025 ' ELSE '' END,
@@ -23,13 +23,14 @@ Public Class OrderServices
                                     CASE WHEN fldTaxYear2020 = 1 THEN '2020 ' ELSE '' END
                                 )
                             )
-                        AS [Requested Tax Years],
-                        flddeliverydate AS [Delivery Date],    
-                        fldOrderdate  as [Order Date], 
+                        AS RequestedTaxYears,
+                        flddeliverydate AS DeliveryDate,    
+                        fldOrderdate  as OrderDate, 
                         fldstatus as [Status], 
                         IsNull(fldPdf, '') as [File Name], 
-                        IsNull(fldordertype, 0) as [OrderType]" &
-                       "FROM tblorder WHERE fldcustomerID = " & StoreInstance.GetCustomerId() & " " & " ORDER BY fldOrderdate DESC")
+                        IsNull(fldordertype, 0) as [OrderType]
+                        FROM tblorder WHERE fldcustomerID = {CustomerID} 
+                        ORDER BY OrderNumber DESC")
 
         Return dt
     End Function

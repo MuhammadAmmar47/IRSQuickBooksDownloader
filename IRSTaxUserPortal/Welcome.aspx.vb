@@ -24,9 +24,11 @@ Public Class Default1
         Dim dtAll As DataTable = OrderServices.GetOrderByCustomers(StoreInstance.GetCustomerId)
 
         ' Grid1
-        Dim dr1() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND [Form Type] <> {CInt(Orders.FormTypeCodeType.S_SSN)}")
+        Dim dr1() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND FormType <> {CInt(Orders.FormTypeCodeType.S_SSN)}")
         If dr1.Length > 0 Then
-            Grid1.DataSource = dr1.CopyToDataTable()
+            Dim dtFirst As DataTable = dr1.CopyToDataTable()
+            dtFirst.DefaultView.Sort = "OrderNumber DESC"
+            Grid1.DataSource = dtFirst.DefaultView
             lblGrid1Message.Visible = False
         Else
             Grid1.DataSource = Nothing
@@ -38,7 +40,9 @@ Public Class Default1
         ' Grid2
         Dim dr2() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_8821)}")
         If dr2.Length > 0 Then
-            Grid2.DataSource = dr2.CopyToDataTable()
+            Dim dtFirst As DataTable = dr2.CopyToDataTable()
+            dtFirst.DefaultView.Sort = "OrderNumber DESC"
+            Grid2.DataSource = dtFirst.DefaultView
             lblGrid2Message.Visible = False
         Else
             Grid2.DataSource = Nothing
@@ -48,9 +52,11 @@ Public Class Default1
         Grid2.DataBind()
 
         ' Grid3
-        Dim dr3() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND [Form Type] = {CInt(Orders.FormTypeCodeType.S_SSN)}")
+        Dim dr3() As DataRow = dtAll.Select($"OrderType = {CInt(Orders.OrderType.Form_4506)} AND FormType = {CInt(Orders.FormTypeCodeType.S_SSN)}")
         If dr3.Length > 0 Then
-            Grid3.DataSource = dr3.CopyToDataTable()
+            Dim dtFirst As DataTable = dr3.CopyToDataTable()
+            dtFirst.DefaultView.Sort = "OrderNumber DESC"
+            Grid3.DataSource = dtFirst.DefaultView
             lblGrid3Message.Visible = False
         Else
             Grid3.DataSource = Nothing
@@ -106,6 +112,7 @@ Public Class Default1
             Case "r" : Return "No Record"
             Case "u" : Return "Updated"
             Case "c" : Return "Cancelled"
+            Case "h" : Return "Unprocessable"
             Case Else : Return String.Empty
         End Select
     End Function
@@ -136,8 +143,8 @@ Public Class Default1
                 e.Row.CssClass &= " highlightRow"
         End Select
 
-        If dr("Delivery Date") IsNot DBNull.Value Then
-            Dim deliveryDate As DateTime = CDate(dr("Delivery Date").ToString)
+        If dr("DeliveryDate") IsNot DBNull.Value Then
+            Dim deliveryDate As DateTime = CDate(dr("DeliveryDate").ToString)
             If deliveryDate > New Date(2001, 1, 1) Then
                 lblDeliveryDate.Text = deliveryDate.ToString("MM-dd-yyyy")
             Else
@@ -147,7 +154,7 @@ Public Class Default1
 
         If btnView Is Nothing Then Return
 
-        Dim OrderNumber = CInt(dr("Order Number"))
+        Dim OrderNumber = CInt(dr("OrderNumber"))
         Dim FileName = dr("File Name").ToString
         If FileName.IsNullOrEmpty Then
             btnView.OnClientClick = "return false;"
