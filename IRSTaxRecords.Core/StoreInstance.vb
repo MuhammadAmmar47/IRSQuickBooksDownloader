@@ -15,9 +15,10 @@ Public Class StoreInstance
 
             Dim redirectUrl As String
             redirectUrl = FormsAuthentication.GetRedirectUrl(c.UserID, bRemember)
-            If Not (String.IsNullOrEmpty(redirectUrl)) Then redirectUrl = "/Welcome.aspx"
-
-            HttpContext.Current.Session("LoginId") = 100001
+            If HttpContext.Current.Request.QueryString("ReturnUrl").IsNotNullOrEmpty Then
+                redirectUrl = HttpContext.Current.Request.QueryString("ReturnUrl")
+            End If
+            If String.IsNullOrEmpty(redirectUrl) Then redirectUrl = "/Welcome.aspx"
 
             'FormsAuthentication.SetAuthCookie(c.ID, False)
             HttpContext.Current.Response.Redirect(redirectUrl)
@@ -106,6 +107,8 @@ Public Class StoreInstance
     End Property
     Public Shared ReadOnly Property GetCustomerId() As Integer
         Get
+            If StoreInstance.CurrentUserId > 0 Then Return StoreInstance.CurrentUserId
+
             Dim authCookie As HttpCookie = HttpContext.Current.Request.Cookies(".ASPXAUTH")
             If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
                 Try
