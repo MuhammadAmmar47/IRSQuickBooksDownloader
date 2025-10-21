@@ -123,8 +123,9 @@ Public Class order_8821
         Dim typeOfForms = GetTypeOfFormsSelected()
 
         Dim currentUser = StoreInstance.CurrentUser
-
+        Dim formsRequested As New List(Of String)
         For Each frm In typeOfForms
+            formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
             Dim o As New Orders.Order
             With o
                 .fldCompanyID = StoreInstance.GetCustomerId()
@@ -194,8 +195,8 @@ Public Class order_8821
             End With
         Next
 
-        Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList)
-        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, "8821", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
+        Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, txtTaxPayerName.Text, formsRequested.ToSqlList, resultOrderIDs.ToSqlList)
+        Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, txtTaxPayerName.Text, formsRequested.ToSqlList, resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
         Response.Redirect("~/Confirmation.aspx?form=" & 8821)
     End Sub
 

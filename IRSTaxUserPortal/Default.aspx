@@ -51,26 +51,33 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Card Section -->
-
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const el = document.getElementById('heroCarousel');
+    const count = el.querySelectorAll('.carousel-item').length;
+    const idx = Math.floor(Math.random() * count);
+    bootstrap.Carousel.getOrCreateInstance(el).to(idx);
+  });
+</script>
     <!-- Trust Icons Section -->
     <section class="hero-section border-top border-warning border-5">
-        <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner h-100">
 
                 <div class="carousel-item active">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip1.jpg"
+                    <img src="/new/images/bannerflip1.jpg"
                         class="d-block w-100 img-fluid object-fit-cover"
                         alt="Slide 1">
                 </div>
 
                 <div class="carousel-item">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip2.jpg"
+                    <img src="/new/images/bannerflip2.jpg"
                         class="d-block w-100 img-fluid object-fit-cover"
                         alt="Slide 2">
                 </div>
 
                 <div class="carousel-item">
-                    <img src="https://www.irstaxrecords.com/new/images/bannerflip3.jpg"
+                    <img src="/new/images/bannerflip3.jpg"
                         class="d-block w-100 img-fluid object-fit-cover"
                         alt="Slide 3">
                 </div>
@@ -103,7 +110,9 @@
                             <div class="card h-100 rounded-4 custom-shadow-right">
                                 <div class="card-body d-flex flex-column text-center text-md-start">
                                     <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
-                                        <img src="/img/Pdf_4506-C.png" alt="PDF Icon" class="img-fluid w-75 w-md-auto" />
+                                        <img src="/img/Pdf_4506-C.png" alt="Order 4506-C"
+     class="img-fluid"
+     style="width:302px !important; height:126px !important; max-width:none !important;" />
                                     </div>
                                     <h6>IRS Income Verification</h6>
                                     <h5 class="text-custom-blue">Verify your applicant's income with US Government tax records.
@@ -121,11 +130,11 @@
                                         <br>
                                         Turn around time with form 4506-C is 48 hours
                                     </p>
-                                    <img src="/img/hud.png"
+                                    <img src="/pennymac-.gif"
                                         alt="HUD Partners"
-                                        class="img-fluid mb-3 mt-auto w-75 w-md-100 mx-auto mx-md-0" />
+                                        class="img-fluid mb-3 mt-auto w-95 w-md-432 mx-auto mx-md-0" />
 
-                                    <a href="order_4506.aspx" class="btn btn-custom-blue w-100 text-decoration-underline">Get Started</a>
+                                    <a href="order_4506.aspx" class="btn btn-custom-blue w-100 text-decoration-e">Order Transcripts</a>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +144,10 @@
                             <div class="card h-100 rounded-4 custom-shadow-right">
                                 <div class="card-body d-flex flex-column text-center text-md-start">
                                     <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
-                                        <img src="img/pdf8821.png" alt="PDF Icon" class="img-fluid w-75 w-md-auto" />
-                                    </div>
+                                        <img src="/img/Pdf8821.png" alt="PDF Icon"
+     class="img-fluid"
+     style="width:295px !important; height:107px !important; max-width:none !important;" />
+                                    </div><p>
                                     <h6>Expedited Income Verification</h6>
                                     <h5 class="text-custom-blue">Verify your applicant's income with same day service.
                                     </h5>
@@ -150,11 +161,11 @@
                                         Fast, Easy and Secure online ordering makes obtaining IRS transcripts a snap!
               Secure, efficient, and trusted nationwide.
                                     </p>
-                                    <img src="/img/hud.png"
+                                    <img src="/pennymac-.gif"
                                         alt="HUD Partners"
-                                        class="img-fluid mb-3 mt-auto w-75 w-md-100 mx-auto mx-md-0" />
+                                        class="img-fluid mb-3 mt-auto w-95 w-md-432 mx-auto mx-md-0" />
 
-                                    <a href="order_8821.aspx" class="btn btn-custom-blue w-100 text-decoration-underline">Get Started</a>
+                                    <a href="order_88215.aspx" class="btn btn-custom-blue w-100 text-decoration-">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -164,21 +175,23 @@
                             <div class="card h-100 rounded-4 custom-shadow-right">
                                 <div class="card-body d-flex flex-column text-center text-md-start">
                                     <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
-                                        <img src="/img/social_security.png" alt="Verify Icon" class="img-fluid w-75 w-md-auto" />
-                                    </div>
+                                        <img src="/ssv.gif" alt="PDF Icon"
+     class="img-fluid"
+     style="width:336px !important; height:106px !important; max-width:none !important;" />
+                                    </div><p>
                                     <h6>Social Security Verification</h6>
                                     <h5 class="text-custom-blue">Verify your applicant's Social Security Number with our fast and accurate online system via the U.S. Social Security Administration.
                                     </h5>
                                     <ul class="text-start text-md-start mx-auto mx-md-0">
                                         <li>Verification the Social Security Number was issued to your browser</li>
                                         <li>Verification of your browser identity</li>
-                                        <li>Fast 15 minute turn times</li>
+                                        
                                         <li class="text-danger">Fast 15 minute turn times</li>
                                         <li>100% accurate information, all data is authenticated via U.S. Social Security Administration database</li>
                                         <li>Easy and cost effective</li>
                                         <li>Receive Social Security MATCH validation certificate or NO MATCH certificate</li>
                                     </ul>
-                                    <a href="orderSSV.aspx" class="btn btn-custom-blue w-100 text-decoration-underline mt-auto">Start ordering today</a>
+                                    <a href="orderSSV.aspx" class="btn btn-custom-blue w-100 text-decoration- mt-auto">Start ordering today</a>
                                 </div>
                             </div>
                         </div>

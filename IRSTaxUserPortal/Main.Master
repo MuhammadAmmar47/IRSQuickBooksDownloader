@@ -23,7 +23,9 @@
             <div class="row g-0 bg-white border-bottom mb-0">
                 <div class="col-12">
                     <div class="d-flex align-items-center justify-content-center gap-5 py-2 flex-column flex-md-row text-center text-md-start">
-                        <img src="/img/top3.gif" alt="IRSTaxRecords.com" style="" class="img-fluid" />
+                        <a href="/default.aspx" aria-label="Go to IRSTaxRecords.com">
+  <img src="/img/top3.gif" alt="IRSTaxRecords.com" class="img-fluid" />
+</a>
                         <%--<!-- Logo -->
                         <div class="d-flex align-items-center justify-content-center mb-2 mb-md-0">
                             <a href="Default.aspx">
@@ -61,9 +63,9 @@
             <!-- Navigation Bar -->
             <div class="py-2" style="background-color: #00468c;">
                 <div class="container d-flex justify-content-center align-items-center gap-5 flex-wrap text-center">
-                    <a class="nav-link text-white px-0" href="Default.aspx">Services Details and Solutions</a>
-                    <a class="nav-link text-white px-0" href="#">Customer Center</a>
-                    <a class="nav-link text-white px-0" href="#">Set up An Account and begin ordering today</a>
+                    <a class="nav-link text-white px-0" href="expand7.asp">Services Details and Solutions</a>
+                    <a class="nav-link text-white px-0" href="cc.asp">Customer Center</a>
+                    <a class="nav-link text-white px-0" href="wizard7.asp">Set up An Account and begin ordering today</a>
 
                     <asp:LinkButton ID="lnkLoginLogout" runat="server"
                         CssClass="nav-link text-white px-3 py-1 rounded ms-3 mt-2 mt-md-0"
@@ -117,10 +119,10 @@
                             <h5 class="text-uppercase mb-1">Learn More</h5>
                             <div class="border-top border-white mb-3 mx-auto mx-md-0" style="width: 80%"></div>
                             <ul class="list-unstyled small">
-                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
-                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
-                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">About IRStaxrecords.com</a></li>
-                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Get Started and begin ordering records today</a></li>
+                                <li class="mb-2"><a href="expand7.asp" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
+                                <li class="mb-2"><a href="expand7.asp#details" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
+                                <li class="mb-2"><a href="expand7.asp" class="text-white text-decoration-none">About IRStaxrecords.com</a></li>
+                                <li class="mb-2"><a href="expand7.asp" class="text-white text-decoration-none">Get Started and begin ordering records today</a></li>
                             </ul>
                         </div>
 
@@ -128,12 +130,11 @@
                         <div class="col-md-4 mb-4 pt-5 mt-3 text-center text-md-start">
                             <h5 class="text-uppercase mb-1">Getting Started</h5>
                             <div class="border-top border-white mb-3 mx-auto mx-md-0" style="width: 80%"></div>
-                            <asp:LinkButton href="Login.aspx" Style="width: 50%; background-color: #2596be;" runat="server" CssClass="nav-link text-white px-3 py-1 rounded">
-                                Set up and Account
+                            <asp:LinkButton href="wizard7.asp" Style="width: 50%; background-color: #2596be;" runat="server" CssClass="nav-link text-white px-3 py-1 rounded">
+                                Set up an Account
                             </asp:LinkButton>
-                            <ul class="list-unstyled small mt-4">
-                                <li class="mb-2 mt-2"><a href="#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
-                                <li class="mb-2"><a href="#" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
+                            <ul class="list-unstyled small mt-4"expand7.asp#" class="text-white text-decoration-none">Verify Applicants with U.S Government records</a></li>
+                                <li class="mb-2"><a href="expand7.asp#details" class="text-white text-decoration-none">Frequently Asked Questions</a></li>
                             </ul>
                         </div>
                     </div>

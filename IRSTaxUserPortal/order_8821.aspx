@@ -17,15 +17,20 @@
     <!-- Centering Wrapper -->
     <div class="container py-4">
         <div class="d-flex justify-content-center align-items-center">
-            <div class="w-100 px-3">
-                <div class="card shadow">
+    <div class="card shadow rounded-4" 
+         style="max-width: 1150px; width: 100%; background: #fff; border-radius: 16px;">
 
-                    <!-- Header -->
+
+                    <!-- Header --><style>
+.card-header {
+  background-color: white !important;
+}
+</style>
                     <div class="card-header d-flex align-items-center gap-3 bg-primary bg-opacity-10">
-                        <i class="fa-solid fa-file-invoice-dollar fa-3x text-primary"></i>
+                        <i class=""></i>
                         <div>
-                            <h4 class="mb-1 fw-bold">Form 8821</h4>
-                            <small class="text-primary fs-6 fw-semibold">Upload PDF for IRS Transcripts</small>
+                            <h4 class="mb-1 fw-bold"></h4><img border="0" src="/newsite/upload8821.gif">
+                            <small class="text-primary fs-6 fw-semibold"></small>
                         </div>
                     </div>
 

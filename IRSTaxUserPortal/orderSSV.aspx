@@ -18,7 +18,7 @@
             $("#<%= txtDob.ClientID %>").datepicker({
                 dateFormat: "mm/dd/yy"   // change format as needed
             });
-        });      
+        });
     </script>
 </asp:Content>
 
@@ -27,12 +27,24 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="w-100 px-3">
                 <div class="card shadow">
+<style>
+.card-header {
+  background-color: white !important;
+}
+</style><style>
+  
+  #ssv-card .card-header { padding: .5rem 2rem !important; }
+</style>
 
+<div id="ssv-card" class="card">
                     <!-- Header -->
-                    <div class="card-header d-flex align-items-center gap-3 bg-primary bg-opacity-10">
-                        <div class="card-header bg-primary bg-opacity-10 text-center border-bottom">
-                            <img src="/img/OrderSSV.png" alt="Logo" class="img-fluid" />
-                        </div>
+                    <div class="card-header bg-primary bg-opacity-10 p-0 border-0" style="line-height:0;">
+  <img
+    src="/ssv.gif"
+    alt="SSV Icon"
+    class="d-block"
+    style="width:336px !important; height:106px !important; max-width:none !important; border:0 !important; outline:0 !important; margin:0 !important;"/>
+</div>
                         <%--<i class="fa-solid fa-file-invoice-dollar fa-3x text-primary"></i>
                         <div>
                             <h4 class="mb-1 fw-bold">Form SSV</h4>
@@ -53,7 +65,7 @@
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold small mb-1">Social Security Number:</label>
                                 <asp:TextBox ID="txtSocialSecurityNumber" class="form-control form-control-sm" runat="server" MaxLength="50" placeholder="123-45-6789"></asp:TextBox>
-                                <small class="text-muted">Example Format: 145-74-9891</small>
+                                <small class="text-muted">Example Format: 123-45-6789</small>
                             </div>
                         </div>
 

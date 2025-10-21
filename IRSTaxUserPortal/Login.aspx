@@ -21,7 +21,10 @@
                     </div>
                     <div class="mb-3">
                         <span class="failureNotification">
-                            <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+                            <asp:Literal ID="FailureText" runat="server" Visible="false"></asp:Literal>
+                            <asp:Label ID="lblErrorDetails" runat="server">
+                                Invalid username and/or password
+                            </asp:Label>
                         </span>
                     </div>
                     <div class="mb-3">

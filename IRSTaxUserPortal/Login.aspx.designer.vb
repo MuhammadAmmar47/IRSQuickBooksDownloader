@@ -23,6 +23,15 @@ Partial Public Class Login
     Protected WithEvents FailureText As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
+    '''lblErrorDetails control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblErrorDetails As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtUsername control.
     '''</summary>
     '''<remarks>

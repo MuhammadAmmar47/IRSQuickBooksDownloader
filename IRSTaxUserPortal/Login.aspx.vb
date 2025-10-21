@@ -4,6 +4,9 @@ Public Class Login
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Page.IsPostBack Then
+            lblErrorDetails.Visible = False
+        End If
 
     End Sub
 
@@ -17,6 +20,7 @@ Public Class Login
             End If
         Catch ex As Exception
             FailureText.Text = ex.Message
+            lblErrorDetails.Visible = True
         End Try
     End Sub
 

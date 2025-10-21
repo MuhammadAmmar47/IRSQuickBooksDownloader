@@ -89,7 +89,7 @@ Public Class orderSSV
 
         Email.MailSender.SendOrderCreatedEmail(currentUser.Name, currentUser.Email, o.fldrequestname, "SSN", resultOrderIDs.ToSqlList)
         Email.MailSender.SendOrderCreatedEmailToAdmin(currentUser.Name, currentUser.UserID, o.fldrequestname, "SSN", resultOrderIDs.ToSqlList, txtLoanNumber.Text.Trim, savedFilePath)
-        Response.Redirect("~/Confirmation.aspx")
+        Response.Redirect("~/Confirmation.aspx?form=SSN")
     End Sub
     Private Function ValidateForm() As Boolean
         Dim msg As String = ""

@@ -141,6 +141,9 @@ Public Class Default1
         Select Case status.ToLower
             Case "p"
                 e.Row.CssClass &= " highlightRow"
+                btnView.ImageUrl = "/img/spaceclear.gif"
+            Case "c"
+                btnView.ImageUrl = "/img/spaceclear.gif"
         End Select
 
         If dr("DeliveryDate") IsNot DBNull.Value Then
@@ -157,6 +160,7 @@ Public Class Default1
         Dim OrderNumber = CInt(dr("OrderNumber"))
         Dim FileName = dr("File Name").ToString
         If FileName.IsNullOrEmpty Then
+            btnView.ImageUrl = "/img/spaceclear.gif"
             btnView.OnClientClick = "return false;"
         Else
             btnView.OnClientClick = $"downloadFile({OrderNumber}); return false;"
