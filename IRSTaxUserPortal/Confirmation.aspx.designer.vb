@@ -23,6 +23,33 @@ Partial Public Class Confirmation
     Protected WithEvents lblFormHeading As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''img4506 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents img4506 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''img8821 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents img8821 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''imgSSV control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgSSV As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
     '''lnkSubmitAnother control.
     '''</summary>
     '''<remarks>
