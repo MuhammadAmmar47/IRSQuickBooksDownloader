@@ -267,6 +267,7 @@ Namespace Email
             .SenderName = AppSettings.CustomerSupportName,
             .Subject = "Order Received"
             }
+            If FormName.Equals("SSN") Then t.Subject = "SSV Received"
             Try
                 If Email.MailSender.Send(t.SenderEmail, emailTo, "", t.Subject, t.Body, Nothing) Then
                     Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {OrderNumbers}")
@@ -281,6 +282,9 @@ Namespace Email
             Return False
         End Function
         Public Shared Function SendOrderCreatedEmailToAdmin(customerName As String, UserID As String, OrderName As String, FormName As String, OrderNumbers As String, LoanNumber As String, pdfFilePath As String) As Boolean
+            If FormName.Equals("SSN") Then
+                FormName = "SSN validation"
+            End If
             Dim content As String = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=12").Rows(0)("fldmessage")
             content = content.Replace("<$CustomerName$>", customerName)
             content = content.Replace("<$ordername$>", OrderName)
@@ -295,6 +299,9 @@ Namespace Email
             .SenderName = AppSettings.CustomerSupportName,
             .Subject = "New Order Received"
             }
+
+            If FormName.Equals("SSN") Then t.Subject = "SSN Validation"
+
             Dim attachments As New List(Of String)
             If pdfFilePath.IsNotNullOrEmpty AndAlso System.IO.File.Exists(pdfFilePath) Then
                 attachments.Add(pdfFilePath)

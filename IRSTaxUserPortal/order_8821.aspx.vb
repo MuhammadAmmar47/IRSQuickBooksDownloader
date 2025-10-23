@@ -125,7 +125,6 @@ Public Class order_8821
         Dim currentUser = StoreInstance.CurrentUser
         Dim formsRequested As New List(Of String)
         For Each frm In typeOfForms
-            formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
             Dim o As New Orders.Order
             With o
                 .fldCompanyID = StoreInstance.GetCustomerId()
@@ -178,12 +177,16 @@ Public Class order_8821
 
                 If frm.AccountTranscript Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 AT"
+                    formsRequested.Add("Account Transcript")
                 ElseIf frm.RecordOfAccount Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821 ROA"
+                    formsRequested.Add("Record of Account")
                 ElseIf frm.FormType = TypeOfForm.S_1099 Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 1099"
+                    formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
                 Else
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 8821"
+                    formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
                 End If
 
                 ' save order

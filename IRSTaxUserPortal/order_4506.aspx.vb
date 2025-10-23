@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports System.IO
+﻿Imports System.IO
 Imports IRSTaxRecords
 Imports IRSTaxRecords.Core
 Imports IRSTaxUserPortal.order_8821
@@ -108,8 +107,6 @@ Public Class order_4506
         Dim formsRequested As New List(Of String)
 
         For Each frm In typeOfForms
-            formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
-
             Dim o As New Orders.Order
             With o
                 .fldCompanyID = StoreInstance.GetCustomerId()
@@ -164,12 +161,16 @@ Public Class order_4506
                 ' set second name based on rules
                 If frm.AccountTranscript Then
                     .fldrequestname = txtTaxPayerName.Text.Trim() & " AT"
+                    formsRequested.Add("Account Transcript")
                 ElseIf frm.RecordOfAccount Then
                     .fldrequestname = txtTaxPayerName.Text.Trim() & " ROA"
+                    formsRequested.Add("Record of Account")
                 ElseIf frm.FormType = TypeOfForm.S_1099 Then
                     .fldrequestname = $"{txtTaxPayerName.Text.Trim()} 1099"
+                    formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
                 Else
                     .fldrequestname = txtTaxPayerName.Text.Trim()
+                    formsRequested.Add(frm.FormType.ToString().Replace("S_", ""))
                 End If
 
                 ' save order
