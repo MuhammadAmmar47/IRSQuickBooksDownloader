@@ -254,7 +254,12 @@ Namespace Email
         End Function
 
         Public Shared Function SendOrderCreatedEmail(customerName As String, emailTo As String, OrderName As String, FormName As String, OrderNumbers As String) As Boolean
-            Dim content As String = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=1").Rows(0)("fldmessage")
+            Dim content As String = ""
+            If FormName.Equals("SSN") Then
+                content = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=13").Rows(0)("fldmessage")
+            Else
+                content = DataHelper.ExecuteQuery("select fldmessage from tblEmail where fldid=1").Rows(0)("fldmessage")
+            End If
             content = content.Replace("<$CustomerName$>", customerName)
             content = content.Replace("<$ordername$>", OrderName)
             content = content.Replace("<$frmname$>", FormName)
