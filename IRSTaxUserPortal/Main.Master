@@ -63,9 +63,9 @@
             <!-- Navigation Bar -->
             <div class="py-2" style="background-color: #00468c;">
                 <div class="container d-flex justify-content-center align-items-center gap-5 flex-wrap text-center">
-                    <a class="nav-link text-white px-0" href="expand7.asp">Services Details and Solutions</a>
+                    <a class="nav-link text-white px-0" href="expand7.aspx">Services Details and Solutions</a>
                     <a class="nav-link text-white px-0" href="cc.asp">Customer Center</a>
-                    <a class="nav-link text-white px-0" href="wizard7.asp">Set up An Account and begin ordering today</a>
+                    <a class="nav-link text-white px-0" href="wizard7.aspx">Set up An Account and begin ordering today</a>
 
                     <asp:LinkButton ID="lnkLoginLogout" runat="server"
                         CssClass="nav-link text-white px-3 py-1 rounded ms-3 mt-2 mt-md-0"

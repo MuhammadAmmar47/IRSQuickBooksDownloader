@@ -11,20 +11,24 @@
                     <div class="row align-items-center mb-4">
                         <!-- Left: Logo + Site Name -->
                         <div class="col-md-6 text-center mb-3 mb-md-0">
-                            <img src="/img/logo.png.png" alt="IRS Logo" class="img-fluid mb-2" style="max-height: 80px;" />
-                            <h6 class="text-primary fw-semibold fs-5 mb-0">IRStaxrecords.com
+                            <img src="newsite/Login-.jpg"
+     alt="IRS Tax Records"
+     style="width:556px !important; height:107px !important; max-width:none !important;"
+                            <h6 class="text-primary fw-semibold fs-5 mb-0">
                             </h6>
                         </div>
                         <div class="col-md-6 text-center">
-                            <h2 class="text-primary fw-bold">Welcome back!</h2>
+                            <h2 class="text-primary fw-bold"></h2>
                         </div>
                     </div>
                     <div class="mb-3">
                         <span class="failureNotification">
                             <asp:Literal ID="FailureText" runat="server" Visible="false"></asp:Literal>
                             <asp:Label ID="lblErrorDetails" runat="server">
-                                Invalid username and/or password
+                            <p><b><font color="#FF0000"><font size="4"><center>
+                                Authentication failed. Please confirm your username and password </font>
                             </asp:Label>
+                            </font></b>
                         </span>
                     </div>
                     <div class="mb-3">
@@ -38,23 +42,40 @@
                     </div>
 
                     <div class="d-grid">
+					<style>
+.btn.btn-navy {
+  background-color: #00498C; /* solid navy */
+  color: white;
+  border: 2px solid #00498C;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
 
-                        <asp:Button ID="btnSubmit" runat="server" Text=" Continue" class="btn btn-primary btn-lg shadow rounded-pill fw-semibold" />
+.btn.btn-navy:hover {
+  background-color: #5dade2; /* pale blue hover */
+  border-color: #5dade2;
+  color: #fff;
+}
+</style>
+
+                       <asp:Button ID="btnSubmit" runat="server" Text="Continue" CssClass="btn btn-navy" />
                     </div>
 
                     <div class="d-flex justify-content-between mt-3">
-                        <%--<a href="#" class="text-decoration-none small text-primary fw-semibold">Forgot Password?</a>--%>
-                        <%--<a href="#" class="text-decoration-none small text-primary fw-semibold">Create an account</a>--%>
+                        <%--<a href="/userid.asp" class="text-decoration-none small text-primary fw-semibold">Forgot Password?</a>--%>
+                        <%--<a href="/wizard7.asp" class="text-decoration-none small text-primary fw-semibold">Create an account</a>--%>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col text-center">
-                            <h6 class="mb-0">Need help? Call <strong class="text-primary">1-866-848-4506</strong>
+                            <h6 class="mb-0"><a href="/userid.asp">Forgot Password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <strong class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="/wizard7.asp">Create an Account</a></strong>
                             </h6>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <br><center><h6 class="mb-0">Need help? Call <strong class="text-primary">1-866-848-4506</strong>
     </div>
 </asp:Content>
