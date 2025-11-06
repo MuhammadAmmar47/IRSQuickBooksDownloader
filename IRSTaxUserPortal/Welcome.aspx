@@ -168,8 +168,8 @@
 <area href="/order_4506.aspx" shape="rect" coords="68, 127, 240, 164">
 <area href="/orderSSV.aspx" shape="rect" coords="679, 127, 963, 164">
 <area href="/order_8821.aspx" shape="rect" coords="411, 127, 588, 163"></map><img border="0" src="/newsite//Newaccountmenu.jpg" usemap="#FPMap0" width="986" height="194">
-                
     </section>
+    
 <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered"></asp:GridView>
 
 
@@ -243,7 +243,9 @@
     <section>
         <div class="container py-5">
             <div class="row g-4">
-                <div class="d-grid">
+                <div class="d-grid"> 
+                    <asp:Label ID="lblGreeting" runat="server" Text="Welcome " Style="font-size:22px; color:#2c3e50; font-weight:bold; font-family:'Segoe UI', sans-serif;"> </asp:Label>
+                    <br />
                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
 
                         <img runat="server" src="/img/Grid4506.gif" alt="Form 4506 Orders" style="display: block; height: auto;" />

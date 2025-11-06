@@ -23,7 +23,7 @@
             <div class="row g-0 bg-white border-bottom mb-0">
                 <div class="col-12">
                     <div class="d-flex align-items-center justify-content-center gap-5 py-2 flex-column flex-md-row text-center text-md-start">
-					<a href="default.aspx">
+					<a href="welcome.aspx">
                         <img src="/img/top3.gif" alt="IRSTaxRecords.com" style="" class="img-fluid" />
                        <%-- <!-- Logo -->
                         <div class="d-flex align-items-center justify-content-center mb-2 mb-md-0">

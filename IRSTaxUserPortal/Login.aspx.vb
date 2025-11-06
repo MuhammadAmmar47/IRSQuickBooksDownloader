@@ -6,6 +6,13 @@ Public Class Login
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             lblErrorDetails.Visible = False
+
+            Dim expiredParam As String = Request.QueryString("expired")
+
+            If Not String.IsNullOrEmpty(expiredParam) AndAlso expiredParam = "1" Then
+                lblErrorDetails.Text = "Your session has expired. Please log in again."
+                lblErrorDetails.Visible = True
+            End If
         End If
 
     End Sub

@@ -15,11 +15,11 @@ Public Class OrderServices
                         fldtypeofform as FormType, 
                          RTRIM(
                                 CONCAT(
-                                    CASE WHEN fldTaxYear2025 = 1 THEN '2025 ' ELSE '' END,
-                                    CASE WHEN fldTaxYear2024 = 1 THEN '2024 ' ELSE '' END,
-                                    CASE WHEN fldTaxYear2023 = 1 THEN '2023 ' ELSE '' END,
-                                    CASE WHEN fldTaxYear2022 = 1 THEN '2022 ' ELSE '' END,
-                                    CASE WHEN fldTaxYear2021 = 1 THEN '2021 ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2025 = 1 THEN '2025, ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2024 = 1 THEN '2024, ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2023 = 1 THEN '2023,' ELSE '' END,
+                                    CASE WHEN fldTaxYear2022 = 1 THEN '2022, ' ELSE '' END,
+                                    CASE WHEN fldTaxYear2021 = 1 THEN '2021, ' ELSE '' END,
                                     CASE WHEN fldTaxYear2020 = 1 THEN '2020 ' ELSE '' END
                                 )
                             )

@@ -3,7 +3,7 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            Dim formType As String = Request.QueryString("form")
+            Dim formType As String = "" 'Request.QueryString("form")
 
             If Not String.IsNullOrEmpty(formType) Then
                 Select Case formType

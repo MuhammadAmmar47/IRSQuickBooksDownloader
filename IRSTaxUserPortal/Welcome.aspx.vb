@@ -3,17 +3,39 @@
 Public Class Default1
     Inherits System.Web.UI.Page
 
+    ' Property to read once and store in ViewState
+    Private Property AddDeliveryDays As Integer
+        Get
+            If ViewState("AddDeliveryDays") Is Nothing Then
+                Dim configValue As String = ConfigurationManager.AppSettings("AddDeliveryDays")
+                Dim days As Integer = 3
+                If Not String.IsNullOrEmpty(configValue) Then
+                    Integer.TryParse(configValue, days)
+                End If
+                ViewState("AddDeliveryDays") = days
+            End If
+            Return Convert.ToInt32(ViewState("AddDeliveryDays"))
+        End Get
+        Set(value As Integer)
+            ViewState("AddDeliveryDays") = value
+        End Set
+    End Property
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Page.MaintainScrollPositionOnPostBack = True
 
         If Not IsPostBack Then
+
             Dim authCookie = Request.Cookies(".ASPXAUTH")
+
             If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
                 pnlGrid.Visible = True
                 BindGrid()
+
+                lblGreeting.Text = $"Welcome: {StoreInstance.CurrentUser.UserID}"
             Else
                 pnlGrid.Visible = False
             End If
+        Else
         End If
     End Sub
 
@@ -61,6 +83,8 @@ Public Class Default1
             lblGrid3Message.Visible = True
         End If
         Grid3.DataBind()
+
+
     End Sub
 
     ' For paging
@@ -128,6 +152,16 @@ Public Class Default1
     End Sub
 
     Private Sub Grid3_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles Grid1.RowDataBound, Grid2.RowDataBound, Grid3.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.Header Then
+            For i As Integer = 0 To e.Row.Cells.Count - 1
+                If e.Row.Cells(i).Text.Trim().Equals("Delivery Date", StringComparison.OrdinalIgnoreCase) Then
+                    e.Row.Cells(i).Text = $"Delivery Date (+{AddDeliveryDays} Days)"
+                    Exit For
+                End If
+            Next
+        End If
+
         Dim btnView = CType(e.Row.FindControl("btnView"), ImageButton)
         Dim lblDeliveryDate = CType(e.Row.FindControl("lblDeliveryDate"), Label)
         Dim dr As DataRowView = CType(e.Row.DataItem, DataRowView)
@@ -146,7 +180,7 @@ Public Class Default1
         If dr("DeliveryDate") IsNot DBNull.Value Then
             Dim deliveryDate As DateTime = CDate(dr("DeliveryDate").ToString)
             If deliveryDate > New Date(2001, 1, 1) Then
-                lblDeliveryDate.Text = deliveryDate.ToString("MM-dd-yyyy")
+                lblDeliveryDate.Text = deliveryDate.AddDays(AddDeliveryDays).ToString("MM-dd-yyyy")
             Else
                 lblDeliveryDate.Text = ""
             End If
