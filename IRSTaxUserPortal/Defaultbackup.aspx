@@ -130,9 +130,9 @@
                                         <br>
                                         Turn around time with form 4506-C is 48 hours
                                     </p>
-                                    <img src="/img/pennymacGIF.gif"
+                                    <img src="/pennymac-.gif"
                                         alt="HUD Partners"
-                                        class="img-fluid mb-3 mt-auto w-94 w-md-352 mx-auto mx-md-0" />
+                                        class="img-fluid mb-3 mt-auto w-95 w-md-432 mx-auto mx-md-0" />
 
                                     <a href="order_4506.aspx" class="btn btn-custom-blue w-100 text-decoration-e">Order Transcripts</a>
                                 </div>
@@ -161,9 +161,9 @@
                                         Fast, Easy and Secure online ordering makes obtaining IRS transcripts a snap!
               Secure, efficient, and trusted nationwide.
                                     </p>
-                                    <img src="/img/pennymacGIF.gif"
+                                    <img src="/pennymac-.gif"
                                         alt="HUD Partners"
-                                        class="img-fluid mb-3 mt-auto w-94 w-md-352 mx-auto mx-md-0" />
+                                        class="img-fluid mb-3 mt-auto w-95 w-md-432 mx-auto mx-md-0" />
 
                                     <a href="order_88215.aspx" class="btn btn-custom-blue w-100 text-decoration-">Get Started</a>
                                 </div>

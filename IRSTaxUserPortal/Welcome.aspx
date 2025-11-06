@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>welcome</title>
+    <title>Welcome</title>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <!-- Font Awesome -->
@@ -16,7 +16,7 @@
 /* Pending highlight — wins over striping */
 .table.table-striped.table-bordered > tbody > tr.highlightRow > th,
 .table.table-striped.table-bordered > tbody > tr.highlightRow > td {
-  background-color: #ADD8E6 !important;
+  background-color: #FFF0E1 !important;
 }
 </style>
     <style>
@@ -109,7 +109,7 @@
 
     <!-- Hero -->
     <section class="hero-section border-top border-warning border-5">
-        <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="heroCarousel" class="carousel slide carousel-fade h-100 h-md-80" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner h-100">
                 <div class="carousel-item active">
                     <img src="/new/images/bannerflip1.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="Slide 1">
@@ -127,6 +127,42 @@
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
             </button>
+			<!-- Put this script after the carousel HTML -->
+<script>
+  (function () {
+    var el = document.getElementById('heroCarousel');
+    if (!el) return;
+
+    var items = el.querySelectorAll('.carousel-item');
+    if (items.length < 2) return;
+
+    // pick a random starting slide
+    var start = Math.floor(Math.random() * items.length);
+
+    // clear any existing 'active' and set the random one
+    el.querySelectorAll('.carousel-item.active').forEach(function (n) { n.classList.remove('active'); });
+    items[start].classList.add('active');
+
+    // if you have indicators, keep them in sync
+    var inds = el.querySelectorAll('.carousel-indicators [data-bs-target="#heroCarousel"]');
+    if (inds.length === items.length) {
+      inds.forEach(function (n) { n.classList.remove('active'); n.removeAttribute('aria-current'); });
+      inds[start].classList.add('active');
+      inds[start].setAttribute('aria-current', 'true');
+    }
+
+    // ensure Bootstrap's internal index matches our starting slide
+    if (window.bootstrap && bootstrap.Carousel) {
+      var instance = bootstrap.Carousel.getOrCreateInstance(el, {
+        interval: 5000,
+        ride: 'carousel'
+      });
+      instance.to(start);
+    }
+  })();
+</script>
+			
+			
         </div><div class="container py-5"><center>
    <map name="FPMap0">
 <area href="/order_4506.aspx" shape="rect" coords="68, 127, 240, 164">
