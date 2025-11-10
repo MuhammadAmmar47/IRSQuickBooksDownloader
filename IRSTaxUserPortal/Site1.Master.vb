@@ -1,9 +1,10 @@
-﻿Public Class Site1
+﻿Imports IRSTaxRecords.Core
+
+Public Class Site1
     Inherits System.Web.UI.MasterPage
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            Dim authCookie = Request.Cookies(".ASPXAUTH")
 
             '    ' Hide button on Login.aspx
             '    If Request.Url.AbsolutePath.ToLower().Contains("login.aspx") Then
@@ -12,11 +13,11 @@
             '    End If
 
             ' If cookie exists → show Logout
-            If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
+            If StoreInstance.IsUserLoggedIn Then
                 lnkLoginLogout.Text = "Logout"
             Else
                 lnkLoginLogout.Text = "Account Login"
-        End If
+            End If
         End If
     End Sub
     Protected Sub lnkLoginLogout_Click(sender As Object, e As EventArgs)
