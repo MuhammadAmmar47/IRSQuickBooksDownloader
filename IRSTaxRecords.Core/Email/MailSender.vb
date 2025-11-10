@@ -275,14 +275,14 @@ Namespace Email
             If FormName.Equals("SSN") Then t.Subject = "SSV Received"
             Try
                 If Email.MailSender.Send(t.SenderEmail, emailTo, "", t.Subject, t.Body, Nothing) Then
-                    Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {OrderNumbers}")
+                    Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmail) Email sent successfully for Order#s {OrderNumbers}")
                     Return True
                 Else
-                    Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {Email.MailSender.LastError}")
+                    Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmail) Email sent FAILED for Order#s {OrderNumbers}. {Email.MailSender.LastError}")
                     Return False
                 End If
             Catch ex As Exception
-                Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {ex.MessageWithInnerExceptionDetails}")
+                Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmail) Email sent FAILED for Order#s {OrderNumbers}. {ex.MessageWithInnerExceptionDetails}")
             End Try
             Return False
         End Function
@@ -309,19 +309,22 @@ Namespace Email
 
             Dim attachments As New List(Of String)
             If pdfFilePath.IsNotNullOrEmpty AndAlso System.IO.File.Exists(pdfFilePath) Then
+                Trace.WriteLine($"(SendOrderCreatedEmailToAdmin) Attaching file {pdfFilePath} to the order# {OrderNumbers.ToSqlList}")
                 attachments.Add(pdfFilePath)
+            Else
+                Trace.WriteLine($"(SendOrderCreatedEmailToAdmin) order# {OrderNumbers.ToSqlList} doesn't have any attachments.")
             End If
             Try
 
                 If Email.MailSender.Send(t.SenderEmail, AppSettings.CustomerSupportEmail, "", t.Subject, t.Body, attachments) Then
-                    Diagnostics.Trace.WriteLine($"Email sent successfully for Order#s {OrderNumbers}")
+                    Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmailToAdmin) Email sent successfully for Order#s {OrderNumbers}")
                     Return True
                 Else
-                    Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {Email.MailSender.LastError}")
+                    Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmailToAdmin) Email sent FAILED for Order#s {OrderNumbers}. {Email.MailSender.LastError}")
                     Return False
                 End If
             Catch ex As Exception
-                Diagnostics.Trace.WriteLine($"Email sent FAILED for Order#s {OrderNumbers}. {ex.MessageWithInnerExceptionDetails}")
+                Diagnostics.Trace.WriteLine($"(SendOrderCreatedEmailToAdmin) Email sent FAILED for Order#s {OrderNumbers}. {ex.MessageWithInnerExceptionDetails}")
             End Try
             Return False
         End Function
