@@ -3,31 +3,12 @@
 Public Class Default1
     Inherits System.Web.UI.Page
 
-    ' Property to read once and store in ViewState
-    Private Property AddDeliveryDays As Integer
-        Get
-            If ViewState("AddDeliveryDays") Is Nothing Then
-                Dim configValue As String = ConfigurationManager.AppSettings("AddDeliveryDays")
-                Dim days As Integer = 3
-                If Not String.IsNullOrEmpty(configValue) Then
-                    Integer.TryParse(configValue, days)
-                End If
-                ViewState("AddDeliveryDays") = days
-            End If
-            Return Convert.ToInt32(ViewState("AddDeliveryDays"))
-        End Get
-        Set(value As Integer)
-            ViewState("AddDeliveryDays") = value
-        End Set
-    End Property
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Page.MaintainScrollPositionOnPostBack = True
 
         If Not IsPostBack Then
-
-            Dim authCookie = Request.Cookies(".ASPXAUTH")
-
-            If authCookie IsNot Nothing AndAlso Not String.IsNullOrEmpty(authCookie.Value) Then
+            If StoreInstance.IsUserLoggedIn Then
                 pnlGrid.Visible = True
                 BindGrid()
 
@@ -156,7 +137,7 @@ Public Class Default1
         If e.Row.RowType = DataControlRowType.Header Then
             For i As Integer = 0 To e.Row.Cells.Count - 1
                 If e.Row.Cells(i).Text.Trim().Equals("Delivery Date", StringComparison.OrdinalIgnoreCase) Then
-                    e.Row.Cells(i).Text = $"Delivery Date (+{AddDeliveryDays} Days)"
+                    e.Row.Cells(i).Text = $"Delivery Date (+{AppSettings.AddDeliveryDays} Days)"
                     Exit For
                 End If
             Next
@@ -180,7 +161,7 @@ Public Class Default1
         If dr("DeliveryDate") IsNot DBNull.Value Then
             Dim deliveryDate As DateTime = CDate(dr("DeliveryDate").ToString)
             If deliveryDate > New Date(2001, 1, 1) Then
-                lblDeliveryDate.Text = deliveryDate.AddDays(AddDeliveryDays).ToString("MM-dd-yyyy")
+                lblDeliveryDate.Text = deliveryDate.AddDays(AppSettings.AddDeliveryDays).ToString("MM-dd-yyyy")
             Else
                 lblDeliveryDate.Text = ""
             End If

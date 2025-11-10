@@ -71,6 +71,15 @@ Public Class AppSettings
             Return GetSetting("WebApplicationName")
         End Get
     End Property
+    Public Shared ReadOnly Property AddDeliveryDays() As Integer
+        Get
+            Dim _addDeliveryDays As String = GetSetting("AddDeliveryDays")
+            If (_addDeliveryDays.IsNullOrEmpty) Then
+                Return 3
+            End If
+            Return GetSetting("AddDeliveryDays")
+        End Get
+    End Property
 
 #Region "Email Settings"
     Public Shared ReadOnly Property CustomerSupportName() As String
