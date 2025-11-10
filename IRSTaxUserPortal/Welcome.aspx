@@ -56,6 +56,38 @@
         .highlightRow td { background-color: #ADD8E6 !important; }
 		
     </style>
+
+    <script type="text/javascript">
+        // Set session timeout duration (in minutes)
+        const sessionTimeoutMinutes = <%= Session.Timeout %>; // dynamically uses web.config timeout
+        const timeoutMilliseconds = sessionTimeoutMinutes * 60 * 1000;
+
+        // Optional: Add a few seconds buffer before redirect
+        const bufferTime = 5000; // 5 seconds
+        const totalTimeout = timeoutMilliseconds + bufferTime;
+
+        let sessionTimer;
+
+        function startSessionTimer() {
+            // Clear any previous timer
+            clearTimeout(sessionTimer);
+
+            // Set new timeout
+            sessionTimer = setTimeout(function () {
+                // Redirect to login page with param
+                window.location.href = '/login.aspx?expired=1';
+            }, totalTimeout);
+        }
+
+        // Restart timer on user activity
+        ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+            document.addEventListener(evt, startSessionTimer, false);
+        });
+
+        // Start initial timer when page loads
+        window.onload = startSessionTimer;
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
