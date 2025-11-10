@@ -1,4 +1,6 @@
-﻿Public Class ChangePassword
+﻿Imports IRSTaxRecords.Core
+
+Public Class ChangePassword
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -24,8 +26,7 @@
             Exit Sub
         End If
 
-        ' Example validation: Replace with actual user verification logic
-        Dim isCurrentPasswordValid As Boolean = (currentPwd = "oldpassword") ' demo check
+        Dim isCurrentPasswordValid As Boolean = (StoreInstance.CurrentUser.Password)
 
         If Not isCurrentPasswordValid Then
             lblMessage.Text = "Your current password is incorrect."
@@ -33,6 +34,8 @@
             Exit Sub
         End If
 
+        StoreInstance.CurrentUser.Password = txtNewPassword.Text
+        DataServices.UpdateCustomer(StoreInstance.CurrentUser)
 
 
         ' TODO: Implement actual password update logic (e.g., update in database)
