@@ -109,34 +109,34 @@
     </style>
 
     <script>
-      // Swap icon after a delay, set new size, then trigger the server command
-      function swapAfterDelay(el, nextSrc, nextW, nextH, delayMs) {
-        if (el.dataset.swapping === '1') return false; // prevent double-clicks
-        el.dataset.swapping = '1';
+        // Swap icon after a delay, set new size, then trigger the server command
+        function swapAfterDelay(el, nextSrc, nextW, nextH, delayMs) {
+            if (el.dataset.swapping === '1') return false; // prevent double-clicks
+            el.dataset.swapping = '1';
 
-        el.style.opacity = '0.7';
-        el.style.pointerEvents = 'none';
+            el.style.opacity = '0.7';
+            el.style.pointerEvents = 'none';
 
-        var preload = new Image();
-        preload.src = nextSrc;
+            var preload = new Image();
+            preload.src = nextSrc;
 
-        setTimeout(function () {
-          el.src = nextSrc;                      // swap image
-          if (nextW) el.width  = parseInt(nextW, 10);
-          if (nextH) el.height = parseInt(nextH, 10);
+            setTimeout(function () {
+                el.src = nextSrc;                      // swap image
+                if (nextW) el.width  = parseInt(nextW, 10);
+                if (nextH) el.height = parseInt(nextH, 10);
 
-          el.style.opacity = '';
-          el.style.pointerEvents = '';
+                el.style.opacity = '';
+                el.style.pointerEvents = '';
 
-          if (typeof __doPostBack === 'function') {
-            __doPostBack(el.name, '');
-          } else if (el.form) {
-            el.form.submit();
-          }
-        }, delayMs || 3000);
+                if (typeof __doPostBack === 'function') {
+                    __doPostBack(el.name, '');
+                } else if (el.form) {
+                    el.form.submit();
+                }
+            }, delayMs || 3000);
 
-        return false; // cancel immediate postback; we’ll post back after delay
-      }
+            return false; // cancel immediate postback; we’ll post back after delay
+        }
     </script>
 
     <!-- Hero -->
@@ -161,37 +161,37 @@
             </button>
 			<!-- Put this script after the carousel HTML -->
 <script>
-  (function () {
-    var el = document.getElementById('heroCarousel');
-    if (!el) return;
+    (function () {
+        var el = document.getElementById('heroCarousel');
+        if (!el) return;
 
-    var items = el.querySelectorAll('.carousel-item');
-    if (items.length < 2) return;
+        var items = el.querySelectorAll('.carousel-item');
+        if (items.length < 2) return;
 
-    // pick a random starting slide
-    var start = Math.floor(Math.random() * items.length);
+        // pick a random starting slide
+        var start = Math.floor(Math.random() * items.length);
 
-    // clear any existing 'active' and set the random one
-    el.querySelectorAll('.carousel-item.active').forEach(function (n) { n.classList.remove('active'); });
-    items[start].classList.add('active');
+        // clear any existing 'active' and set the random one
+        el.querySelectorAll('.carousel-item.active').forEach(function (n) { n.classList.remove('active'); });
+        items[start].classList.add('active');
 
-    // if you have indicators, keep them in sync
-    var inds = el.querySelectorAll('.carousel-indicators [data-bs-target="#heroCarousel"]');
-    if (inds.length === items.length) {
-      inds.forEach(function (n) { n.classList.remove('active'); n.removeAttribute('aria-current'); });
-      inds[start].classList.add('active');
-      inds[start].setAttribute('aria-current', 'true');
-    }
+        // if you have indicators, keep them in sync
+        var inds = el.querySelectorAll('.carousel-indicators [data-bs-target="#heroCarousel"]');
+        if (inds.length === items.length) {
+            inds.forEach(function (n) { n.classList.remove('active'); n.removeAttribute('aria-current'); });
+            inds[start].classList.add('active');
+            inds[start].setAttribute('aria-current', 'true');
+        }
 
-    // ensure Bootstrap's internal index matches our starting slide
-    if (window.bootstrap && bootstrap.Carousel) {
-      var instance = bootstrap.Carousel.getOrCreateInstance(el, {
-        interval: 5000,
-        ride: 'carousel'
-      });
-      instance.to(start);
-    }
-  })();
+        // ensure Bootstrap's internal index matches our starting slide
+        if (window.bootstrap && bootstrap.Carousel) {
+            var instance = bootstrap.Carousel.getOrCreateInstance(el, {
+                interval: 5000,
+                ride: 'carousel'
+            });
+            instance.to(start);
+        }
+    })();
 </script>
 			
 			

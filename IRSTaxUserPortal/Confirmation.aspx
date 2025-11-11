@@ -59,12 +59,12 @@
                     <a href="Welcome.aspx"
                        class="btn btn-info btn-lg rounded-pill fw-semibold"
                        style="
-                         --bs-btn-bg:#00498C;
-                         --bs-btn-border-color:#00498C;
-                         --bs-btn-color:#ffffff;
-                         --bs-btn-hover-bg:#ADD8E6;           /* pale blue */
-                         --bs-btn-hover-border-color:#ADD8E6;
-                         --bs-btn-hover-color:#003366;
+                       --bs-btn-bg:#00498C;                 
+     --bs-btn-border-color:#00498C;
+     --bs-btn-color:#ffffff;              
+     --bs-btn-hover-bg:#00D936;           /* pale blue */
+     --bs-btn-hover-border-color:#ADD8E6;
+     --bs-btn-hover-color:#003366;        /* darker text on pale blue */
                        ">
                       <i class="fas fa-user-circle me-2"></i> Go back to your online account
                     </a>
