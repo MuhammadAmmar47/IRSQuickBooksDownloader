@@ -5,6 +5,9 @@ Public Class ChangePassword
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            If StoreInstance.IsUserLoggedIn = False Then
+                Response.Redirect("~/Login.aspx?ReturnUrl=" & Server.UrlEncode(Request.RawUrl))
+            End If
         End If
     End Sub
     Protected Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
@@ -26,7 +29,8 @@ Public Class ChangePassword
             Exit Sub
         End If
 
-        Dim isCurrentPasswordValid As Boolean = (StoreInstance.CurrentUser.Password)
+        Dim currentUser = StoreInstance.CurrentUser
+        Dim isCurrentPasswordValid As Boolean = (currentUser.Password.Equals(currentPwd))
 
         If Not isCurrentPasswordValid Then
             lblMessage.Text = "Your current password is incorrect."
@@ -34,8 +38,8 @@ Public Class ChangePassword
             Exit Sub
         End If
 
-        StoreInstance.CurrentUser.Password = txtNewPassword.Text
-        DataServices.UpdateCustomer(StoreInstance.CurrentUser)
+        currentUser.Password = txtNewPassword.Text
+        DataServices.UpdateCustomerPassword(currentUser)
 
 
         ' TODO: Implement actual password update logic (e.g., update in database)

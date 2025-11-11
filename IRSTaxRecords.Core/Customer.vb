@@ -399,6 +399,6 @@ Public Class Customer
         End Set
     End Property
 
-
-
+    Public Property PasswordChangeRequired As Boolean
+    Public Property PasswordChangedOn As DateTime
 End Class

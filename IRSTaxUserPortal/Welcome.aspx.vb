@@ -12,7 +12,7 @@ Public Class Default1
                 pnlGrid.Visible = True
                 BindGrid()
 
-                lblGreeting.Text = $"Welcome: {StoreInstance.CurrentUser.UserID}"
+                lblGreeting.Text = $"Welcome: {StoreInstance.CurrentUser.Name}"
             Else
                 pnlGrid.Visible = False
             End If
@@ -161,7 +161,7 @@ Public Class Default1
         If dr("DeliveryDate") IsNot DBNull.Value Then
             Dim deliveryDate As DateTime = CDate(dr("DeliveryDate").ToString)
             If deliveryDate > New Date(2001, 1, 1) Then
-                lblDeliveryDate.Text = deliveryDate.AddDays(AppSettings.AddDeliveryDays).ToString("MM-dd-yyyy")
+                lblDeliveryDate.Text = deliveryDate.ToString("MM-dd-yyyy")
             Else
                 lblDeliveryDate.Text = ""
             End If

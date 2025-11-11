@@ -16,18 +16,17 @@ Public Class order_4506
             Return Nothing
         End If
 
-        Try
+        Dim fileXtension As String = Path.GetExtension(file.FileName).ToLower()
+        If Not fileXtension.Equals(".pdf") Then
+            Throw New Exception("Invalid file type. Only PDF files are allowed.")
+        End If
+        Dim newFileName As String = $"{Guid.NewGuid.ToString}{fileXtension}"
 
-            Dim newFileName As String = $"{Guid.NewGuid.ToString}{System.IO.Path.GetExtension(file.FileName)}"
 
+        Dim filePath As String = Path.Combine(uploadFolderPath, newFileName)
+        file.SaveAs(filePath)
 
-            Dim filePath As String = Path.Combine(uploadFolderPath, newFileName)
-            file.SaveAs(filePath)
-
-            Return filePath
-        Catch ex As Exception
-            Return Nothing
-        End Try
+        Return filePath
     End Function
 
     Private Function ValidateForm() As Boolean
@@ -38,7 +37,11 @@ Public Class order_4506
         If Me.txtLoanNumber.Visible AndAlso txtLoanNumber.Text.Trim = "" Then msg &= "Please enter Loan Number.<br>"
         If SelectedIDs(Me.chkTaxyears).Count = 0 Then msg &= "Please select at least one year to order.<br>"
         If Me.chkTaxForms.Items.Count = 0 Then msg &= "Please select at least one form type.<br>"
-        If Not fuform4506C.HasFile Then msg &= "Please attach a PDF file.<br>"
+        If Not fuform4506C.HasFile Then
+            msg &= "Please attach a PDF file.<br>"
+        ElseIf System.IO.Path.GetExtension(fuform4506C.PostedFile.FileName).ToLower <> ".pdf" Then
+            msg &= "Only PDF file is allowed.<br>"
+        End If
 
         If msg = "" Then
             Return True
@@ -98,6 +101,9 @@ Public Class order_4506
                 .LoanNumber = Me.txtLoanNumber.Text.Trim()
             }
             PDFFileUploadServices.SavePDFFileUploaded(file)
+        Else
+            lblMessage.Text = "File upload failed."
+            Return
         End If
         Dim years As Generic.List(Of Integer) = SelectedIDs(chkTaxyears)
 

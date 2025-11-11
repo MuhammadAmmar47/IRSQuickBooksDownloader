@@ -189,6 +189,8 @@ Public Class DataServices
             If Not dt.Rows(0)("irs_fee") Is DBNull.Value Then .IRSFee = dt.Rows(0)("irs_fee")
             If Not dt.Rows(0)("Addloannumber") Is DBNull.Value Then .Addloannumber = dt.Rows(0)("Addloannumber")
             If Not dt.Rows(0)("BillToID") Is DBNull.Value Then .BillToID = dt.Rows(0)("BillToID")
+            If Not dt.Rows(0)("PasswordChangeRequired") Is DBNull.Value Then .PasswordChangeRequired = dt.Rows(0)("PasswordChangeRequired")
+            If Not dt.Rows(0)("PasswordChangedOn") Is DBNull.Value Then .PasswordChangedOn = dt.Rows(0)("PasswordChangedOn")
             If .rushRate = 0 Then .rushRate = 19
         End With
 
@@ -281,10 +283,24 @@ Public Class DataServices
         req.AddParameter("@bError", c.IsError)
 
         Return Data.ExecuteNonQuery(req)
+    End Function
+    Public Shared Function UpdateCustomerPassword(ByVal c As Customer) As Integer
 
+        Dim strQ As String = ""
+        'New Customer
+        strQ = "UPDATE Customer SET "
+        strQ += " Password = @Password, PasswordChangeRequired = 0, PasswordChangedOn = @PasswordChangedOn "
+        strQ += " WHERE CustomerID = @CustomerID"
 
+        Dim req As New DataRequest
+        req.Command = strQ
+        req.CommandType = CommandType.Text
 
+        req.AddParameter("@CustomerID", c.CustomerID)
+        req.AddParameter("@PasswordChangedOn", Now)
+        req.AddParameter("@Password", c.Password)
 
+        Return Data.ExecuteNonQuery(req)
     End Function
 
 #End Region

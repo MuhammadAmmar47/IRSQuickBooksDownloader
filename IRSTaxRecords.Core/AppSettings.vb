@@ -77,7 +77,7 @@ Public Class AppSettings
             If (_addDeliveryDays.IsNullOrEmpty) Then
                 Return 3
             End If
-            Return GetSetting("AddDeliveryDays")
+            Return _addDeliveryDays
         End Get
     End Property
 

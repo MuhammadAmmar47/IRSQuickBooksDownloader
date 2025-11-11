@@ -15,23 +15,16 @@ Public Class order_8821
             Return Nothing
         End If
 
-        Try
-            Dim serverPath As String = HttpContext.Current.Server.MapPath(uploadFolderPath)
-            If Not Directory.Exists(serverPath) Then
-                Directory.CreateDirectory(serverPath)
-            End If
+        Dim fileXtension As String = Path.GetExtension(file.FileName).ToLower()
+        If Not fileXtension.Equals(".pdf") Then
+            Throw New Exception("Invalid file type. Only PDF files are allowed.")
+        End If
+        Dim newFileName As String = $"{Guid.NewGuid.ToString}{fileXtension}"
 
-            Dim extension As String = Path.GetExtension(file.FileName)
-            Dim newFileName As String = DateTime.Now.ToString("yyyyMMddHHmmss") & "_" & Guid.NewGuid().ToString() & extension
+        Dim filePath As String = Path.Combine(uploadFolderPath, newFileName)
+        file.SaveAs(filePath)
+        Return filePath
 
-
-            Dim filePath As String = Path.Combine(serverPath, newFileName)
-            file.SaveAs(filePath)
-
-            Return filePath
-        Catch ex As Exception
-            Return Nothing
-        End Try
     End Function
 
     Private Function ValidateForm() As Boolean
@@ -42,7 +35,11 @@ Public Class order_8821
         If Me.txtLoanNumber.Visible AndAlso txtLoanNumber.Text.Trim = "" Then msg &= "Please enter Loan Number.<br>"
         If SelectedIDs(Me.chkTaxyears).Count = 0 Then msg &= "Please select at least one year to order.<br>"
         If Me.chkTaxForms.Items.Count = 0 Then msg &= "Please select at least one form type.<br>"
-        If Not fuform8821.HasFile Then msg &= "Please attach a PDF file.<br>"
+        If Not fuform8821.HasFile Then
+            msg &= "Please attach a PDF file.<br>"
+        ElseIf system.IO.path.GetExtension(fuform8821.PostedFile.FileName).ToLower <> ".pdf" Then
+            msg &= "Only PDF file is allowed.<br>"
+        End If
 
         If msg = "" Then
             Return True
@@ -116,6 +113,9 @@ Public Class order_8821
                 .LoanNumber = Me.txtLoanNumber.Text.Trim()
             }
             PDFFileUploadServices.SavePDFFileUploaded(file)
+        Else
+            lblMessage.Text = "File upload failed."
+            Return
         End If
         Dim years As Generic.List(Of Integer) = SelectedIDs(chkTaxyears)
 

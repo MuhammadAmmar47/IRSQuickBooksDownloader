@@ -15,6 +15,11 @@ Public Class Site1
             ' If cookie exists → show Logout
             If StoreInstance.IsUserLoggedIn Then
                 lnkLoginLogout.Text = "Logout"
+
+                If StoreInstance.CurrentUser.PasswordChangeRequired Then
+                    Response.Redirect("ChangePassword.aspx")
+                End If
+
             Else
                 lnkLoginLogout.Text = "Account Login"
             End If
@@ -24,12 +29,13 @@ Public Class Site1
         If lnkLoginLogout.Text = "Logout" Then
             Session.Clear()
             Session.Abandon()
+            FormsAuthentication.SignOut()
             ' Clear cookie
-            If Request.Cookies(".ASPXAUTH") IsNot Nothing Then
-                Dim cookie As New HttpCookie(".ASPXAUTH")
-                cookie.Expires = DateTime.Now.AddDays(-1)
-                Response.Cookies.Add(cookie)
-            End If
+            'If Request.Cookies(".ASPXAUTH") IsNot Nothing Then
+            '    Dim cookie As New HttpCookie(".ASPXAUTH")
+            '    cookie.Expires = DateTime.Now.AddDays(-1)
+            '    Response.Cookies.Add(cookie)
+            'End If
 
             Response.Redirect("~/Login.aspx")
         Else
