@@ -37,37 +37,9 @@ Public Class OrderServices
             Dim RequestedTaxYears As String = row("RequestedTaxYears").ToString.Trim
 
             row("RequestedTaxYears") = RequestedTaxYears.TrimEnd(",")
-
-            If row("DeliveryDate") Is DBNull.Value Then Continue For
-            Dim actualDate As DateTime = Convert.ToDateTime(row("DeliveryDate"))
-            If actualDate > New Date(1978, 1, 1) Then
-                row("DeliveryDate") = GetDeliveryDate(actualDate, orderType)
-            End If
         Next
         Return dt
     End Function
-    Private Shared Function GetDeliveryDate(actualDate As DateTime, orderType As Orders.OrderType) As DateTime
-        Select Case orderType
-            Case Orders.OrderType.Form_4506
-                Return AddDaysConsideringHolidays(actualDate, 3)
-            Case Orders.OrderType.Form_8821
-                Return AddDaysConsideringHolidays(actualDate, 1)
-        End Select
-        Return actualDate
-    End Function
-    Private Shared Function AddDaysConsideringHolidays(theDate As DateTime, daysToAdd As Integer) As DateTime
-        For temp As Integer = 1 To daysToAdd
-            theDate = theDate.AddDays(1)
-            If theDate.DayOfWeek = DayOfWeek.Saturday Then
-                theDate = theDate.AddDays(1)
-            End If
-            If theDate.DayOfWeek = DayOfWeek.Sunday Then
-                theDate = theDate.AddDays(1)
-            End If
-        Next
-        Return theDate
-    End Function
-
     Public Shared Function GetCustomerOrders(ByVal CustomerID As Integer) As Orders.Order
         Dim dt As DataTable = DataHelper.ExecuteQuery("SELECT * FROM tblOrder WHERE fldcustomeriD = " & CustomerID)
         If dt.Rows.Count = 0 Then Return Nothing

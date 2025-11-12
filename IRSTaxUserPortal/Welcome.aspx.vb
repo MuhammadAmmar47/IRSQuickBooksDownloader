@@ -134,15 +134,6 @@ Public Class Default1
 
     Private Sub Grid3_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles Grid1.RowDataBound, Grid2.RowDataBound, Grid3.RowDataBound
 
-        If e.Row.RowType = DataControlRowType.Header Then
-            For i As Integer = 0 To e.Row.Cells.Count - 1
-                If e.Row.Cells(i).Text.Trim().Equals("Delivery Date", StringComparison.OrdinalIgnoreCase) Then
-                    e.Row.Cells(i).Text = $"Delivery Date (+{AppSettings.AddDeliveryDays} Days)"
-                    Exit For
-                End If
-            Next
-        End If
-
         Dim btnView = CType(e.Row.FindControl("btnView"), ImageButton)
         Dim lblDeliveryDate = CType(e.Row.FindControl("lblDeliveryDate"), Label)
         Dim dr As DataRowView = CType(e.Row.DataItem, DataRowView)
@@ -150,13 +141,6 @@ Public Class Default1
 
         If dr("Status") Is DBNull.Value Then dr("Status") = "p"
         Dim status = dr("Status").ToString.Trim
-        Select Case status.ToLower
-            Case "p"
-                e.Row.CssClass &= " highlightRow"
-                btnView.ImageUrl = "/img/spaceclear.gif"
-            Case "c"
-                btnView.ImageUrl = "/img/spaceclear.gif"
-        End Select
 
         If dr("DeliveryDate") IsNot DBNull.Value Then
             Dim deliveryDate As DateTime = CDate(dr("DeliveryDate").ToString)
@@ -166,6 +150,19 @@ Public Class Default1
                 lblDeliveryDate.Text = ""
             End If
         End If
+
+
+        Select Case status.ToLower
+            Case "p"
+                e.Row.CssClass &= " highlightRow"
+                btnView.ImageUrl = "/img/spaceclear.gif"
+                Dim orderDate As DateTime = CDate(dr("OrderDate").ToString)
+                If dr("OrderType") Is DBNull.Value Then dr("OrderType") = CInt(Orders.OrderType.Form_4506)
+                orderDate = GetDeliveryDate(orderDate, dr("OrderType"))
+                lblDeliveryDate.Text = orderDate.ToString("MM-dd-yyyy")
+            Case "c"
+                btnView.ImageUrl = "/img/spaceclear.gif"
+        End Select
 
         If btnView Is Nothing Then Return
 
@@ -179,4 +176,26 @@ Public Class Default1
         End If
 
     End Sub
+    Private Shared Function GetDeliveryDate(actualDate As DateTime, orderType As Orders.OrderType) As DateTime
+        Select Case orderType
+            Case Orders.OrderType.Form_4506
+                Return AddDaysConsideringHolidays(actualDate, 3)
+            Case Orders.OrderType.Form_8821
+                Return AddDaysConsideringHolidays(actualDate, 1)
+        End Select
+        Return actualDate
+    End Function
+    Private Shared Function AddDaysConsideringHolidays(theDate As DateTime, daysToAdd As Integer) As DateTime
+        For temp As Integer = 1 To daysToAdd
+            theDate = theDate.AddDays(1)
+            If theDate.DayOfWeek = DayOfWeek.Saturday Then
+                theDate = theDate.AddDays(1)
+            End If
+            If theDate.DayOfWeek = DayOfWeek.Sunday Then
+                theDate = theDate.AddDays(1)
+            End If
+        Next
+        Return theDate
+    End Function
+
 End Class
