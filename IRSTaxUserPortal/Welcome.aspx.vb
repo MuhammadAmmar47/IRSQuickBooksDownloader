@@ -156,9 +156,16 @@ Public Class Default1
             Case "p"
                 e.Row.CssClass &= " highlightRow"
                 btnView.ImageUrl = "/img/spaceclear.gif"
+
+                Dim isSSNGrid As Boolean = False
+                If TypeOf sender Is GridView Then
+                    If CType(sender, GridView).ID.ToLower.Equals("grid3") Then
+                        isSSNGrid = True
+                    End If
+                End If
                 Dim orderDate As DateTime = CDate(dr("OrderDate").ToString)
                 If dr("OrderType") Is DBNull.Value Then dr("OrderType") = CInt(Orders.OrderType.Form_4506)
-                orderDate = GetDeliveryDate(orderDate, dr("OrderType"))
+                orderDate = GetDeliveryDate(orderDate, dr("OrderType"), isSSNGrid)
                 lblDeliveryDate.Text = orderDate.ToString("MM-dd-yyyy")
             Case "c"
                 btnView.ImageUrl = "/img/spaceclear.gif"
@@ -176,7 +183,15 @@ Public Class Default1
         End If
 
     End Sub
-    Private Shared Function GetDeliveryDate(actualDate As DateTime, orderType As Orders.OrderType) As DateTime
+    Private Shared Function GetDeliveryDate(actualDate As DateTime, orderType As Orders.OrderType, isSSNGrid As Boolean) As DateTime
+        If isSSNGrid Then
+            If actualDate.DayOfWeek = DayOfWeek.Saturday Then
+                actualDate = actualDate.AddDays(2)
+            ElseIf actualDate.DayOfWeek = DayOfWeek.Sunday Then
+                actualDate = actualDate.AddDays(1)
+            End If
+            Return actualDate
+        End If
         Select Case orderType
             Case Orders.OrderType.Form_4506
                 Return AddDaysConsideringHolidays(actualDate, 3)
