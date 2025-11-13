@@ -1,5 +1,3 @@
-Imports System.Web
-
 Public Class OrderServices
 
 
@@ -32,10 +30,14 @@ Public Class OrderServices
                         FROM tblorder WHERE fldcustomerID = {CustomerID}                         
                         ORDER BY OrderNumber DESC")
         For Each row As DataRow In dt.Rows
-            Dim formType As Orders.FormTypeCodeType = CType(row("FormType"), Orders.FormTypeCodeType)
-            Dim orderType As Orders.OrderType = CType(row("OrderType"), Orders.OrderType)
-            Dim RequestedTaxYears As String = row("RequestedTaxYears").ToString.Trim
+            If row("FormType") Is DBNull.Value Then row("FormType") = 0
+            If row("OrderType") Is DBNull.Value Then row("OrderType") = 0
+            If row("RequestedTaxYears") Is DBNull.Value Then row("RequestedTaxYears") = ""
 
+            row("FormType") = Val(row("FormType").ToString)
+            row("OrderType") = Val(row("OrderType").ToString)
+
+            Dim RequestedTaxYears As String = row("RequestedTaxYears").ToString.Trim
             row("RequestedTaxYears") = RequestedTaxYears.TrimEnd(",")
         Next
         Return dt
