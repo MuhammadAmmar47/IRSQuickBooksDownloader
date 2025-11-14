@@ -32,6 +32,15 @@ Partial Public Class Default1
     Protected WithEvents lblGreeting As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblPasswordChanged control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPasswordChanged As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''pnlGrid control.
     '''</summary>
     '''<remarks>

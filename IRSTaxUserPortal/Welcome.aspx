@@ -277,6 +277,7 @@
             <div class="row g-4">
                 <div class="d-grid"> 
                     <asp:Label ID="lblGreeting" runat="server" Text="Welcome " Style="font-size:22px; color:#2c3e50; font-weight:bold; font-family:'Segoe UI', sans-serif;"> </asp:Label>
+                    <asp:Label ID="lblPasswordChanged" runat="server" Text="Your password has been changed successfully!" Style="font-size:22px; color:#2c3e50; font-weight:bold; font-family:'Segoe UI', sans-serif;"> </asp:Label>
                     <br />
                     <asp:Panel ID="pnlGrid" runat="server" Visible="false">
 

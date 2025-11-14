@@ -16,6 +16,13 @@ Public Class Default1
             Else
                 pnlGrid.Visible = False
             End If
+
+            If Session("PasswordChanged") IsNot Nothing AndAlso CBool(Session("PasswordChanged")) = True Then
+                Session("PasswordChanged") = False
+                lblPasswordChanged.Visible = True
+            Else
+                lblPasswordChanged.Visible = False
+            End If
         Else
         End If
     End Sub

@@ -1,4 +1,5 @@
-﻿Imports IRSTaxRecords.Core
+﻿Imports IRSTaxRecords
+Imports IRSTaxRecords.Core
 
 Public Class ChangePassword
     Inherits System.Web.UI.Page
@@ -11,6 +12,8 @@ Public Class ChangePassword
         End If
     End Sub
     Protected Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
+        If Not ValidateStrongPassword() Then Return
+
         Dim currentPwd As String = txtCurrentPassword.Text.Trim()
         Dim newPwd As String = txtNewPassword.Text.Trim()
         Dim confirmPwd As String = txtConfirmPassword.Text.Trim()
@@ -45,5 +48,34 @@ Public Class ChangePassword
         ' TODO: Implement actual password update logic (e.g., update in database)
         lblMessage.Text = "Your password has been successfully changed!"
         lblMessage.CssClass = "text-success fw-semibold d-block mb-3"
+
+        Session("PasswordChanged") = True
+        Response.Redirect("Welcome.aspx")
     End Sub
+
+    Const StrongPasswordsMinLength As Integer = 8
+    Private Function ValidateStrongPassword() As Boolean
+        Dim Password As String = txtNewPassword.Text
+        Dim UserID = StoreInstance.CurrentUserId
+
+        Dim ErrorMsg As String = ""
+        If Password.Length < StrongPasswordsMinLength Then
+            ErrorMsg += $"Invalid Password length. Provided length={Password.Length}, Required={StrongPasswordsMinLength}." & vbCrLf
+        End If
+
+        If Not System.Text.RegularExpressions.Regex.IsMatch(Password, ".*[A-Z]+.*") Then
+            ErrorMsg += $"Password do not contains upper/lower case characters. User ID {UserID}" & vbCrLf
+        End If
+
+        If Not System.Text.RegularExpressions.Regex.IsMatch(Password, ".*[0-9]+.*") Then
+            ErrorMsg += $"Password do not contains numeric characters. User ID {UserID}" & vbCrLf
+        End If
+
+        If ErrorMsg <> "" Then
+            lblMessage.Text = "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and a special character."
+            Diagnostics.Trace.WriteLine(ErrorMsg)
+            Return False
+        End If
+        Return True
+    End Function
 End Class
